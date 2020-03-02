@@ -1,0 +1,17 @@
+CUISINES = {
+  "mexican": false,
+  "italian": false,
+  "japanese": false,
+  "french": false,
+  "british": false,
+  "german": false,
+  "dutch": false,
+  "thai": false,
+  "vietnamese": false,
+  "indian": false,
+  "chinese": false,
+  "korean": false,
+  "american": false,
+  "african": false,
+  "morrocan": false,
+}
