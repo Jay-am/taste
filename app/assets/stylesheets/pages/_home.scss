@@ -1,1 +1,30 @@
 // Specific CSS for your home-page
+body {
+background: white;
+}
+
+// .search-form-home-page {
+
+// }
+.container {
+  display: flex;
+}
+
+.home-page-categories img {
+ width: 100px;
+ height: 100px;
+ border: 1px solid grey;
+ border-radius: 5px;
+}
+
+.search-form {
+  border: 1px solid grey;
+}
+
+h1 {
+  font-size: 80px;
+}
+
+p {
+  font-size: 20px;
+}
