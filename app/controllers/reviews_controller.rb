@@ -14,18 +14,22 @@ class ReviewsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review.special_features = review_params[:special_features] & SPECIAL_FEATURES
     @review.occasion = review_params[:occasion] & OCCASION
+    @review.meal_rating = review_params[:meal_rating]
+    @review.service_rating = review_params[:service_rating]
+    @review.location_rating = review_params[:location_rating]
 
-    @review.user = current_user
+    @review.profile = current_user.profile
     @review.restaurant = @restaurant
 
-    # if @review.save
-    # else
-    #   render :new
-    # end
+    if @review.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def review_params
-    params.require(:review).permit(:restaurant_id, :profile_id, :description, :rating, :meal_rating, :service_rating, :location_rating, :people, special_features: [], occasion: [])
+    params.require(:review).permit(:restaurant_id, :profile_id, :description, :rating, :meal_rating, :service_rating, :location_rating, :local, special_features: [], occasion: [])
   end
 
 end
