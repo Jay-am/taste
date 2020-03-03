@@ -6,7 +6,9 @@ STYLES = [
   "Dinner",
   "Drinks",
   "Ice Cream"
-]
+  # Bar
+  # Cocktails
+],
 
 CUISINES = [
   "Afghan",
@@ -59,7 +61,7 @@ CUISINES = [
   "Vegan cuisine",
   "Vegetarian",
   "Vietnamese"
-]
+],
 
 DISHES = [
   "Kosher",
@@ -73,32 +75,82 @@ DISHES = [
   "Seafood",
   "Sushi",
   "Tapas"
-]
+],
 
 RATINGS = [
-  "Locals"
-  "Tourists"
-  "Similar Taste"
-  "Business Travellers"
+  "Locals",
+  "Tourists",
+  "Similar Taste",
+  "Business Travellers",
   "Tailored"
-]
+],
 
 SPECIAL_FEATURES = [
   "Sustainable",
   "Fairtrade",
-  "Outdoor Seats",
+  "Terrace",
   "Available Sun",
   "Fire Place",
   "Wheelchair Accesible",
-  "Wifi"
-]
+  "Wifi",
+  "Air-conditioning",
+  "Pets allowed",
+  "Valet parking"
+],
 
-OCCASION = [
-  "couple",
+OCCASSIONS = [
+  "Romantic",
   "first_date",
   "candle_light",
   "girls_nightout",
   "boys_nightout",
-  "group"
-]
+  "Groups",
+  "Business"
+],
 
+SERVICE = [
+  "Continuous service",
+  "Can be privatized"
+],
+
+LANGUAGES_SPOKEN = [
+  "English",
+  "French",
+  "German",
+  "Spanish",
+  "Portugeese",
+  "Russian",
+  "Turkish",
+  "Chinese",
+  "Japanese",
+  "Korean",
+  "Vitnamese",
+  "Hindi",
+  "Arabic",
+  "Bengali",
+  "Lahnda",
+  "Javanese",
+  "Telugu",
+  "Marathi",
+  "Tamil",
+  "Urdu"
+],
+
+PAYMENT = [
+  "Apple Pay",
+  "Credit Card",
+  "Mastercard",
+  "Visa",
+  "American Express"
+],
+
+OPEN = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+  "Bank holidays",
+],
