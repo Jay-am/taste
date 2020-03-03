@@ -30,6 +30,26 @@
     <%= check_box('occassions', nil, {:multiple => true}, occassion , nil) %>
   <% end %>
 
+    <% SERVICE.each do |service| %>
+    <%= label_tag service %>
+    <%= check_box('service', nil, {:multiple => true}, service , nil) %>
+  <% end %>
+
+  <% LANGUANFES.each do |language| %>
+    <%= label_tag language %>
+    <%= check_box('languages', nil, {:multiple => true}, language , nil) %>
+  <% end %>
+
+  <% PAYMENTS.each do |payment| %>
+    <%= label_tag payment %>
+    <%= check_box('payments', nil, {:multiple => true}, payment , nil) %>
+  <% end %>
+
+  <% OPEN_HOURS.each do |open_hour| %>
+    <%= label_tag open_hour %>
+    <%= check_box('open_hours', nil, {:multiple => true}, open_hour , nil) %>
+  <% end %>
+
 <% end %>
 
 

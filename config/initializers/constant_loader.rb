@@ -113,7 +113,7 @@ SERVICE = [
   "Can be privatized"
 ],
 
-LANGUAGES_SPOKEN = [
+LANGUAGES = [
   "English",
   "French",
   "German",
@@ -144,7 +144,7 @@ PAYMENT = [
   "American Express"
 ],
 
-OPEN = [
+OPEN_HOURS = [
   "Monday",
   "Tuesday",
   "Wednesday",
