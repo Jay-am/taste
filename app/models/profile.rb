@@ -1,5 +1,5 @@
 class Profile < ApplicationRecord
-  has_many :users, dependent: :destroy
+  belongs_to :user, dependent: :destroy
   has_many :reviews
   has_many :bookmarks
 end

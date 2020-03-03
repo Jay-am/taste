@@ -47,5 +47,3 @@ OCCASION = [
   "boys_nightout",
   "group"
 ]
-
-
