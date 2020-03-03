@@ -5,20 +5,14 @@ class CreateRestaurants < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :address
       t.text :description
-      t.jsonb :cuisine, null: false, default: '{}', index: :gin
-      t.jsonb :special_features, null: false, default: '{}', index: :gin
-      t.jsonb :occasion, null: false, default: '{}', index: :gin
-
-      # t.boolean :vegan, default: false
-      # t.boolean :sustainable, default: false
-      # t.boolean :fairtrade, default: false
-      # t.boolean :outdoor_seat, default: false
-      # t.boolean :availabe_sun, default: false
-      # t.boolean :fireplace, default: false
-      # t.boolean :wheelchair_accessible, default: false
-      # t.boolean :couple, default: false
+      t.string :cuisine, array: true
+      t.string :special_features, array: true
+      t.string :occasion, array: true
 
       t.timestamps
     end
+    add_index :restaurants, :cuisine, using: 'gin'
+    add_index :restaurants, :special_features, using: 'gin'
+    add_index :restaurants, :occasion, using: 'gin'
   end
 end
