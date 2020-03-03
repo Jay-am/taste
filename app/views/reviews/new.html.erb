@@ -1,18 +1,20 @@
 <div class="container">
-  <div class="col-sm">
-    <%= simple_form_for [@restaurant, @review] do |f| %>
-      <%= f.input :local, as: :radio_buttons, collection: ['Local', 'Tourist'] %>
-      <h3>Meal</h3>
-      <%= f.collection_radio_buttons :meal_rating, [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %>
-      <h3>Service</h3>
-      <%= f.collection_radio_buttons :service_rating, [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %>
-      <h3>Location</h3>
-      <%= f.collection_radio_buttons :location_rating, [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %>
-      <%= f.input :special_features, as: :check_boxes, collection: SPECIAL_FEATURES, input_html: {multiple: :true} %>
-      <%= f.input :occasion, as: :check_boxes, collection: OCCASION, input_html: {multiple: :true} %>
-      <%= f.input :description %>
-      <%= f.submit "Add Review", class: "btn btn-dark" %>
-    <% end %>
+  <div class="col-xs-12 col-md-6 offset-md-3">
+    <div class="review-container">
+      <%= simple_form_for [@restaurant, @review] do |f| %>
+        <%= f.input :local, as: :radio_buttons, collection: ['Local', 'Tourist'] %>
+        <h3>Meal</h3>
+        <%= f.collection_radio_buttons :meal_rating, [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %>
+        <h3>Service</h3>
+        <%= f.collection_radio_buttons :service_rating, [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %>
+        <h3>Location</h3>
+        <%= f.collection_radio_buttons :location_rating, [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %>
+        <%= f.input :special_features, as: :check_boxes, collection: SPECIAL_FEATURES, input_html: {multiple: :true} %>
+        <%= f.input :occasion, as: :check_boxes, collection: OCCASION, input_html: {multiple: :true} %>
+        <%= f.input :description %>
+        <%= f.submit "Add Review", class: "btn btn-dark" %>
+      <% end %>
+    </div>
   </div>
 </div>
 
