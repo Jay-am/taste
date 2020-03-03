@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_02_153102) do
+ActiveRecord::Schema.define(version: 2020_03_03_134745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 2020_03_02_153102) do
     t.integer "meal_rating", null: false
     t.integer "service_rating", null: false
     t.integer "location_rating", null: false
-    t.integer "people"
     t.string "cuisine", array: true
     t.string "special_features", array: true
     t.string "occasion", array: true
@@ -62,9 +61,9 @@ ActiveRecord::Schema.define(version: 2020_03_02_153102) do
     t.bigint "profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "local", default: false
     t.index ["cuisine"], name: "index_reviews_on_cuisine", using: :gin
     t.index ["occasion"], name: "index_reviews_on_occasion", using: :gin
-    t.index ["people"], name: "index_reviews_on_people"
     t.index ["profile_id"], name: "index_reviews_on_profile_id"
     t.index ["restaurant_id"], name: "index_reviews_on_restaurant_id"
     t.index ["special_features"], name: "index_reviews_on_special_features", using: :gin
