@@ -15,3 +15,4 @@ CUISINES = [
   "african",
   "morrocan"
 ]
+
