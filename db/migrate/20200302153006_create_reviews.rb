@@ -8,13 +8,16 @@ class CreateReviews < ActiveRecord::Migration[5.2]
       t.integer :service_rating, null: false
       t.integer :location_rating, null: false
       t.integer :people, index: true
-      t.jsonb :cuisine, null: false, default: '{}', index: :gin
-      t.jsonb :special_features, null: false, default: '{}', index: :gin
-      t.jsonb :occasion, null: false, default: '{}', index: :gin
+      t.string :cuisine, array: true
+      t.string :special_features, array: true
+      t.string :occasion, array: true
       t.references :restaurant, foreign_key: true
       t.references :profile, foreign_key: true
 
       t.timestamps
     end
+    add_index :reviews, :cuisine, using: 'gin'
+    add_index :reviews, :special_features, using: 'gin'
+    add_index :reviews, :occasion, using: 'gin'
   end
 end
