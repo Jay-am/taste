@@ -1,42 +1,82 @@
+STYLE = [
+  "Coffee",
+  "Breakfast",
+  "Brunch",
+  "Lunch",
+  "Dinner",
+  "Drinks",
+  "Ice Cream"
+]
+
 CUISINES = [
-  "mexican",
-  "italian",
-  "japanese",
-  "french",
-  "british",
-  "german",
-  "dutch",
-  "thai",
-  "vietnamese",
-  "indian",
-  "chinese",
-  "korean",
-  "american",
-  "african",
-  "morrocan",
-  "spanish",
-  "lebanese",
-  "caribbean",
-  "russian",
-  "turkish",
-  "brazilian",
-  "malaysian",
-  "portuguese",
-  "surinamese",
-  "greek",
-  "indonesian",
-  "mexican"
+  "Afghan",
+  "African",
+  "American",
+  "Argentinian",
+  "Asian",
+  "Australian",
+  "Belgian",
+  "Brazilian",
+  "Caribbean",
+  "Chinese",
+  "Colombian",
+  "Contemporary cuisine",
+  "Crêperie",
+  "Dutch",
+  "English",
+  "Ethiopian",
+  "European",
+  "French",
+  "Fusion",
+  "German",
+  "Fine Dining",
+  "Greek",
+  "Indian",
+  "Indonesian",
+  "International",
+  "Italian",
+  "Japanese",
+  "Lebanese",
+  "Mediterranean",
+  "Mexican",
+  "Middle Eastern",
+  "Moroccan",
+  "Organic",
+  "Peruvian",
+  "Pizzeria",
+  "Portuguese",
+  "Regional",
+  "Scandinavian",
+  "Seafood",
+  "South American",
+  "Spanish",
+  "Steakhouse",
+  "Surinamese",
+  "Syrian",
+  "Thai",
+  "Traditional cuisine",
+  "Turkish",
+  "Vegan cuisine",
+  "Vegetarian",
+  "Vietnamese"
+]
+
+RATINGS = [
+  "Locals"
+  "Tourists"
+  "Similar Taste"
+  "Business Travellers"
+  "Tailored"
 ]
 
 SPECIAL_FEATURES = [
-  "vegan",
-  "vegetarian",
-  "sustainable",
-  "fairtrade",
-  "outdoor_seat",
-  "available_sun",
-  "fire_place",
-  "wheelchair_accesible"
+  "Sustainable",
+  "Fairtrade",
+  "Outdoor Seats",
+  "Available Sun",
+  "Fire Place",
+  "Wheelchair Accesible",
+  "Wifi"
 ]
 
 OCCASION = [
@@ -48,4 +88,17 @@ OCCASION = [
   "group"
 ]
 
+DISHES = [
+  "Kosher",
+  "Organic",
+  "Vegan",
+  "Vegetarian",
+  "Gluten free",
+  "Halal",
+  "Barbecue",
+  "Pizza",
+  "Seafood",
+  "Sushi",
+  "Tapas"
+]
 

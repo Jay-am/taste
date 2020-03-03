@@ -1,0 +1,13 @@
+<%= form_tag restaurants_filter_result_path do %>
+  <% CUISINES.each do |cuisine| %>
+    <%= label_tag cuisine %>
+    <%= check_box('cuisines', nil, {:multiple => true}, cuisine , nil) %>
+  <% end %>
+<% end %>
+
+<%= form_tag restaurants_filter_result_path do %>
+  <% SPECIAL_FEATURES.each do |special_feature| %>
+    <%= label_tag special_feature %>
+    <%= check_box('special_features', nil, {:multiple => true}, special_feature , nil) %>
+  <% end %>
+<% end %>
