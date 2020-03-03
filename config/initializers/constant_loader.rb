@@ -1,4 +1,4 @@
-STYLE = [
+STYLES = [
   "Coffee",
   "Breakfast",
   "Brunch",
@@ -61,6 +61,20 @@ CUISINES = [
   "Vietnamese"
 ]
 
+DISHES = [
+  "Kosher",
+  "Organic",
+  "Vegan",
+  "Vegetarian",
+  "Gluten free",
+  "Halal",
+  "Barbecue",
+  "Pizza",
+  "Seafood",
+  "Sushi",
+  "Tapas"
+]
+
 RATINGS = [
   "Locals"
   "Tourists"
@@ -86,19 +100,5 @@ OCCASION = [
   "girls_nightout",
   "boys_nightout",
   "group"
-]
-
-DISHES = [
-  "Kosher",
-  "Organic",
-  "Vegan",
-  "Vegetarian",
-  "Gluten free",
-  "Halal",
-  "Barbecue",
-  "Pizza",
-  "Seafood",
-  "Sushi",
-  "Tapas"
 ]
 

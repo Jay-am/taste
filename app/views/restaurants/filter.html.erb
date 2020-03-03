@@ -1,13 +1,35 @@
 <%= form_tag restaurants_filter_result_path do %>
+
+  <% STYLES.each do |style| %>
+    <%= label_tag style %>
+    <%= check_box('styles', nil, {:multiple => true}, style , nil) %>
+  <% end %>
+
   <% CUISINES.each do |cuisine| %>
     <%= label_tag cuisine %>
     <%= check_box('cuisines', nil, {:multiple => true}, cuisine , nil) %>
   <% end %>
-<% end %>
 
-<%= form_tag restaurants_filter_result_path do %>
+  <% DISHES.each do |dish| %>
+    <%= label_tag dish %>
+    <%= check_box('dishes', nil, {:multiple => true}, dish , nil) %>
+  <% end %>
+
+  <% RATINGS.each do |rating| %>
+    <%= label_tag rating %>
+    <%= check_box('ratings', nil, {:multiple => true}, rating , nil) %>
+  <% end %>
+
   <% SPECIAL_FEATURES.each do |special_feature| %>
     <%= label_tag special_feature %>
     <%= check_box('special_features', nil, {:multiple => true}, special_feature , nil) %>
   <% end %>
+
+  <% OCCASSIONS.each do |occassion| %>
+    <%= label_tag occassion %>
+    <%= check_box('occassions', nil, {:multiple => true}, occation , nil) %>
+  <% end %>
+
 <% end %>
+
+
