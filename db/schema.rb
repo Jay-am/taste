@@ -38,14 +38,14 @@ ActiveRecord::Schema.define(version: 2020_03_02_153102) do
     t.string "name"
     t.string "address"
     t.text "description"
-    t.jsonb "cuisine", default: "{}", null: false
-    t.jsonb "special_features", default: "{}", null: false
-    t.jsonb "occasion", default: "{}", null: false
+    t.string "cuisine", array: true
+    t.string "special_features", array: true
+    t.string "occasion", array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cuisine"], name: "index_restaurants_on_cuisine"
-    t.index ["occasion"], name: "index_restaurants_on_occasion"
-    t.index ["special_features"], name: "index_restaurants_on_special_features"
+    t.index ["cuisine"], name: "index_restaurants_on_cuisine", using: :gin
+    t.index ["occasion"], name: "index_restaurants_on_occasion", using: :gin
+    t.index ["special_features"], name: "index_restaurants_on_special_features", using: :gin
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -55,19 +55,19 @@ ActiveRecord::Schema.define(version: 2020_03_02_153102) do
     t.integer "service_rating", null: false
     t.integer "location_rating", null: false
     t.integer "people"
-    t.jsonb "cuisine", default: "{}", null: false
-    t.jsonb "special_features", default: "{}", null: false
-    t.jsonb "occasion", default: "{}", null: false
+    t.string "cuisine", array: true
+    t.string "special_features", array: true
+    t.string "occasion", array: true
     t.bigint "restaurant_id"
     t.bigint "profile_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cuisine"], name: "index_reviews_on_cuisine"
-    t.index ["occasion"], name: "index_reviews_on_occasion"
+    t.index ["cuisine"], name: "index_reviews_on_cuisine", using: :gin
+    t.index ["occasion"], name: "index_reviews_on_occasion", using: :gin
     t.index ["people"], name: "index_reviews_on_people"
     t.index ["profile_id"], name: "index_reviews_on_profile_id"
     t.index ["restaurant_id"], name: "index_reviews_on_restaurant_id"
-    t.index ["special_features"], name: "index_reviews_on_special_features"
+    t.index ["special_features"], name: "index_reviews_on_special_features", using: :gin
   end
 
   create_table "users", force: :cascade do |t|
