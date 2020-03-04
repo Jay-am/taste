@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review.special_features = review_params[:special_features] & SPECIAL_FEATURES
-    @review.occasion = review_params[:occasion] & OCCASION
+    @review.occasion = review_params[:occasion] & OCCASSIONS
     @review.meal_rating = review_params[:meal_rating]
     @review.service_rating = review_params[:service_rating]
     @review.location_rating = review_params[:location_rating]
