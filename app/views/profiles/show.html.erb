@@ -1,8 +1,14 @@
 <div class="profile-container">
   <%= image_tag "profile-background.png", class: "profile-background-img"%>
+    <% if @profile.photo.attached? %>
+      <%= cl_image_tag @profile.photo.key, class: "avatar-img",
+        height: 100, width: 100, radius: 100, crop: :fill, gravity: :face %>
+    <% else %>
+      <%= "#{@profile.first_name[0]} #{@profile.last_name[0]}"%>
+    <% end %>
   <h3>Hi, <%= "#{@profile.first_name} #{@profile.last_name}" %></h3>
-
-  <%= link_to "Edit Profile", edit_profile_path, class: "btn btn-warning" %>
+<%= link_to "Saved Restaurants", edit_profile_path, class: "btn btn-dark btn-lg btn-block" %>
+<%= link_to "See Reviews", edit_profile_path, class: "btn btn-dark btn-lg btn-block" %>
+<%= link_to "Edit Profile", edit_profile_path, class: "btn btn-outline-dark btn-lg btn-block" %>
 </div>
-<!--     <#%= cl_image_tag @profile.photo.key, height: 150, width: 150, crop: :fill, gravity: :face %> -->
 
