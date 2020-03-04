@@ -7,7 +7,7 @@ Review.destroy_all
 
 puts "Creating new restaurants"
 restaurant1 = Restaurant.new(name: "The French Connection", address: "Singel 460", description: "Nice french cuisine, lovely staff, amazing atmosphere.", cuisine: ["french"], occasion: ["candle light"], special_features: ["fireplace"])
-restaurant2 = Restaurant.new(name: "Choux", address: "Singel 460", description: "Vegetarian, progressive, quirky location, great food.", cuisine: ["french"], occasion: ["couple"], special_features: ["vegetarian"])
+restaurant2 = Restaurant.new(name: "Choux", address: "Singel 460, Amsterdam", description: "Vegetarian, progressive, quirky location, great food.", cuisine: ["french"], occasion: ["couple"], special_features: ["vegetarian"])
 restaurant3 = Restaurant.new(name: "Burger King", address: "Singel 460", description: "Classic american style fastfood.", cuisine: ["american"], occasion: ["group"], special_features: ["vegetarian"])
 
 restaurant1.save!
