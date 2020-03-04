@@ -7,10 +7,10 @@ Rails.application.routes.draw do
     resources :bookmarks
   end
 
+  get '/restaurants/filter', to: 'restaurants#filter'
+  post '/restaurants/filter_result', to: 'restaurants#filter_result'
+
   resources :restaurants do
-    collection do
-      get 'filter', to: 'restaurants#filter'
-    end
     resources :reviews, only: [:new, :create]
   end
 end
