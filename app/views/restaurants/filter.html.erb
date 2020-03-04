@@ -1,14 +1,49 @@
 <%= form_tag restaurants_path, method: 'get' do %>
-
-  <h3> Styles </h3>
-  <% STYLES.each do |style| %>
-    <div class=form-group>
-      <%= label_tag style %>
-      <%= check_box_tag "styles[]", style, false %>
+<div class="accordion" id="filters-accordion">
+  <!-- <div class="card">
+    <div class="card-header" id="styles-heading">
+      <h2 class="mb-0" data-toggle="collapse" data-target="#styles-filters" aria-expanded="true" aria-controls="styles-filters">
+        Styles
+      </h2>
     </div>
+
+    <div id="styles-filters" class="collapse show" aria-labelledby="styles-heading" data-parent="#filters-accordion">
+      <div class="card-body d-flex flex-wrap justify-content-around justify-content-md-start">
+        <% STYLES.each do |style| %>
+          <div class=form-group>
+            <%= check_box_tag "styles[]", style, false, type: "checkbox", id: "Checkbox" %>
+            <%= label_tag style %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+  <% ALL_FILTERS.each do |filter_key, filter_content| %>
+    <div class="card">
+      <div class="card-header" id="<%= filter_content[:header_id] %>">
+        <h2 class="mb-0" data-toggle="collapse" data-target="#<%= filter_content[:content_id] %>" aria-expanded="true" aria-controls="<%= filter_content[:content_id] %>">
+          <%= filter_content[:label] %>
+        </h2>
+      </div>
+
+      <div id="<%= filter_content[:content_id] %>" class="collapse show" aria-labelledby="<%= filter_content[:header_id] %>" data-parent="#filters-accordion">
+        <div class="card-body d-flex flex-wrap justify-content-around justify-content-md-start">
+          <% filter_content[:filters].each do |filter| %>
+            <div class=form-group>
+              <%= check_box_tag filter_content[:input_name], filter, false, type: "checkbox", id: "Checkbox" %>
+              <%= label_tag filter %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
   <% end %>
 
-  <h3> Cuisines </h3>
+
+  <!--<h3> Cuisines </h3>
   <% CUISINES.each do |cuisine| %>
     <div class=form-group>
       <%= label_tag cuisine %>
@@ -134,9 +169,9 @@
       <%= label_tag payment %>
       <%= check_box_tag "payments[]", payment, false %>
     </div>
-  <% end %>
+  <% end %> -->
 
-  <%= submit_tag 'submit' %>
+  <%= submit_tag 'submit', class:"btn btn-primary" %>
 <% end %>
 
 
