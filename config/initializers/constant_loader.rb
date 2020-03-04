@@ -272,3 +272,145 @@ PAYMENTS = [
   "Maestro",
   "VISA Electron"
 ]
+
+
+
+ALL_FILTERS = {
+
+  STYLES: {
+    'filters': STYLES,
+    'label': 'Styles',
+    'header_id': 'styles-heading',
+    'content_id': 'styles-filter',
+    'input_name': 'styles[]'
+  },
+
+  CUISINES: {
+    'filters': CUISINES,
+    'label': 'Cuisine',
+    'header_id': 'cuisines-heading',
+    'content_id': 'cuisines-filter',
+    'input_name': 'cuisines[]'
+  },
+
+  DISHES: {
+    'filters': DISHES,
+    'label': 'Dish',
+    'header_id': 'dishes-heading',
+    'content_id': 'dishes-filter',
+    'input_name': 'dishes[]'
+  },
+
+  FOOD_TYPES: {
+    'filters': FOOD_TYPES,
+    'label': 'Food Type',
+    'header_id': 'food_types-heading',
+    'content_id': 'food_types-filter',
+    'input_name': 'food_types[]'
+  },
+
+  FOOD_STYLES: {
+    'filters': FOOD_STYLES,
+    'label': 'Food Style',
+    'header_id': 'food_styles-heading',
+    'content_id': 'food_styles-filter',
+    'input_name': 'food_styles[]'
+  },
+
+  GASTRONOMIES: {
+    'filters': GASTRONOMIES,
+    'label': 'Gastronomy',
+    'header_id': 'gastronomies-heading',
+    'content_id': 'gastronomies-filter',
+    'input_name': 'gastronomies[]'
+  },
+
+  DRINKS: {
+    'filters': DRINKS,
+    'label': 'Drinks',
+    'header_id': 'drinks-heading',
+    'content_id': 'drinks-filter',
+    'input_name': 'drinks[]'
+  },
+
+  RATINGS: {
+    'filters': RATINGS,
+    'label': 'Ratings',
+    'header_id': 'ratings-heading',
+    'content_id': 'ratings-filter',
+    'input_name': 'ratings[]'
+  },
+
+  SPECIAL_FEATURES: {
+    'filters': SPECIAL_FEATURES,
+    'label': 'Special Features',
+    'header_id': 'special_features-heading',
+    'content_id': 'special_features-filter',
+    'input_name': 'special_features[]'
+  },
+
+  OCCASSIONS: {
+    'filters': OCCASSIONS,
+    'label': 'Occassion',
+    'header_id': 'occassions-heading',
+    'content_id': 'occassions-filter',
+    'input_name': 'occassions[]'
+  },
+
+  SERVICE: {
+    'filters': SERVICE,
+    'label': 'Service',
+    'header_id': 'Service-heading',
+    'content_id': 'Service-filter',
+    'input_name': 'Service[]'
+  },
+
+  LOCATION: {
+    'filters': LOCATION,
+    'label': 'Location',
+    'header_id': 'Location-heading',
+    'content_id': 'Location-filter',
+    'input_name': 'Location[]'
+  },
+
+  LANGUAGES: {
+    'filters': LANGUAGES,
+    'label': 'Language',
+    'header_id': 'Languages-heading',
+    'content_id': 'Languages-filter',
+    'input_name': 'Languages[]'
+  },
+
+  OPEN_HOURS: {
+    'filters': OPEN_HOURS,
+    'label': 'Open Hours',
+    'header_id': 'open_hours-heading',
+    'content_id': 'open_hours-filter',
+    'input_name': 'open_hours[]'
+  },
+
+  DISTANCE: {
+    'filters': DISTANCE,
+    'label': 'Distance',
+    'header_id': 'distance-heading',
+    'content_id': 'distance-filter',
+    'input_name': 'distance[]'
+  },
+
+  PLACED: {
+    'filters': PLACED,
+    'label': 'Placed',
+    'header_id': 'placed-heading',
+    'content_id': 'placed-filter',
+    'input_name': 'placed[]'
+  },
+
+  PAYMENTS: {
+    'filters':  PAYMENTS,
+    'label': 'Payments',
+    'header_id': 'payments-heading',
+    'content_id': 'payments-filter',
+    'input_name': 'payments[]'
+  },
+
+}
