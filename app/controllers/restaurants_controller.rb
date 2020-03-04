@@ -1,5 +1,8 @@
 class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:filter, :index]
+def show
+  @restaurant = Restaurant.find(params[:id])
+end
 
   def filter
   end
@@ -28,4 +31,5 @@ class RestaurantsController < ApplicationController
   def filter_result
     payment_filter = params.dig('payment', 'payment_names')
   end
+
 end
