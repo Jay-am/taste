@@ -1,14 +1,17 @@
 STYLES = [
   "Coffee",
+  "Tee",
   "Breakfast",
   "Brunch",
   "Lunch",
   "Dinner",
   "Drinks",
-  "Ice Cream"
-  # Bar
-  # Cocktails
-],
+  "Ice Cream",
+  "Snacks",
+  "All Night",
+  "Smoothies",
+  "Fresh Juices"
+]
 
 CUISINES = [
   "Afghan",
@@ -17,25 +20,27 @@ CUISINES = [
   "Argentinian",
   "Asian",
   "Australian",
+  "Austrian",
   "Belgian",
   "Brazilian",
+  "Cambodian",
   "Caribbean",
   "Chinese",
   "Colombian",
-  "Contemporary cuisine",
-  "Crêperie",
+  "Cuban",
+  "Danish",
   "Dutch",
   "English",
   "Ethiopian",
   "European",
   "French",
-  "Fusion",
   "German",
-  "Fine Dining",
   "Greek",
+  "Hawaiian",
   "Indian",
   "Indonesian",
   "International",
+  "Israeli",
   "Italian",
   "Japanese",
   "Lebanese",
@@ -43,75 +48,176 @@ CUISINES = [
   "Mexican",
   "Middle Eastern",
   "Moroccan",
-  "Organic",
   "Peruvian",
-  "Pizzeria",
   "Portuguese",
-  "Regional",
   "Scandinavian",
-  "Seafood",
   "South American",
   "Spanish",
-  "Steakhouse",
   "Surinamese",
   "Syrian",
   "Thai",
-  "Traditional cuisine",
   "Turkish",
-  "Vegan cuisine",
-  "Vegetarian",
   "Vietnamese"
-],
+]
 
 DISHES = [
-  "Kosher",
-  "Organic",
   "Vegan",
   "Vegetarian",
+  "Organic",
+  "Local Produce",
+  "Dairy Free",
   "Gluten free",
-  "Halal",
+  "Kosher",
+  "Halal"
+]
+
+FOOD_TYPES = [
   "Barbecue",
+  "Burgers",
+  "Curry",
+  "Chicken",
+  "Falafel",
+  "Healthy",
+  "Hot Dog",
+  "Kebab",
+  "Pho",
+  "Salad",
+  "Ribs",
+  "Street Food",
+  "Sweet Treats",
+  "Wings",
+  "Wraps",
+  "Desserts",
+  "Bakery",
+  "Pastry",
+  "Tex Mex",
+  "Comfort Food",
+  "Steaks",
   "Pizza",
+  "Pasta",
   "Seafood",
   "Sushi",
-  "Tapas"
-],
+  "Tapas",
+  "Crêpes / Pancakes",
+  "Waffles",
+  "Cakes",
+  "Ice Cream",
+  "Pub",
+  "Cocktail Bar"
+]
+
+FOOD_STYLES = [
+  "Regional Cuisine",
+  "Traditional Cuisine",
+  "Novelle Cuisine",
+  "Haute Cuisine",
+  "Fusion Cuisine",
+  "Fine Dining",
+  "Contemporary Cuisine",
+  "Fast Food",
+]
+
+GASTRONOMIES = [
+  "Bistro",
+  "Brasserie",
+  "Winebar",
+  "Bar",
+  "Hotel Restaurant",
+]
+
+DRINKS = [
+ "Cocktails",
+ "Long Drings",
+ "Craft Beer",
+ "Wine Selection",
+ "Whiskey",
+ "Smoothies",
+ "Fresh Juices"
+]
 
 RATINGS = [
   "Locals",
   "Tourists",
   "Similar Taste",
   "Business Travellers",
-  "Tailored"
-],
+  "Customized"
+]
 
 SPECIAL_FEATURES = [
   "Sustainable",
   "Fairtrade",
   "Terrace",
-  "Available Sun",
-  "Fire Place",
+  "Garden",
+  "Sun",
+  "Shade",
+  "Open Fire",
   "Wheelchair Accesible",
   "Wifi",
   "Air-conditioning",
   "Pets allowed",
-  "Valet parking"
-],
+  "Valet parking",
+  "Lease for Parties",
+  "Pool Table",
+  "Ping Pong",
+  "Darts",
+  "Board Games",
+  "Arcade Games",
+  "Baby Changing",
+  "Child Friendly",
+  "Sports Broadcasting",
+  "Magazines/Newspapers",
+  "Parking",
+  "Public Transport",
+  "Live Music",
+  "Comedy",
+  "Pub Quizes",
+  # "Playground XXXXXXXXXXXXXXXXXXXXXXXXX",
+  # Schaukel
+  # Sandkasten
+  # Spilezeug für Kinder
+  # "Manmade Beach XXXXXXXXXXXXXXXXXXXXXXXXX",
+  # "Pool XXXXXXXXXXXXXXXXXXXXXXXXX",
+  # "Amazing View XXXXXXXXXXXXXXXXXXXXXXXXX"
+  # "Waterfront XXXXXXXXXXXXXXXXXXXXXXXXX",
+]
 
 OCCASSIONS = [
   "Romantic",
-  "first_date",
-  "candle_light",
-  "girls_nightout",
-  "boys_nightout",
+  "First Date",
+  "Candle Lit",
+  "Girl's Night out",
+  "Boy's Night out",
   "Groups",
-  "Business"
-],
+  "Families",
+  "Business Dinner",
+  "Business Lunch",
+  "Seminars",
+  "Birthday",
+  "Weddings"
+  ]
 
 SERVICE = [
-  "Continuous service",
-  "Can be privatized"
-],
+  "Excellent",
+  "Above Average",
+  "Average"
+]
+
+LOCATION = [
+  "Rustic",
+  "Romantic",
+  "Stylish",
+  "Instagrammable",
+  "Modern",
+  "Kitsch",
+  "Traditional",
+  "Art Deco",
+  "Cosy",
+  "Cool",
+  "Trendy",
+  "Chic",
+  "Grungy",
+  "Industrial",
+]
 
 LANGUAGES = [
   "English",
@@ -119,6 +225,9 @@ LANGUAGES = [
   "German",
   "Spanish",
   "Portugeese",
+  "Italian",
+  "Dutch",
+  "Polish",
   "Russian",
   "Turkish",
   "Chinese",
@@ -134,15 +243,7 @@ LANGUAGES = [
   "Marathi",
   "Tamil",
   "Urdu"
-],
-
-PAYMENT = [
-  "Apple Pay",
-  "Credit Card",
-  "Mastercard",
-  "Visa",
-  "American Express"
-],
+]
 
 OPEN_HOURS = [
   "Monday",
@@ -152,5 +253,22 @@ OPEN_HOURS = [
   "Friday",
   "Saturday",
   "Sunday",
-  "Bank holidays",
-],
+  "Public Holidays"
+]
+
+DISTANCE = [
+]
+
+PLACED = [
+  "Central",
+  "Trendy Neigbourhood"
+]
+
+PAYMENTS = [
+  "Mobile Pay",
+  "Mastercard",
+  "VISA",
+  "American Express",
+  "Maestro",
+  "VISA Electron"
+]
