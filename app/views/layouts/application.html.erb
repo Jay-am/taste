@@ -1,23 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
-    <%= csrf_meta_tags %>
-    <%= action_cable_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all' %>
-    <script src="https://kit.fontawesome.com/c3607ad32c.js" crossorigin="anonymous"></script>
-    <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
-  </head>
-  <body>
-    <% if controller_name != 'pages' && action_name != 'home' %>
-      <%= render 'shared/navbar' %>
-    <% end %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
-    <%= javascript_include_tag 'application' %>
 
-    <%= javascript_pack_tag 'application' %>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>TODO</title>
+  <%= csrf_meta_tags %>
+  <%= action_cable_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <script src="https://kit.fontawesome.com/c3607ad32c.js" crossorigin="anonymous"></script>
+  <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+</head>
+
+<body>
+  <% if controller_name != 'pages' && action_name != 'home' %>
+    <%= render 'shared/navbar' %>
+  <% end %>
+  <%= render 'shared/flashes' %>
+  <%= yield %>
+  <%= javascript_include_tag 'application' %>
+
+
+  <% if user_signed_in? %>
+  <li>
+    <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+  </li>
+  <% else %>
+  <li>
+    <%= link_to('Login', new_user_session_path) %>
+  </li>
+  <% end %>
+
+  <li>
+  <%= link_to('Restaurant show', restaurants_path) %>
+  </li>
+  <li>
+  <%= link_to('Restaurant index', restaurants_path) %>
+  </li>
+  <%= javascript_include_tag 'application' %>
+
+  <%= javascript_pack_tag 'application' %>
+</body>
 </html>
