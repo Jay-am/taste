@@ -27,7 +27,7 @@ class Restaurant < ApplicationRecord
     where("gastronomy && ARRAY[?]::varchar[]", gastronomies)
   end
 
-  def self.by_cdrink(drinks)
+  def self.by_drink(drinks)
     where("drink && ARRAY[?]::varchar[]", drinks)
   end
 
@@ -48,7 +48,7 @@ class Restaurant < ApplicationRecord
   end
 
   def self.by_location(location)
-    where("location && ARRAY[?]::varchar[]", clocation)
+    where("location && ARRAY[?]::varchar[]", location)
   end
 
   def self.by_language(languages)

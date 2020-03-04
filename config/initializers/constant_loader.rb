@@ -98,7 +98,8 @@ FOOD_TYPES = [
   "Seafood",
   "Sushi",
   "Tapas",
-  "Crêpes / Pancakes",
+  "Crêpes",
+  "Pancakes",
   "Waffles",
   "Cakes",
   "Ice Cream",
@@ -165,7 +166,8 @@ SPECIAL_FEATURES = [
   "Baby Changing",
   "Child Friendly",
   "Sports Broadcasting",
-  "Magazines/Newspapers",
+  "Magazines",
+  "Newspapers",
   "Parking",
   "Public Transport",
   "Live Music",
@@ -261,7 +263,7 @@ DISTANCE = [
 
 LOCATED = [
   "Central",
-  "Trendy Neigbourhood"
+  "Cool Neigbourhood"
 ]
 
 PAYMENTS = [
@@ -279,7 +281,7 @@ ALL_FILTERS = {
 
   STYLES: {
     'filters': STYLES,
-    'label': 'Styles',
+    'label': 'Style',
     'header_id': 'styles-heading',
     'content_id': 'styles-filter',
     'input_name': 'styles[]'
