@@ -3,28 +3,16 @@
     <div class="review-container">
       <%= simple_form_for [@restaurant, @review] do |f| %>
         <%= f.input :local, as: :radio_buttons, collection: ['Local', 'Tourist'] %>
-        <h3>Meal</h3>
-<!--         <i class="far fa-star"></i>
-
-        <#% @review.meal_rating.rating.to_i.times do %>
-          <span class="fas f a-star"></span>
-        <#%  end %>
- -->
-
-        <%= f.collection_radio_buttons :meal_rating,
-         [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %>
-
-        <h3>Service</h3>
-        <%= f.collection_radio_buttons :service_rating,
-         [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %>
-
-        <h3>Location</h3>
-        <%= f.collection_radio_buttons :location_rating,
-         [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %>
-
-        <h3>Overall</h3>
-        <%= f.collection_radio_buttons :rating,
-         [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %>
+        <div class="review-rating">
+          <h3>Meal</h3>
+          <%=  f.input :meal_rating, collection: (1..5).to_a, label: false %>
+          <h3>Service</h3>
+          <%=  f.input :service_rating, collection: (1..5).to_a, label: false %>
+          <h3>Location</h3>
+          <%=  f.input :location_rating, collection: (1..5).to_a, label: false %>
+          <h3>Overall</h3>
+          <%=  f.input :rating, collection: (1..5).to_a, label: false %>
+        </div>
 
         <%= f.input :special_features, as: :check_boxes,
          collection: SPECIAL_FEATURES, input_html: {multiple: :true} %>
