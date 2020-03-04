@@ -259,7 +259,7 @@ OPEN_HOURS = [
 DISTANCE = [
 ]
 
-PLACED = [
+LOCATED = [
   "Central",
   "Trendy Neigbourhood"
 ]
@@ -397,8 +397,8 @@ ALL_FILTERS = {
     'input_name': 'distance[]'
   },
 
-  PLACED: {
-    'filters': PLACED,
+ LOCATED: {
+    'filters': LOCATED,
     'label': 'Placed',
     'header_id': 'placed-heading',
     'content_id': 'placed-filter',
