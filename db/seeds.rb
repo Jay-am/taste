@@ -1,3 +1,4 @@
+
 puts "Cleaning up data"
 Restaurant.destroy_all
 User.destroy_all
