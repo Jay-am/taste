@@ -2,7 +2,7 @@
   <%= image_tag "profile-background.png", class: "profile-background-img"%>
   <h3>Hi, <%= "#{@profile.first_name} #{@profile.last_name}" %></h3>
 
-  <%= button_to "Edit Profile", edit_profile_path, class: "btn btn-warning" %>
+  <%= link_to "Edit Profile", edit_profile_path, class: "btn btn-warning" %>
 </div>
 <!--     <#%= cl_image_tag @profile.photo.key, height: 150, width: 150, crop: :fill, gravity: :face %> -->
 

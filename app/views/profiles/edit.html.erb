@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 offset-md-3 bg-white color-white">
+      <%= simple_form_for @profile do |f| %>
+        <%= f.input :gender, collection: [ [ "Male", 'Male' ], ['Female', 'Female'], ['Other', 'Other'] ], as: :radio_buttons, class: "gender-form" %>
+      <%= f.input :age, collection: 15..99 %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :address %>
+      <%= f.input :photo, as: :file, label: "avatar" %>
+      <%= f.submit "Update", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
