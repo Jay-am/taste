@@ -4,23 +4,26 @@
       <%= simple_form_for [@restaurant, @review] do |f| %>
         <%= f.input :local, as: :radio_buttons, collection: ['Local', 'Tourist'] %>
         <div class="review-rating">
+
           <h3>Meal</h3>
-          <%=  f.input :meal_rating, collection: (1..5).to_a, label: false %>
+          <%=  f.input :meal_rating, collection: (1..5).to_a, label: false, class: 'review-stars' %>
           <h3>Service</h3>
-          <%=  f.input :service_rating, collection: (1..5).to_a, label: false %>
+          <%=  f.input :service_rating, collection: (1..5).to_a, label: false, class: 'review-stars' %>
           <h3>Location</h3>
-          <%=  f.input :location_rating, collection: (1..5).to_a, label: false %>
+          <%=  f.input :location_rating, collection: (1..5).to_a, label: false, class: 'review-stars' %>
           <h3>Overall</h3>
-          <%=  f.input :rating, collection: (1..5).to_a, label: false %>
+          <%=  f.input :rating, collection: (1..5).to_a, label: false, class: 'review-stars' %>
         </div>
 
+    <label for="Checkbox">
         <%= f.input :special_features, as: :check_boxes,
-         collection: SPECIAL_FEATURES, input_html: {multiple: :true} %>
+            collection: SPECIAL_FEATURES, input_html: {multiple: :true} %>
 
         <%= f.input :occasion, as: :check_boxes,
          collection: OCCASION, input_html: {multiple: :true} %>
         <%= f.input :description %>
         <%= f.submit "Add Review", class: "btn btn-dark" %>
+      </label>
       <% end %>
     </div>
   </div>
