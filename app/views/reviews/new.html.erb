@@ -3,22 +3,33 @@
     <div class="review-container">
       <%= simple_form_for [@restaurant, @review] do |f| %>
         <%= f.input :local, as: :radio_buttons, collection: ['Local', 'Tourist'] %>
-        <h3>Meal</h3>
-        <%= f.collection_radio_buttons :meal_rating, [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %>
-        <h3>Service</h3>
-        <%= f.collection_radio_buttons :service_rating, [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %>
-        <h3>Location</h3>
-        <%= f.collection_radio_buttons :location_rating, [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %>
-        <h3>Overall</h3>
-        <%= f.collection_radio_buttons :rating, [[1, '1'] ,[2, '2'],[3, '3'],[4, '4'],[5, '5']], :first, :last %>
-        <%= f.input :special_features, as: :check_boxes, collection: SPECIAL_FEATURES, input_html: {multiple: :true} %>
-        <%= f.input :occasion, as: :check_boxes, collection: OCCASION, input_html: {multiple: :true} %>
+        <div class="review-rating">
+
+          <h3>Meal</h3>
+          <%=  f.input :meal_rating, collection: (1..5).to_a, label: false, class: 'review-stars' %>
+          <h3>Service</h3>
+          <%=  f.input :service_rating, collection: (1..5).to_a, label: false, class: 'review-stars' %>
+          <h3>Location</h3>
+          <%=  f.input :location_rating, collection: (1..5).to_a, label: false, class: 'review-stars' %>
+          <h3>Overall</h3>
+          <%=  f.input :rating, collection: (1..5).to_a, label: false, class: 'review-stars' %>
+        </div>
+
+    <label for="Checkbox">
+        <%= f.input :special_features, as: :check_boxes,
+            collection: SPECIAL_FEATURES, input_html: {multiple: :true} %>
+
+        <%= f.input :occasion, as: :check_boxes,
+         collection: OCCASION, input_html: {multiple: :true} %>
         <%= f.input :description %>
         <%= f.submit "Add Review", class: "btn btn-dark" %>
+      </label>
       <% end %>
     </div>
   </div>
 </div>
+
+
 
 <%#= simple_form_for [@restaurant, @review], url: restaurant_reviews_path, method: :get do |f| %>
   <%#= f.input :name, label: false, input_html: {size:"20",  autofocus: true, placeholder: "Restaurant name"} %>
