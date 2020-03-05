@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_05_100348) do
+ActiveRecord::Schema.define(version: 2020_03_05_110248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,15 @@ ActiveRecord::Schema.define(version: 2020_03_05_100348) do
     t.index ["special_features"], name: "index_reviews_on_special_features", using: :gin
   end
 
+  create_table "user_followers", force: :cascade do |t|
+    t.bigint "follower_id"
+    t.bigint "following_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follower_id"], name: "index_user_followers_on_follower_id"
+    t.index ["following_id"], name: "index_user_followers_on_following_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -104,4 +113,6 @@ ActiveRecord::Schema.define(version: 2020_03_05_100348) do
   add_foreign_key "bookmarks", "restaurants"
   add_foreign_key "reviews", "profiles"
   add_foreign_key "reviews", "restaurants"
+  add_foreign_key "user_followers", "users", column: "follower_id"
+  add_foreign_key "user_followers", "users", column: "following_id"
 end
