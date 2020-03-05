@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
 
   def new
+    # @profile = Profile.find(params[:id])
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = Review.new
     # if params[:restaurant_id].present?
