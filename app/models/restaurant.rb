@@ -1,5 +1,9 @@
 class Restaurant < ApplicationRecord
+
+  # has_many :bookmarks
   has_many :bookmarks
+  has_many :users, through: :bookmarks
+
   has_many :reviews, :dependent => :delete_all
 
   geocoded_by :address
