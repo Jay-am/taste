@@ -19,18 +19,24 @@
         <div class="show-avatar">
           <%= image_tag "restaurant.png", class: "avatar-bordered", alt: "avatar-bordered" %>
         </div>
-        <h4> <%= @restaurant.name %></h4>
+          <h4> <%= @restaurant.name %></h4>
+          <% sum_rating = [] %>
+          <% @reviews.each do |review| %>
+          <% sum_rating << review.rating %>
+            <% end %>
+          <% number = sum_rating.sum / @reviews.count %>
+          <%= number.to_d %><i class="fas fa-star"></i><%= "(#{@reviews.count})" %>
           <p><small> <%= @restaurant.description %></small></p>
             <div class="restaurant-card-icons">
               <p>
-                <i class="fas fa-star hvr-icon"><small class="icon-text">Reviews</small></i>
-                <i class="far fa-clock hvr-icon"><small class="icon-text">Open</small></i>
-                <i class="fas fa-map-marked-alt hvr-icon-grow hvr-icon" type="icon" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <i class="fas fa-star" type="icon" data-toggle="collapse" data-target="#collapseReviews" aria-expanded="false" aria-controls="collapseReviews"><small class="icon-text">Reviews</small></i>
+                <i class="far fa-clock" type="icon" data-toggle="collapse" data-target="#collapseClock" aria-expanded="false" aria-controls="collapseClock"><small class="icon-text">Open</small></i>
+                <i class="fas fa-map-marked-alt" type="icon" data-toggle="collapse" data-target="#collapseMap" aria-expanded="false" aria-controls="collapseMap">
                 <small class="icon-text">Map</small>
                 </i>
               </p>
             </div>
-            <div class="collapse" id="collapseExample">
+            <div class="collapse" id="collapseMap">
               <div class="card card-body" style="padding: 0 0;">
                 <div
                 id="map"
@@ -39,6 +45,35 @@
                 data-markers="<%= @markers.to_json %>"
                 data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
                 ></div>
+              </div>
+            </div>
+            <div class="collapse" id="collapseReviews">
+              <div class="card card-body" style="padding: 0 0;height: 300px;overflow-y: scroll;">
+                <div><% @reviews.each do |review| %>
+                  <%= review.profile.first_name %>
+                  <%= review.rating %><i class="fas fa-star"></i>
+                </div>
+                <div>
+                  <%= review.description %>
+                  <p>--------------------</p>
+                  <% end %>
+                  @restaurant.opening
+                </div>
+              </div>
+            </div>
+            <div class="collapse" id="collapseClock">
+              <div class="card card-body" style="padding: 0 0;">
+                <div>
+                  <ul>
+                    <li>Mon</li>
+                    <li>Tue</li>
+                    <li>Wed</li>
+                    <li>Thu</li>
+                    <li>Fri</li>
+                    <li>Sat</li>
+                    <li>Sun</li>
+                  </ul>
+                </div>
               </div>
             </div>
       </div>
