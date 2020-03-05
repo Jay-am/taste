@@ -1,8 +1,11 @@
 class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:filter, :index]
 
-  def show
-    @restaurant = Restaurant.find(params[:id])
+
+def show
+  @restaurant = Restaurant.find(params[:id])
+  @reviews = @restaurant.reviews
+
   @coordinates = @restaurant.geocode #returns restaurant with coordinates
 
   @markers = {
