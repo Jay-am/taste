@@ -33,3 +33,15 @@
   margin: auto;
 
 }
+
+.custom-checkbox {
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.custom-checkbox input[type=checkbox] + label {
+  margin-right: 0;
+  margin-left: 0;
+  border-radius: 10px;
+}
+
