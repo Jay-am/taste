@@ -7,13 +7,13 @@
       <%= "#{@profile.first_name[0]} #{@profile.last_name[0]}"%>
     <% end %>
   <h3>Hi, <%= "#{@profile.first_name} #{@profile.last_name}" %></h3>
-  <%= link_to "Saved Restaurants", profile_bookmarks_path(@profile), class: "btn btn-dark btn-lg btn-block" %>
-    <div class="accordion" id="accordionExample">
+
+  <div class="accordion" id="accordionExample">
     <div class="card">
       <div class="card-header" id="headingOne">
         <h5 class="mb-0">
           <button class="btn btn-dark btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            See Reviews
+            Saved Restautrants
           </button>
         </h5>
       </div>
@@ -23,18 +23,45 @@
           <div class="container">
             <div class="row">
               <div class="col-xs-12 col-md-6 offset-md-3">
-                <div class="user-review">
-                  <% @reviews.each do |review| %>
-                  <div class="each-review">
-                    <div class="restaurant-rating">
-                      <h2><%= review.restaurant.name %></h2>
-                      <h3><i class="fas fa-star user-review-star"></i><%= review.rating %></h3>
-                    </div>
-                      <h3><%= review.description %></h2>
-                      <h4><%= review.created_at %></h4>
-                    </div>
-                  <% end %>
-                </div>
+                <% if @restaurant.marked == true %>
+                  <%= @restaurant.name %>
+                <% else %>
+                  <h3>Nothing saved yet.</h3>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-dark btn-lg btn-block collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          See Reviews
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-md-6 offset-md-3">
+              <div class="user-review">
+                <% @reviews.each do |review| %>
+                <div class="each-review">
+                  <div class="restaurant-rating">
+                    <h2><%= review.restaurant.name %></h2>
+                    <h3><i class="fas fa-star user-review-star"></i><%= review.rating %></h3>
+                  </div>
+                    <h3><%= review.description %></h2>
+                    <h4><%= review.created_at %></h4>
+                  </div>
+                <% end %>
               </div>
             </div>
           </div>
@@ -42,5 +69,6 @@
       </div>
     </div>
     </div>
+  </div>
   <%= link_to "Edit Profile", edit_profile_path, class: "btn btn-outline-dark btn-lg btn-block" %>
 </div>

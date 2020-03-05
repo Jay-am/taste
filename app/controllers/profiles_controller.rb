@@ -2,6 +2,10 @@ class ProfilesController < ApplicationController
   def show
     @profile = Profile.find(params[:id])
     @reviews = @profile.reviews
+
+    @profile = Profile.find(params[:id])
+    @bookmark = @profile.bookmark
+    @restaurant = @bookmark.restaurant
   end
 
   def edit
