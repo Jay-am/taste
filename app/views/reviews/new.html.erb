@@ -15,15 +15,14 @@
           <%=  f.input :rating, collection: (1..5).to_a, label: false, class: 'review-stars' %>
         </div>
 
-          <label for="Checkbox">
-            <%= f.input :special_features, as: :check_boxes,
-                collection: SPECIAL_FEATURES, input_html: {multiple: :true}, item_wrapper_class: 'form-group' %>
+        <%= f.input :special_features, as: :check_boxes,
+            collection: SPECIAL_FEATURES, input_html: {multiple: :true}, item_wrapper_class: 'custom-checkbox' %>
 
-            <%= f.input :occasion, as: :check_boxes,
-             collection: OCCASSIONS, input_html: {multiple: :true} %>
-            <%= f.input :description %>
-            <%= f.submit "Add Review", class: "btn btn-dark" %>
-          </label>
+        <%= f.input :occasion, as: :check_boxes,
+         collection: OCCASSIONS, input_html: {multiple: :true}, item_wrapper_class: 'custom-checkbox' %>
+
+        <%= f.input :description %>
+        <%= f.submit "Add Review", class: "btn btn-dark" %>
       <% end %>
     </div>
   </div>
