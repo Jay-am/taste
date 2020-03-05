@@ -1,14 +1,18 @@
 const toggleCheckboxState = () => {
-  const labels = document.querySelectorAll('.form-group > label')
+  const filters = document.querySelector("#filters-accordion")
 
-  labels.forEach(label => {
-    label.addEventListener('click', () => {
-      const input = label.parentNode.querySelector('input')
-      const checked = input.checked
+  if (filters) {
+    const labels = document.querySelectorAll('.custom-checkbox > label')
 
-      input.checked = !checked
+    labels.forEach(label => {
+      label.addEventListener('click', () => {
+        const input = label.parentNode.querySelector('input')
+        const checked = input.checked
+
+        input.checked = !checked
+      })
     })
-  })
+  }
 }
 
 export { toggleCheckboxState }

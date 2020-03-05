@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   post '/restaurants/filter_result', to: 'restaurants#filter_result'
 
   resources :restaurants do
-    resources :reviews, only: [:new, :create]
+    resources :reviews, only: [:new, :create, :edit, :update]
   end
 end

@@ -16,6 +16,7 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
+
     @restaurants = @restaurants.by_style(params[:styles])
     @restaurants = @restaurants.by_cuisine(params[:cuisines])
     @restaurants = @restaurants.by_dish(params[:dishes])
@@ -33,6 +34,7 @@ class RestaurantsController < ApplicationController
     @restaurants = @restaurants.by_distance(params[:distance])
     @restaurants = @restaurants.by_located(params[:located])
     @restaurants = @restaurants.by_payment(params[:payments])
+
   end
 
   def filter_result
