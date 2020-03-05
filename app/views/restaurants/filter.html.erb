@@ -1,25 +1,5 @@
 <%= form_tag restaurants_path, method: 'get' do %>
 <div class="accordion" id="filters-accordion">
-  <!-- <div class="card">
-    <div class="card-header" id="styles-heading">
-      <h2 class="mb-0" data-toggle="collapse" data-target="#styles-filters" aria-expanded="true" aria-controls="styles-filters">
-        Styles
-      </h2>
-    </div>
-
-    <div id="styles-filters" class="collapse show" aria-labelledby="styles-heading" data-parent="#filters-accordion">
-      <div class="card-body d-flex flex-wrap justify-content-around justify-content-md-start">
-        <% STYLES.each do |style| %>
-          <div class=form-group>
-            <%= check_box_tag "styles[]", style, false, type: "checkbox", id: "Checkbox" %>
-            <%= label_tag style %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div> -->
-
   <% ALL_FILTERS.each do |filter_key, filter_content| %>
     <div class="card">
       <div class="card-header" id="<%= filter_content[:header_id] %>">
@@ -28,10 +8,10 @@
         </h2>
       </div>
 
-      <div id="<%= filter_content[:content_id] %>" class="collapse show" aria-labelledby="<%= filter_content[:header_id] %>" data-parent="#filters-accordion">
+      <div id="<%= filter_content[:content_id] %>" class="collapse" aria-labelledby="<%= filter_content[:header_id] %>" data-parent="#filters-accordion">
         <div class="card-body d-flex flex-wrap justify-content-around justify-content-md-start">
           <% filter_content[:filters].each do |filter| %>
-            <div class=form-group>
+            <div class="form-group custom-checkbox">
               <%= check_box_tag filter_content[:input_name], filter, false, type: "checkbox", id: "Checkbox" %>
               <%= label_tag filter %>
             </div>
@@ -41,135 +21,6 @@
     </div>
   </div>
   <% end %>
-
-
-  <!--<h3> Cuisines </h3>
-  <% CUISINES.each do |cuisine| %>
-    <div class=form-group>
-      <%= label_tag cuisine %>
-      <%= check_box_tag "cuisines[]", cuisine, false %>
-    </div>
-  <% end %>
-
-  <h3> Dishes </h3>
-  <% DISHES.each do |dish| %>
-    <div class=form-group>
-      <%= label_tag dish %>
-      <%= check_box_tag "dishes[]", dish, false %>
-    </div>
-  <% end %>
-
-  <h3> Food Types </h3>
-  <% FOOD_TYPES.each do |food_type| %>
-    <div class=form-group>
-      <%= label_tag food_type %>
-      <%= check_box_tag "food_types[]", food_type, false %>
-    </div>
-  <% end %>
-
-  <h3> Food Styles </h3>
-  <% FOOD_STYLES.each do |food_style| %>
-    <div class=form-group>
-      <%= label_tag food_style %>
-      <%= check_box_tag "food_styles[]", food_style, false %>
-    </div>
-  <% end %>
-
-  <h3> Gastronomies </h3>
-  <% FOOD_STYLES.each do |gastronomy| %>
-    <div class=form-group>
-      <%= label_tag gastronomy %>
-      <%= check_box_tag "gastronomies[]", gastronomy, false %>
-    </div>
-  <% end %>
-
-  <h3> Drinks </h3>
-  <% FOOD_STYLES.each do |drink| %>
-    <div class=form-group>
-      <%= label_tag drink %>
-      <%= check_box_tag "drinks[]", drink, false %>
-    </div>
-  <% end %>
-
-  <h3> Ratings </h3>
-  <% RATINGS.each do |rating| %>
-    <div class=form-group>
-      <%= label_tag rating %>
-      <%= check_box_tag "ratings[]", rating, false %>
-    </div>
-  <% end %>
-
-  <h3> Special Features </h3>
-  <% SPECIAL_FEATURES.each do |special_feature| %>
-    <div class=form-group>
-      <%= label_tag special_feature %>
-      <%= check_box_tag "special_features[]", special_feature, false %>
-    </div>
-  <% end %>
-
-  <h3> Occassions </h3>
-  <% OCCASSIONS.each do |occassion| %>
-    <div class=form-group>
-      <%= label_tag occassion %>
-      <%= check_box_tag "occassions[]", occassion, false %>
-    </div>
-  <% end %>
-
-  <h3> Service </h3>
-  <% SERVICE.each do |service| %>
-    <div class=form-group>
-      <%= label_tag service %>
-      <%= check_box_tag "service[]", service, false %>
-    </div>
-  <% end %>
-
-  <h3> Location </h3>
-  <% LANGUAGES.each do |location| %>
-    <div class=form-group>
-      <%= label_tag location %>
-      <%= check_box_tag "location[]", location, false %>
-    </div>
-  <% end %>
-
-  <h3> Languages </h3>
-  <% LANGUAGES.each do |language| %>
-    <div class=form-group>
-      <%= label_tag language %>
-      <%= check_box_tag "languages[]", language, false %>
-    </div>
-  <% end %>
-
-  <h3> Open Hours </h3>
-  <% OPEN_HOURS.each do |open_hour| %>
-    <div class=form-group>
-      <%= label_tag open_hour %>
-       <%= check_box_tag "open_hours[]", open_hour, false %>
-    </div>
-  <% end %>
-
-  <h3> Distance </h3>
-  <% OPEN_HOURS.each do |distance| %>
-    <div class=form-group>
-      <%= label_tag distance %>
-       <%= check_box_tag "distance[]", distance, false %>
-    </div>
-  <% end %>
-
-  <h3> Located </h3>
-  <% OPEN_HOURS.each do |located| %>
-    <div class=form-group>
-      <%= label_tag located %>
-       <%= check_box_tag "located[]", located, false %>
-    </div>
-  <% end %>
-
-  <h3> Payments </h3>
-  <% PAYMENTS.each do |payment| %>
-    <div class=form-group>
-      <%= label_tag payment %>
-      <%= check_box_tag "payments[]", payment, false %>
-    </div>
-  <% end %> -->
 
   <%= submit_tag 'submit', class:"btn btn-primary" %>
 <% end %>

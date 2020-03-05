@@ -10,14 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_04_134701) do
+ActiveRecord::Schema.define(version: 2020_03_05_113959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
   create_table "bookmarks", force: :cascade do |t|
     t.text "set_note"
-    t.boolean "marked", default: false
     t.bigint "restaurant_id"
     t.bigint "profile_id"
     t.datetime "created_at", null: false
@@ -47,8 +67,22 @@ ActiveRecord::Schema.define(version: 2020_03_04_134701) do
     t.string "occasion", array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "marked", default: false
     t.float "latitude"
     t.float "longitude"
+    t.string "styles", array: true
+    t.string "dishes", array: true
+    t.string "food_types", array: true
+    t.string "food_styles", array: true
+    t.string "gastronomies", array: true
+    t.string "drinks", array: true
+    t.string "service", array: true
+    t.string "location", array: true
+    t.string "languages", array: true
+    t.string "open_hours", array: true
+    t.string "distance", array: true
+    t.string "located", array: true
+    t.string "payments", array: true
     t.index ["cuisine"], name: "index_restaurants_on_cuisine", using: :gin
     t.index ["occasion"], name: "index_restaurants_on_occasion", using: :gin
     t.index ["special_features"], name: "index_restaurants_on_special_features", using: :gin
@@ -87,6 +121,7 @@ ActiveRecord::Schema.define(version: 2020_03_04_134701) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookmarks", "profiles"
   add_foreign_key "bookmarks", "restaurants"
   add_foreign_key "reviews", "profiles"

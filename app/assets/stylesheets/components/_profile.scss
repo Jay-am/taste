@@ -1,0 +1,35 @@
+.profile-background-img {
+  width: 100%;
+  height: 15vh;
+  z-index: 20;
+}
+
+.avatar-img {
+  display: block;
+  margin: auto;
+
+}
+
+.profile-container {
+  text-align: center;
+}
+
+.jump-to-review {
+  margin-left: 40px;
+  height: 5vh;
+  background-color: #FFC700;
+  border-color: white;
+}
+
+.saved-restaurant-items {
+  display: flex;
+  width: 100%;
+}
+
+.profile-card {
+  background-color: white;
+  z-index: 50;
+  width: 80%;
+  margin: auto;
+
+}
