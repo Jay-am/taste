@@ -5,19 +5,21 @@
   background: white;
   overflow: hidden;
   background-repeat: no-repeat;
-  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)), url('/assets/index_card_photo.jpeg');
-  color: black;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/index_card_photo.jpeg');
+  color: white;
   width: 100%;
   height: 260px;
   box-shadow: 3px -2px 9px 0px rgba(0, 0, 0, 0.1);
   justify-content: center;
   align-items: center;
   display: flex;
+  justify-content: center;
   border-radius: 4px;
   position: relative;
   background-size: cover;
   background-position: center;
   transition: all 1s ease;
+  margin-bottom: 16px;
   &:hover {
   box-shadow: 3px -2px 9px 0px rgba(0, 0, 0, 0.5) !important;
   transition: all 1s ease;
@@ -27,6 +29,8 @@
   text-decoration: none;
   }
 }
+
+// div class="index-car-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path car.photo.attached? ? car.photo.key : "injcuuecln8fvf2vo2zg", width: 400, height: 300, crop: :fill, :cloud_name => "dir0nw4ok"%>'
 
 //   .brand-car {
 //     color: white;

@@ -8,27 +8,41 @@
 </div>
 
 -->
-<div class="container">
-  <div class="col-xs-12 col-md-6 offset-md-3">
-    <h4> <%= @restaurant.name %></h4>
-    <p></p>
-  </div>
-</div>
 
-<p>
-  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    Map
-  </button>
-</p>
-<div class="collapse" id="collapseExample">
-  <div class="card card-body" style="padding: 0 0;">
-    <div
-  id="map"
-  style="width: 100%;
-  height: 300px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
+<div class="restaurant-show">
+  <div class="background-picture">
+    <%= image_tag 'index_card_photo.jpeg', class: 'testing' %>
+  </div>
+  <div class="restaurant-card">
+    <div class="container">
+      <div class="col-xs-12 col-md-6 offset-md-3">
+        <div class="show-avatar">
+          <%= image_tag "restaurant.png", class: "avatar-bordered", alt: "avatar-bordered" %>
+        </div>
+        <h4> <%= @restaurant.name %></h4>
+          <p><small> <%= @restaurant.description %></small></p>
+            <div class="restaurant-card-icons">
+              <p>
+                <i class="fas fa-star hvr-icon"><small class="icon-text">Reviews</small></i>
+                <i class="far fa-clock hvr-icon"><small class="icon-text">Open</small></i>
+                <i class="fas fa-map-marked-alt hvr-icon-grow hvr-icon" type="icon" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <small class="icon-text">Map</small>
+                </i>
+              </p>
+            </div>
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body" style="padding: 0 0;">
+                <div
+                id="map"
+                style="width: 100%;
+                height: 300px;"
+                data-markers="<%= @markers.to_json %>"
+                data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+                ></div>
+              </div>
+            </div>
+      </div>
+    </div>
   </div>
 </div>
 
