@@ -1,30 +1,34 @@
-<%= form_tag restaurants_path, method: 'get' do %>
-<div class="accordion" id="filters-accordion">
+<h4>DETAILED FILTERS</h4>
 
-  <% ALL_FILTERS.each do |filter_key, filter_content| %>
-    <div class="card">
-      <div class="card-header" id="<%= filter_content[:header_id] %>">
-        <h2 class="mb-0" data-toggle="collapse" data-target="#<%= filter_content[:content_id] %>" aria-expanded="true" aria-controls="<%= filter_content[:content_id] %>">
-          <%= filter_content[:label] %>
-        </h2>
-      </div>
+<div class="container">
+  <div class="col-xs-12 col-md-6 offset-md-3">
 
-      <div id="<%= filter_content[:content_id] %>" class="collapse" aria-labelledby="<%= filter_content[:header_id] %>" data-parent="#filters-accordion">
-        <div class="card-body d-flex flex-wrap justify-content-around justify-content-md-start">
-          <% filter_content[:filters].each do |filter| %>
+<%#= form_tag restaurants_path, method: 'get' do %>
+    <!-- <div class="accordion" id="filters-accordion"> -->
+
+      <% ALL_FILTERS.each do |filter_key, filter_content| %>
+      <div class="card">
+        <div class="card-header" id="<%= filter_content[:header_id] %>">
+          <p class="mb-0" data-toggle="collapse" data-target="#<%= filter_content[:content_id] %>" aria-expanded="true" aria-controls="<%= filter_content[:content_id] %>">
+            <%= filter_content[:label] %>
+          </p>
+        </div>
+
+        <div id="<%= filter_content[:content_id] %>" class="collapse" aria-labelledby="<%= filter_content[:header_id] %>" data-parent="#filters-accordion">
+          <div class="card-body d-flex flex-wrap justify-content-around justify-content-md-start">
+            <% filter_content[:filters].each do |filter| %>
             <div class=form-group>
               <%= check_box_tag filter_content[:input_name], filter, false, type: "checkbox", id: "Checkbox" %>
               <%= label_tag filter %>
             </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
+    <% end %>
+    <%= submit_tag 'submit', class:"btn btn-outline-primary" %>
+    <%# end %>
   </div>
-  <% end %>
-
-  <%= submit_tag 'submit', class:"btn btn-primary" %>
-<% end %>
-
-
+</div>
 

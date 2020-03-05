@@ -25,7 +25,7 @@ class RestaurantsController < ApplicationController
     @restaurants = @restaurants.by_drink(params[:drinks])
     @restaurants = @restaurants.by_rating(params[:ratings])
     @restaurants = @restaurants.by_special_feature(params[:special_features])
-    @restaurants = @restaurants.by_occassion(params[:occassions])
+    @restaurants = @restaurants.by_occasion(params[:occasions])
     @restaurants = @restaurants.by_service(params[:service])
     @restaurants = @restaurants.by_location(params[:location])
     @restaurants = @restaurants.by_language(params[:languages])

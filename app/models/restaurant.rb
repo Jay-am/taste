@@ -39,8 +39,8 @@ class Restaurant < ApplicationRecord
     where("special_features && ARRAY[?]::varchar[]", special_features)
   end
 
-  def self.by_occassion(occassions)
-    where("occassions && ARRAY[?]::varchar[]", occassions)
+  def self.by_occasion(occasions)
+    where("occasion && ARRAY[?]::varchar[]", occasions)
   end
 
   def self.by_service(service)
