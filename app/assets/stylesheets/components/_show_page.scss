@@ -6,23 +6,59 @@
 //   padding: 150px 0;
 // }
 
-.banner {
-  height: 160px;
-  background-size: contain;
-  background-position: center;
+// .banner {
+//   height: 50px;
+//   width: 100%;
+//   background-size: contain;
+//   background-position: center;
+// }
+
+// .background-picture {
+//   width: 100%;
+// }
+
+.testing {
+  width: 100%;
+  border-radius: 0%;
 }
 
-.banner h1 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
+.restaurant-card {
+  padding-top: 40px;
+  padding-bottom: 24px;
+  border-radius: 15px;
+  margin: 0 20px;
+  position: absolute;
+  top: 240px;
+  text-align: center;
+  box-shadow: 3px -2px 9px 0px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
-.banner p {
-  font-size: 20px;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+.restaurant-card-icons {
+  display: flex;
+  justify-content: space-around;
 }
+
+.icon-text {
+  padding-left: 8px;
+  padding-right: 16px;
+}
+
+.icon-text:hover {
+
+}
+
+.avatar-bordered {
+
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  position: absolute;
+  top: 0;
+  left: 105px;
+  background-size: cover;
+  top: -84px;
+  background-color: white;
+}
+
