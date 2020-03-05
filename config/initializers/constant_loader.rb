@@ -183,7 +183,7 @@ SPECIAL_FEATURES = [
   # "Waterfront XXXXXXXXXXXXXXXXXXXXXXXXX",
 ]
 
-OCCASSIONS = [
+OCCASIONS = [
   "Romantic",
   "First Date",
   "Candle Lit",
@@ -351,12 +351,12 @@ ALL_FILTERS = {
     'input_name': 'special_features[]'
   },
 
-  OCCASSIONS: {
-    'filters': OCCASSIONS,
-    'label': 'Occassion',
-    'header_id': 'occassions-heading',
-    'content_id': 'occassions-filter',
-    'input_name': 'occassions[]'
+  OCCASIONS: {
+    'filters': OCCASIONS,
+    'label': 'Occasion',
+    'header_id': 'occasions-heading',
+    'content_id': 'occasions-filter',
+    'input_name': 'occasions[]'
   },
 
   SERVICE: {

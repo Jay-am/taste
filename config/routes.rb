@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
+  post '/users/:id/follow', to: "users#follow", as: "follow_user"
+  post '/users/:id/unfollow', to: "users#unfollow", as: "unfollow_user"
+
   resources :profiles do
     resources :reviews, only: [:index, :destroy]
     resources :bookmarks
@@ -11,6 +14,6 @@ Rails.application.routes.draw do
   post '/restaurants/filter_result', to: 'restaurants#filter_result'
 
   resources :restaurants do
-    resources :reviews, only: [:new, :create, :edit, :update]
+    resources :reviews, only: [:new, :create]
   end
 end

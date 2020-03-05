@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_05_113959) do
+ActiveRecord::Schema.define(version: 2020_03_05_121048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,7 +67,6 @@ ActiveRecord::Schema.define(version: 2020_03_05_113959) do
     t.string "occasion", array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "marked", default: false
     t.float "latitude"
     t.float "longitude"
     t.string "styles", array: true
@@ -83,6 +82,8 @@ ActiveRecord::Schema.define(version: 2020_03_05_113959) do
     t.string "distance", array: true
     t.string "located", array: true
     t.string "payments", array: true
+    t.string "ratings", array: true
+    t.boolean "marked", default: false
     t.index ["cuisine"], name: "index_restaurants_on_cuisine", using: :gin
     t.index ["occasion"], name: "index_restaurants_on_occasion", using: :gin
     t.index ["special_features"], name: "index_restaurants_on_special_features", using: :gin
@@ -109,6 +110,15 @@ ActiveRecord::Schema.define(version: 2020_03_05_113959) do
     t.index ["special_features"], name: "index_reviews_on_special_features", using: :gin
   end
 
+  create_table "user_followers", force: :cascade do |t|
+    t.bigint "follower_id"
+    t.bigint "following_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follower_id"], name: "index_user_followers_on_follower_id"
+    t.index ["following_id"], name: "index_user_followers_on_following_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -126,4 +136,6 @@ ActiveRecord::Schema.define(version: 2020_03_05_113959) do
   add_foreign_key "bookmarks", "restaurants"
   add_foreign_key "reviews", "profiles"
   add_foreign_key "reviews", "restaurants"
+  add_foreign_key "user_followers", "users", column: "follower_id"
+  add_foreign_key "user_followers", "users", column: "following_id"
 end
