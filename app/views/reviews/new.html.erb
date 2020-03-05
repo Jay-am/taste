@@ -2,7 +2,7 @@
   <div class="col-xs-12 col-md-6 offset-md-3">
     <div class="review-container">
       <%= simple_form_for [@restaurant, @review] do |f| %>
-        <%= f.input :local, as: :radio_buttons, collection: ['Local', 'Tourist'] %>
+        <%= f.input :local, as: :radio_buttons, label: :"Are you local or tourist?" , collection: ['Local', 'Tourist'] %>
         <div class="review-rating">
 
           <h3>Meal</h3>
@@ -15,19 +15,20 @@
           <%=  f.input :rating, collection: (1..5).to_a, label: false, class: 'review-stars' %>
         </div>
 
-    <label for="Checkbox">
-        <%= f.input :special_features, as: :check_boxes,
-            collection: SPECIAL_FEATURES, input_html: {multiple: :true} %>
+          <label for="Checkbox">
+            <%= f.input :special_features, as: :check_boxes,
+                collection: SPECIAL_FEATURES, input_html: {multiple: :true}, item_wrapper_class: 'form-group' %>
 
-        <%= f.input :occasion, as: :check_boxes,
-         collection: OCCASSIONS, input_html: {multiple: :true} %>
-        <%= f.input :description %>
-        <%= f.submit "Add Review", class: "btn btn-dark" %>
-      </label>
+            <%= f.input :occasion, as: :check_boxes,
+             collection: OCCASSIONS, input_html: {multiple: :true} %>
+            <%= f.input :description %>
+            <%= f.submit "Add Review", class: "btn btn-dark" %>
+          </label>
       <% end %>
     </div>
   </div>
 </div>
+
 
 
 

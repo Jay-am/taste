@@ -30,6 +30,14 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def edit
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @review = Review.find(params[:id])
+  end
+
+  def update
+  end
+
   def review_params
     params.require(:review).permit(:restaurant_id, :profile_id, :description, :rating, :meal_rating, :service_rating, :location_rating, :local, special_features: [], occasion: [])
   end
