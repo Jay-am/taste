@@ -3,13 +3,12 @@
   height: 15vh;
   z-index: 20;
   background-size: cover;
-
 }
 
 .avatar-img {
   display: block;
   margin: auto;
-
+  margin-bottom: 15px;
 }
 
 .profile-container {
@@ -36,6 +35,7 @@
   margin: auto;
   opacity: 0.9;
   padding-top: 20px;
+  border-radius: 10px;
 }
 
 .custom-checkbox {
@@ -49,3 +49,19 @@
   border-radius: 10px;
 }
 
+.profile-card-element {
+  border: none;
+}
+
+.collapse-elements {
+  display: inline;
+
+}
+
+.profile-collapse-element {
+  display: flex;
+}
+
+.btn-profile {
+   display: inline;
+}
