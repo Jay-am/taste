@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_05_121048) do
+ActiveRecord::Schema.define(version: 2020_03_06_142929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,14 +36,18 @@ ActiveRecord::Schema.define(version: 2020_03_05_121048) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "bookmarks", force: :cascade do |t|
-    t.text "set_note"
-    t.bigint "restaurant_id"
-    t.bigint "profile_id"
+  create_table "bookmarks", id: :serial, force: :cascade do |t|
+    t.string "bookmarkee_type"
+    t.integer "bookmarkee_id"
+    t.string "bookmarker_type"
+    t.integer "bookmarker_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["profile_id"], name: "index_bookmarks_on_profile_id"
-    t.index ["restaurant_id"], name: "index_bookmarks_on_restaurant_id"
+    t.index ["bookmarkee_id", "bookmarkee_type", "bookmarker_id", "bookmarker_type"], name: "bookmarks_bookmarkee_bookmarker_idx", unique: true
+    t.index ["bookmarkee_id", "bookmarkee_type"], name: "bookmarks_bookmarkee_idx"
+    t.index ["bookmarkee_type", "bookmarkee_id"], name: "index_bookmarks_on_bookmarkee_type_and_bookmarkee_id"
+    t.index ["bookmarker_id", "bookmarker_type"], name: "bookmarks_bookmarker_idx"
+    t.index ["bookmarker_type", "bookmarker_id"], name: "index_bookmarks_on_bookmarker_type_and_bookmarker_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -82,8 +86,8 @@ ActiveRecord::Schema.define(version: 2020_03_05_121048) do
     t.string "distance", array: true
     t.string "located", array: true
     t.string "payments", array: true
-    t.string "ratings", array: true
     t.boolean "marked", default: false
+    t.string "ratings", array: true
     t.index ["cuisine"], name: "index_restaurants_on_cuisine", using: :gin
     t.index ["occasion"], name: "index_restaurants_on_occasion", using: :gin
     t.index ["special_features"], name: "index_restaurants_on_special_features", using: :gin
@@ -132,8 +136,6 @@ ActiveRecord::Schema.define(version: 2020_03_05_121048) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "bookmarks", "profiles"
-  add_foreign_key "bookmarks", "restaurants"
   add_foreign_key "reviews", "profiles"
   add_foreign_key "reviews", "restaurants"
   add_foreign_key "user_followers", "users", column: "follower_id"
