@@ -17,6 +17,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'geocoder'
+gem 'bookmark_system'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
