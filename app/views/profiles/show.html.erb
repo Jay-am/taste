@@ -1,6 +1,6 @@
 <div class="profile-container">
-  <%= image_tag "profile-background.png", class: "profile-background-img"%>
-  <div class="profile-card">
+  <div class="profile-background-img" style="background-image: url(<%= image_path "profile-background.png" %>)"></div>
+  <div class="profile-card" style="margin-top: -35px;">
     <% if @profile.photo.attached? %>
       <%= cl_image_tag @profile.photo.key, class: "avatar-img",
         height: 100, width: 100, radius: 100, crop: :fill, gravity: :face %>

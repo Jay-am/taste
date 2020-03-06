@@ -7,10 +7,10 @@
           <div class="index-restaurant-card">
             <h4 class="restaurant-name"><%= restaurant.name %></h3>
             <p class="restaurant-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore minima consequuntur impedit dicta nostrum.</p>
-            <i class="map-pin-logo fas fa-map-marker-alt"></i>
             <!-- <h4 class="restaurant-address"> € <%= restaurant.address %></h4> -->
           </div>
         <% end %>
+        <div class="each-restaurant-img" style="background-image: linear-gradient(to top, transparent, white),url(<%= image_path "index_card_photo.jpeg" %>)"></div>
       <% end %>
     </div>
   </div>
