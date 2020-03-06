@@ -14,6 +14,10 @@ def show
   }
   end
 
+  def map
+    @markers = { lat: params[:lat], lng: params[:lng] }
+  end
+
   def filter
   end
 
@@ -34,6 +38,5 @@ def show
       end
     end
 
-    @restaurants
   end
 end
