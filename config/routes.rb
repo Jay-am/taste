@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :bookmarks
   end
 
+  get '/restaurants/map', to: 'restaurants#map'
   get '/restaurants/filter', to: 'restaurants#filter'
   post '/restaurants/filter_result', to: 'restaurants#filter_result'
 

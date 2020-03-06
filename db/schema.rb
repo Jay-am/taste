@@ -82,8 +82,8 @@ ActiveRecord::Schema.define(version: 2020_03_05_121048) do
     t.string "distance", array: true
     t.string "located", array: true
     t.string "payments", array: true
-    t.string "ratings", array: true
     t.boolean "marked", default: false
+    t.string "ratings", array: true
     t.index ["cuisine"], name: "index_restaurants_on_cuisine", using: :gin
     t.index ["occasion"], name: "index_restaurants_on_occasion", using: :gin
     t.index ["special_features"], name: "index_restaurants_on_special_features", using: :gin
