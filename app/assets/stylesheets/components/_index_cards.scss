@@ -1,39 +1,57 @@
 // a:hover {
 //   text-decoration: none;
 // }
-.index-restaurant-card {
+.restaurant-grid {
   background: white;
-  overflow: hidden;
-  background-repeat: no-repeat;
-  color: white;
-  width: 100%;
-  height: 120px;
   box-shadow: 3px -2px 9px 0px rgba(0, 0, 0, 0.1);
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  border-radius: 4px;
+  border-radius: 3px;
+
+  &:hover {
+  box-shadow: 3px -2px 9px 0px rgba(0, 0, 0, 0.5) !important;
+  transition: all 1s ease;
+  top: -10px;
+  border-top: none;
+  text-decoration: none;
+   border-radius: 8px;
+  }
+}
+
+.index-restaurant-card {
+  overflow: hidden;
+  color: black;
+  width: 100%;
   position: relative;
   background-size: cover;
   background-position: center;
   transition: all 1s ease;
   margin-top: 16px;
-  &:hover {
-  box-shadow: 3px -2px 9px 0px rgba(0, 0, 0, 0.5) !important;
-  transition: all 1s ease;
-  top: -5px;
-  cursor: pointer;
-  border-top: none;
-  text-decoration: none;
+}
+
+.index-restaurant-card {
+  h3 {
+    margin: 10px;
+    font-size: 20px;
+  }
+
+  p {
+    margin: 10px;
+    font-size: 18px;
   }
 }
 
 .each-restaurant-img {
+  border-radius: 4px;
   background-repeat: no-repeat;
-  background: linear-gradient(to top, transparent, white);
+  background-size: cover;
+  background-position-y: center;
   width: 100%;
   height: 18vh;
+  margin-top: 10px;
+}
+
+.first-restaurant-element {
+  display: flex;
+  justify-content: space-between;
 }
 
 // div class="index-car-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path car.photo.attached? ? car.photo.key : "injcuuecln8fvf2vo2zg", width: 400, height: 300, crop: :fill, :cloud_name => "dir0nw4ok"%>'
