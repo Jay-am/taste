@@ -1,4 +1,4 @@
-.card-restaurant-index {
+.card-review-index {
   display: flex;
   flex-direction: column;
   background: white;
@@ -6,15 +6,15 @@
   box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-.picture-restaurant-index img {
+.picture-review-index img {
   width: 315px;
   height: 150px;
   border-radius: 16px 16px 0px 0px;
 }
 
-.info-restaurant-index {
+.info-review-index {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   margin-top: 8px;
   padding-right: 8px;
   padding-left: 8px;
@@ -27,14 +27,33 @@
     .restaurant-name {
       font-size: 16px;
       margin: 0px;
+
+      p {
+        margin: 0px;
+      }
     }
   }
 
-  .details-restaurant {
+  .details-review {
+    display: flex;
+    justify-content: space-evenly;
+
+    .details-review-right {
+      text-align: right;
+    }
 
     p {
     font-size: 12px;
     margin: 0px;
+    }
+  }
+
+  .description {
+    margin-top: 8px;
+
+    p {
+      font-size: 10px;
+      margin: 0px;
     }
   }
 }
