@@ -1,39 +1,55 @@
-<h4>Filter your Search</h4>
-  <%= form_tag restaurants_path, method: 'get' do %>
-  <div class="accordion" id="filters-accordion">
-    <% ALL_FILTERS.each do |filter_key, filter_content| %>
-    <div class="card">
-      <div class="card-header" id="<%= filter_content[:header_id] %>">
-        <h2 class="mb-0" data-toggle="collapse" data-target="#<%= filter_content[:content_id] %>" aria-expanded="true" aria-controls="<%= filter_content[:content_id] %>">
-          <%= filter_content[:label] %>
-        </h2>
-      </div>
+<div class="container">
+<!--   <div class="row"> -->
+<!--     <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3"> -->
 
-      <div id="<%= filter_content[:content_id] %>" class="collapse" aria-labelledby="<%= filter_content[:header_id] %>" data-parent="#filters-accordion">
-        <div class="card-body d-flex flex-wrap justify-content-around justify-content-md-start">
-          <% filter_content[:filters].each do |filter| %>
-          <div class="form-group custom-checkbox">
-            <%= check_box_tag filter_content[:input_name], filter, false, type: "checkbox", id: "Checkbox" %>
-            <%= label_tag filter %>
+      <h4>Filter your Search</h4>
+      <%= form_tag restaurants_path, method: 'get' do %>
+      <div class="accordion" id="filters-accordion">
+        <% ALL_FILTERS.each do |filter_key, filter_content| %>
+        <div class="card">
+          <div class="card-header" id="<%= filter_content[:header_id] %>">
+            <h2 class="mb-0" data-toggle="collapse" data-target="#<%= filter_content[:content_id] %>" aria-expanded="true" aria-controls="<%= filter_content[:content_id] %>">
+              <%= filter_content[:label] %>
+            </h2>
           </div>
-          <% end %>
+
+          <div id="<%= filter_content[:content_id] %>" class="collapse" aria-labelledby="<%= filter_content[:header_id] %>" data-parent="#filters-accordion">
+            <div class="card-body d-flex flex-wrap justify-content-around justify-content-md-start">
+              <% filter_content[:filters].each do |filter| %>
+              <div class="form-group custom-checkbox">
+                <%= check_box_tag filter_content[:input_name], filter, false, type: "checkbox", id: "Checkbox" %>
+                <%= label_tag filter %>
+              </div>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
+      <% end %>
     </div>
-  </div>
-  <% end %>
+
+    <div class="button">
+      <%= check_box_tag 'filter_type', 'broad', false, type: "checkbox" %>
+      <%= label_tag "Broad Search" %>
+    </div>
+
+    <div class="button">
+      <%= submit_tag 'submit', class:"button" %>
+      <% end %>
+    </div>
+
+<!--
+    <p>Distance Slider</p>
+      <div class="v-range-slider">
+      <input type="range" min="0" v-model="imgOpacity" max="100" step="0.1" name="distance">
+    </div> -->
+
+<p>Distance Slider</p>
+  <div>
+  <input id='slider' max='500' min='0' step='1' type='range' value='0'>
 </div>
-<%= check_box_tag 'filter_type', 'broad', false, type: "checkbox" %>
-<%= label_tag "Broad Search" %>
 
-<%= submit_tag 'submit', class:"btn btn-primary" %>
-<% end %>
-
-
-
-<h4>Distance Slider</h4>
-<div class="v-range-slider">
-  <input type="range" min="0" v-model="imgOpacity" max="10" step="0.1" name="distance">
+<!--     </div> -->
+<!--   </div> -->
 </div>
-
 
