@@ -1,10 +1,3 @@
-$radius: 8px;
-$color1: pink;
-$color2: white;
-
-body {
-  font-family: "Ubuntu", "Arial", sans-serif;
-}
 
 .text {
   margin: 1rem 0;
@@ -47,7 +40,7 @@ body {
     height: 0;
     border-style: solid;
     border-width: 10px 5px 0 5px;
-    border-color: grey transparent transparent;
+    border-color: #666 transparent transparent;
     content: '';
     transition: all ease .2s;
   }
@@ -55,6 +48,6 @@ body {
 
 .accordeon_content {
   padding: 0.8rem;
-  box-shadow: inset 0 -3px grey;
+  box-shadow: inset 0 -3px #666;
   border-radius: 8px;
 }
