@@ -19,14 +19,14 @@ Rails.application.routes.draw do
   end
 
 
-  # Is that correct
+ # Is that correct?
 
-  # resources :restaurants do
-  #   resources :bookmarks, only: [:show, :new, :create, :destroy]
-  # end
+  resources :restaurants do
+    resources :bookmarks, only: [:show, :new, :create, :destroy]
+  end
 
-  # resources :reviews do
-  #   resources :bookmarks, only: [:show, :new, :create, :destroy]
-  # end
+  resources :reviews do
+    resources :bookmarks, only: [:show, :new, :create, :destroy]
+  end
 
 end
