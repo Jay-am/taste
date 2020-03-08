@@ -1,20 +1,20 @@
-<!-- <div class="container"> -->
-<!--   <div class="row"> -->
-<!--     <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3"> -->
+<div class="container">
+  <div class="row">
+  <div class="col-xs-12 col-md-8 offset-md-2">
 
       <h4>Filter your Search</h4>
       <%= form_tag restaurants_path, method: 'get' do %>
-      <div class="accordeon" id="filters-accordion">
+      <div class="accordion" id="filters-accordion">
         <% ALL_FILTERS.each do |filter_key, filter_content| %>
-        <div class="card accordeon-item">
-          <div class="card-header accordeon-title" id="<%= filter_content[:header_id] %>">
+        <div class="card accordion-item">
+          <div class="card-header accordion-title" id="<%= filter_content[:header_id] %>">
             <h2 class="mb-0" data-toggle="collapse" data-target="#<%= filter_content[:content_id] %>" aria-expanded="true" aria-controls="<%= filter_content[:content_id] %>">
               <%= filter_content[:label] %>
             </h2>
           </div>
 
           <div id="<%= filter_content[:content_id] %>" class="collapse" aria-labelledby="<%= filter_content[:header_id] %>" data-parent="#filters-accordion">
-            <div class="card-body accordeon-content d-flex flex-wrap justify-content-around justify-content-md-start">
+            <div class="card-body accordion-content d-flex flex-wrap justify-content-around justify-content-md-start">
               <% filter_content[:filters].each do |filter| %>
               <div class="form-group custom-checkbox">
                 <%= check_box_tag filter_content[:input_name], filter, false, type: "checkbox", id: "Checkbox" %>
@@ -24,9 +24,9 @@
             </div>
           </div>
         </div>
-      </div>
       <% end %>
-    </div>
+      </div>
+    <% end %>
 
     <div class="button">
       <%= check_box_tag 'filter_type', 'broad', false, type: "checkbox" %>
@@ -34,35 +34,30 @@
     </div>
 
     <div class="button">
-      <%= submit_tag 'submit', class:"button" %>
-      <% end %>
+      <%= button_to "Filter Search", restaurants_filter_result_path, class:"button" %>
     </div>
 
     <br>
-<br>
+
     <div class="button-small">
       <%= button_to "Small", reviews_path, class:"button-small" %>
     </div>
-<br>
-<br>
+
+    <br>
+
     <div class="button-xs">
       <%= button_to "XS",  reviews_path, class:"button-xs" %>
     </div>
 
     <br>
+
+    <p>Distance Slider</p>
+    <div>
+      <input id='slider' max='500' min='0' step='1' type='range' value='0'>
+    </div>
+
     <br>
 
-<p>Distance Slider</p>
-  <div>
-  <input id='slider' max='500' min='0' step='1' type='range' value='0'>
 </div>
-
-<!--     </div> -->
-<!--   </div> -->
-<!-- </div> -->
-
-<!--
-    <p>Distance Slider black</p>
-      <div class="v-range-slider">
-      <input type="range" min="0" v-model="imgOpacity" max="100" step="0.1" name="distance">
-    </div> -->
+</div>
+</div>

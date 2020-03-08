@@ -1,20 +1,36 @@
 <div class="container">
-  <div class="col-xs-12 col-md-6 offset-md-3">
-    <h3> Results </h3>
-      <% @restaurants.each do |restaurant| %>
-        <div class="restaurant-grid">
-        <%= link_to restaurant_path(restaurant.id) do %>
-          <div class="index-restaurant-card">
-            <div class="first-restaurant-element">
-              <h3><%= restaurant.name %></h3>
-              <h3><i class="fas fa-star user-review-star"></i><%= restaurant.ratings %></h3>
-            </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore minima consequuntur impedit dicta nostrum.</p>
-            <!-- <h4 class="restaurant-address"> € <%= restaurant.address %></h4> -->
-          </div>
-        <% end %>
-        <div class="each-restaurant-img" style="background-image: linear-gradient(to top, transparent, white),url(<%= image_path "index_card_photo.jpeg" %>)"></div>
+  <div class="row">
+    <div class="col-xs-12 col-md-8 offset-md-2">
+
+      <div>
+        <p> Here are your tailored results: </p>
       </div>
-      <% end %>
-  </div>
+      <% @restaurants.each do |restaurant| %>
+      <div class="card-restaurant-index">
+        <%= link_to restaurant_path(restaurant.id) do %>
+        <div class="picture-restaurant-index">
+          <img src="/assets/pizza.jpg" alt="Restaurant">
+        </div>
+
+        <div class="info-restaurant-index">
+
+          <div class="info-restaurant">
+           <!-- <p class="restaurant-name">Name</p> -->
+           <p><%= restaurant.name %></p>
+           <!-- <p class="restaurant-address">Address</p> -->
+           <p class="restaurant-address"> € <%= restaurant.address %></p>
+         </div>
+
+         <div class="details-restaurant">
+          <!-- <p>Stars</p> -->
+           <p><i class="fas fa-star user-review-star"></i><%= restaurant.ratings %></p>
+           <p>Price</p>
+         </div>
+
+       </div>
+       <% end %>
+     </div>
+     <% end %>
+   </div>
+ </div>
 </div>
