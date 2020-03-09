@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_06_142929) do
+ActiveRecord::Schema.define(version: 2020_03_09_090640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,18 +36,16 @@ ActiveRecord::Schema.define(version: 2020_03_06_142929) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "bookmarks", id: :serial, force: :cascade do |t|
-    t.string "bookmarkee_type"
-    t.integer "bookmarkee_id"
-    t.string "bookmarker_type"
-    t.integer "bookmarker_id"
+  create_table "bookmarks", force: :cascade do |t|
+    t.string "note"
+    t.string "bookmarkable_type"
+    t.bigint "bookmarkable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["bookmarkee_id", "bookmarkee_type", "bookmarker_id", "bookmarker_type"], name: "bookmarks_bookmarkee_bookmarker_idx", unique: true
-    t.index ["bookmarkee_id", "bookmarkee_type"], name: "bookmarks_bookmarkee_idx"
-    t.index ["bookmarkee_type", "bookmarkee_id"], name: "index_bookmarks_on_bookmarkee_type_and_bookmarkee_id"
-    t.index ["bookmarker_id", "bookmarker_type"], name: "bookmarks_bookmarker_idx"
-    t.index ["bookmarker_type", "bookmarker_id"], name: "index_bookmarks_on_bookmarker_type_and_bookmarker_id"
+    t.bigint "profile_id"
+    t.index ["bookmarkable_id", "bookmarkable_type"], name: "index_bookmarks_on_bookmarkable_id_and_bookmarkable_type"
+    t.index ["bookmarkable_type", "bookmarkable_id"], name: "index_bookmarks_on_bookmarkable_type_and_bookmarkable_id"
+    t.index ["profile_id"], name: "index_bookmarks_on_profile_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -71,7 +69,6 @@ ActiveRecord::Schema.define(version: 2020_03_06_142929) do
     t.string "occasion", array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "marked", default: false
     t.float "latitude"
     t.float "longitude"
     t.string "styles", array: true
@@ -87,6 +84,7 @@ ActiveRecord::Schema.define(version: 2020_03_06_142929) do
     t.string "distance", array: true
     t.string "located", array: true
     t.string "payments", array: true
+    t.boolean "marked", default: false
     t.string "ratings", array: true
     t.index ["cuisine"], name: "index_restaurants_on_cuisine", using: :gin
     t.index ["occasion"], name: "index_restaurants_on_occasion", using: :gin
