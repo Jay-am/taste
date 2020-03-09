@@ -11,14 +11,26 @@ class RestaurantsController < ApplicationController
 
     @coordinates = @restaurant.geocode #returns restaurant with coordinates
 
+
     @markers = {
      lat: @coordinates.first,
       lng: @coordinates.last
     }
+
   end
 
   def map
-    @markers = { lat: params[:lat], lng: params[:lng] }
+    @markers = []
+    # @markers = [{ lat: params[:lat], lng: params[:lng] }]
+    @restaurants = Restaurant.near([params[:lat], params[:lng]], 3)
+    @restaurants.each do |restaurant|
+      @coordinates = restaurant.geocode
+      @markers << {
+        lat: @coordinates.first,
+        lng: @coordinates.last,
+        infoWindow: render_to_string(partial: "info_window", locals: { restaurant: restaurant })
+      }
+    end
   end
 
   def filter_result
