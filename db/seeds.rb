@@ -18,19 +18,23 @@ puts "Making users"
 user1 = User.new(email: "nature_boy@gmail.com", password: "testing")
 user2 = User.new(email: "k.johnson@gmail.com", password: "testing")
 user3 = User.new(email: "rayan@gmail.com", password: "testing")
+user = User.new(email: "", password: "")
 
 user1.save!
 user2.save!
 user3.save!
+userXXXXX.save!
 
 puts "Assigning users to profiles"
 profile1 = Profile.new(user: user1, first_name: "David", last_name: "Thoreau")
 profile2 = Profile.new(user: user2, first_name: "Kamal", last_name: "Johnson")
 profile3 = Profile.new(user: user3, first_name: "Rayan", last_name: "laStrada")
+profile = Profile.new(user: user, first_name: "", last_name: "")
 
 profile1.save!
 profile2.save!
 profile3.save!
+profileXXXX.save!
 
 puts "Making reviews"
 review1 = Review.new(description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi quae sunt excepturi magnam porro maxime earum, deleniti magni. Cupiditate nobis ducimus, eius quaerat! Perferendis necessitatibus rem inventore reiciendis amet veniam!", rating: 3, meal_rating: 5, service_rating: 2, location_rating: 2, cuisine: ["french"], occasion: ["candle light"], special_features: ["fireplace"], restaurant: restaurant1, profile: profile1, local: false)
