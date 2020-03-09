@@ -1,15 +1,8 @@
 <div class="profile-container">
   <div class="profile-background-img" style="background: linear-gradient( 135deg, rgba(214, 55, 55, 0.8), #fbdd0a);"></div>
     <div class="profile-card" style="margin-top: -35px;">
-      <% if @profile.photo.attached? %>
-        <%= cl_image_tag @profile.photo.key, class: "avatar-img",
-          height: 100, width: 100, radius: 100, crop: :fill, gravity: :face %>
-      <% elsif !@profile.first_name.nil? && !@profile.last_name.nil? %>
-        <%= "#{@profile.first_name[0]} #{@profile.last_name[0]}"%>
-      <% end %>
 
-      <h3>Hi, <%= "#{@profile.first_name} #{@profile.last_name}" %></h3>
-
+      <h3><%= "#{@profile.first_name} #{@profile.last_name}" %></h3>
       <% if current_user.following.include?(@profile.user) %>
         <%= link_to "Unfollow", unfollow_user_path(@profile.user), method: :post, class: "btn btn-outline-dark" %>
       <% else %>
@@ -57,7 +50,7 @@
         </div>
 
 
-      
+
         <div class="collapse" id="collapseEdit">
           <div class="card card-body" style="padding: 0 0;height: 350px;overflow-y: scroll;">
             <%= simple_form_for @profile do |f| %>

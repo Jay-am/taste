@@ -21,7 +21,7 @@
   <%= javascript_include_tag 'application' %>
 
 
-  <% if user_signed_in? %>
+<!--   <% if user_signed_in? %>
   <li>
     <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
   </li>
@@ -29,14 +29,14 @@
   <li>
     <%= link_to('Login', new_user_session_path) %>
   </li>
-  <% end %>
+  <% end %> -->
 
-  <li>
+<!--   <li>
   <%= link_to('Restaurant show', restaurants_path) %>
   </li>
   <li>
   <%= link_to('Restaurant index', restaurants_path) %>
-  </li>
+  </li> -->
   <%= javascript_include_tag 'application' %>
 
   <%= javascript_pack_tag 'application' %>

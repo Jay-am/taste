@@ -1,0 +1,5 @@
+class AddInformationToProfiles < ActiveRecord::Migration[5.2]
+  def change
+    add_column :profiles, :information, :text
+  end
+end
