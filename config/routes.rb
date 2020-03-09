@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   resources :restaurants do
     resources :reviews, only: [:new, :create]
+    post 'bookmark', to: "restaurants#bookmark"
+    post 'unbookmark', to: "restaurants#unbookmark"
   end
 
 

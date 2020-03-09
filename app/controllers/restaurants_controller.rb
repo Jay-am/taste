@@ -17,6 +17,11 @@ class RestaurantsController < ApplicationController
       lng: @coordinates.last
     }]
 
+    if current_user
+      @is_bookmarked = Bookmark.where(profile: current_user.profile, bookmarkable: @restaurant).exists?
+    else
+      @is_bookmarked = false
+    end
   end
 
   def map
@@ -33,10 +38,23 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  def filter_result
+  def bookmark
+    restaurant = Restaurant.find(params[:restaurant_id])
+    bookmark = Bookmark.find_by(profile: current_user.profile, bookmarkable: restaurant)
+    if bookmark.nil?
+      Bookmark.create profile: current_user.profile, bookmarkable: restaurant
+    end
+      redirect_to restaurant_path(restaurant)
   end
 
-
+  def unbookmark
+    restaurant = Restaurant.find(params[:restaurant_id])
+    bookmark = Bookmark.find_by(profile: current_user.profile, bookmarkable: restaurant)
+    if !bookmark.nil?
+      bookmark.destroy
+    end
+    redirect_to restaurant_path(restaurant)
+  end
 
   def index
     @restaurants = Restaurant.all
