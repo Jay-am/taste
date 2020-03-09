@@ -1,17 +1,37 @@
 <div class="container">
-  <div class="col-xs-12 col-md-6 offset-md-3">
-    <h3> Results </h3>
-    <div class="restaurant-grid">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 offset-md-2">
+
+      <div>
+        <p> Here are your tailored results: </p>
+      </div>
       <% @restaurants.each do |restaurant| %>
+      <div class="card-restaurant-index">
         <%= link_to restaurant_path(restaurant.id) do %>
-          <div class="index-restaurant-card">
-            <h4 class="restaurant-name"><%= restaurant.name %></h3>
-            <p class="restaurant-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore minima consequuntur impedit dicta nostrum.</p>
-            <i class="map-pin-logo fas fa-map-marker-alt"></i>
-            <!-- <h4 class="restaurant-address"> € <%= restaurant.address %></h4> -->
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
+        <div class="picture-restaurant-index">
+          <img src="/assets/pizza.jpg" alt="Restaurant">
+        </div>
+
+        <div class="info-restaurant-index">
+
+          <div class="info-restaurant">
+           <!-- <p class="restaurant-name">Name</p> -->
+           <p><%= restaurant.name %></p>
+           <!-- <p class="restaurant-address">Address</p> -->
+           <p class="restaurant-address"> € <%= restaurant.address %></p>
+         </div>
+
+         <div class="details-restaurant">
+          <!-- <p>Stars</p> -->
+           <p><i class="fas fa-star user-review-star"></i><%= restaurant.ratings %></p>
+           <p>Price</p>
+         </div>
+
+       </div>
+       <% end %>
+     </div>
+     <% end %>
+
+   </div>
+ </div>
 </div>

@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+/* -- BUTTON --*/
+
+/* -- body { --*/
+/* --  width: 100vw; --*/
+/* --  height: 100vh; --*/
+/* --  display: flex; --*/
+/* --  justify-content: center; --*/
+/* --  align-items: center; --*/
+/* --  flex-direction: column; --*/
+/* --  background: white; --*/
+
+  .button {
+    width: 350px;
+    height: 50px;
+    background: white;
+    position: relative;
+    background: white;
+    margin-bottom: 25px;
+    border-radius: 16px;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+
+    span {
+      line-height: 100px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 32px;
+      font-weight: semibold;
+    }
+
+    &:nth-child(1) {
+      box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+        6px 6px 10px rgba(0, 0, 0, 0.2);
+      color: #6f6cde;
+
+      &:hover {
+        opacity: 0.3;
+        box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+          6px 6px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      &:active {
+        opacity: 1;
+        box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+          inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+        color: #79e3b6;
+      }
+    }
+
+    &:nth-child(2) {
+      opacity: 0.3;
+      box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+        6px 6px 10px rgba(0, 0, 0, 0.2);
+      color: #6f6cde;
+    }
+
+    &:nth-child(3) {
+      box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+        inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+      color: #79e3b6;
+
+      &:hover {
+        opacity: 1;
+        box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+          6px 6px 10px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+/* -- } --*/
+
+
+/* -- BUTTON SMALL --*/
+
+.button-small {
+    width: 150px;
+    height: 50px;
+    background: white;
+    position: relative;
+    background: white;
+    margin-bottom: 25px;
+    border-radius: 16px;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+
+    span {
+      line-height: 100px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 32px;
+      font-weight: semibold;
+    }
+
+    &:nth-child(1) {
+      box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+        6px 6px 10px rgba(0, 0, 0, 0.2);
+      color: #6f6cde;
+
+      &:hover {
+        opacity: 0.3;
+        box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+          6px 6px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      &:active {
+        opacity: 1;
+        box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+          inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+        color: #79e3b6;
+      }
+    }
+
+    &:nth-child(2) {
+      opacity: 0.3;
+      box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+        6px 6px 10px rgba(0, 0, 0, 0.2);
+      color: #6f6cde;
+    }
+
+    &:nth-child(3) {
+      box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+        inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+      color: #79e3b6;
+
+      &:hover {
+        opacity: 1;
+        box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+          6px 6px 10px rgba(0, 0, 0, 0.2);
+      }
+    }
+}
+
+
+/* -- BUTTON EXTRA SMALL --*/
+
+.button-xs {
+    width: 50px;
+    height: 50px;
+    background: white;
+    position: relative;
+    background: white;
+    margin-bottom: 25px;
+    border-radius: 16px;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+
+    span {
+      line-height: 100px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 32px;
+      font-weight: semibold;
+    }
+
+    &:nth-child(1) {
+      box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+        6px 6px 10px rgba(0, 0, 0, 0.2);
+      color: #6f6cde;
+
+      &:hover {
+        opacity: 0.3;
+        box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+          6px 6px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      &:active {
+        opacity: 1;
+        box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+          inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+        color: #79e3b6;
+      }
+    }
+
+    &:nth-child(2) {
+      opacity: 0.3;
+      box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+        6px 6px 10px rgba(0, 0, 0, 0.2);
+      color: #6f6cde;
+    }
+
+    &:nth-child(3) {
+      box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.5),
+        inset 8px 8px 16px rgba(0, 0, 0, 0.1);
+      color: #79e3b6;
+
+      &:hover {
+        opacity: 1;
+        box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+          6px 6px 10px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+
+/* -- HTML BUTTONS --*/
+
+/* --   <div class="button">  --*/
+/* --   <%= button_to "Filter Search", reviews_path, class:"button" %>  --*/
+/* --   </div>  --*/
+
+/* --   <div class="button-small">  --*/
+/* --   <%= button_to "Small", reviews_path, class:"button-small" %>  --*/
+/* --   </div>  --*/
+
+/* --   <div class="button-xs">  --*/
+/* --   <%= button_to "XS",  reviews_path, class:"button-xs" %>  --*/
+/* --   </div>  --*/

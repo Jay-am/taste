@@ -196,7 +196,7 @@ OCCASIONS = [
   "Seminars",
   "Birthday",
   "Weddings"
-  ]
+]
 
 SERVICE = [
   "Excellent",
@@ -276,6 +276,22 @@ PAYMENTS = [
 ]
 
 
+RATING = [
+  "1 *",
+  "2 *",
+  "3 *",
+  "4 *",
+  "5 *",
+]
+
+PRICES = [
+  "$",
+  "$$",
+  "$$$",
+  "$$$$",
+]
+
+
 
 ALL_FILTERS = {
 
@@ -284,15 +300,15 @@ ALL_FILTERS = {
     'label': 'Style',
     'header_id': 'styles-heading',
     'content_id': 'styles-filter',
-    'input_name': 'styles[]'
+    'input_name': 'filters[]styles[]'
   },
 
-  CUISINES: {
+  CUISINE: {
     'filters': CUISINES,
     'label': 'Cuisine',
     'header_id': 'cuisines-heading',
     'content_id': 'cuisines-filter',
-    'input_name': 'cuisines[]'
+    'input_name': 'filters[]cuisine[]'
   },
 
   DISHES: {
@@ -300,7 +316,7 @@ ALL_FILTERS = {
     'label': 'Dish',
     'header_id': 'dishes-heading',
     'content_id': 'dishes-filter',
-    'input_name': 'dishes[]'
+    'input_name': 'filters[]dishes[]'
   },
 
   FOOD_TYPES: {
@@ -308,7 +324,7 @@ ALL_FILTERS = {
     'label': 'Food Type',
     'header_id': 'food_types-heading',
     'content_id': 'food_types-filter',
-    'input_name': 'food_types[]'
+    'input_name': 'filters[]food_types[]'
   },
 
   FOOD_STYLES: {
@@ -316,7 +332,7 @@ ALL_FILTERS = {
     'label': 'Food Style',
     'header_id': 'food_styles-heading',
     'content_id': 'food_styles-filter',
-    'input_name': 'food_styles[]'
+    'input_name': 'filters[]food_styles[]'
   },
 
   GASTRONOMIES: {
@@ -324,7 +340,7 @@ ALL_FILTERS = {
     'label': 'Gastronomy',
     'header_id': 'gastronomies-heading',
     'content_id': 'gastronomies-filter',
-    'input_name': 'gastronomies[]'
+    'input_name': 'filters[]gastronomies[]'
   },
 
   DRINKS: {
@@ -332,7 +348,7 @@ ALL_FILTERS = {
     'label': 'Drinks',
     'header_id': 'drinks-heading',
     'content_id': 'drinks-filter',
-    'input_name': 'drinks[]'
+    'input_name': 'filters[]drinks[]'
   },
 
   RATINGS: {
@@ -340,7 +356,7 @@ ALL_FILTERS = {
     'label': 'Ratings',
     'header_id': 'ratings-heading',
     'content_id': 'ratings-filter',
-    'input_name': 'ratings[]'
+    'input_name': 'filters[]ratings[]'
   },
 
   SPECIAL_FEATURES: {
@@ -348,15 +364,15 @@ ALL_FILTERS = {
     'label': 'Special Features',
     'header_id': 'special_features-heading',
     'content_id': 'special_features-filter',
-    'input_name': 'special_features[]'
+    'input_name': 'filters[]special_features[]'
   },
 
-  OCCASIONS: {
+  OCCASION: {
     'filters': OCCASIONS,
     'label': 'Occasion',
     'header_id': 'occasions-heading',
     'content_id': 'occasions-filter',
-    'input_name': 'occasions[]'
+    'input_name': 'filters[]occasion[]'
   },
 
   SERVICE: {
@@ -364,7 +380,7 @@ ALL_FILTERS = {
     'label': 'Service',
     'header_id': 'Service-heading',
     'content_id': 'Service-filter',
-    'input_name': 'Service[]'
+    'input_name': 'filters[]Service[]'
   },
 
   LOCATION: {
@@ -372,7 +388,7 @@ ALL_FILTERS = {
     'label': 'Location',
     'header_id': 'Location-heading',
     'content_id': 'Location-filter',
-    'input_name': 'Location[]'
+    'input_name': 'filters[]Location[]'
   },
 
   LANGUAGES: {
@@ -380,7 +396,7 @@ ALL_FILTERS = {
     'label': 'Language',
     'header_id': 'Languages-heading',
     'content_id': 'Languages-filter',
-    'input_name': 'Languages[]'
+    'input_name': 'filters[]Languages[]'
   },
 
   OPEN_HOURS: {
@@ -388,7 +404,7 @@ ALL_FILTERS = {
     'label': 'Open Hours',
     'header_id': 'open_hours-heading',
     'content_id': 'open_hours-filter',
-    'input_name': 'open_hours[]'
+    'input_name': 'filters[]open_hours[]'
   },
 
   DISTANCE: {
@@ -396,7 +412,7 @@ ALL_FILTERS = {
     'label': 'Distance',
     'header_id': 'distance-heading',
     'content_id': 'distance-filter',
-    'input_name': 'distance[]'
+    'input_name': 'filters[]distance[]'
   },
 
  LOCATED: {
@@ -404,7 +420,7 @@ ALL_FILTERS = {
     'label': 'Placed',
     'header_id': 'placed-heading',
     'content_id': 'placed-filter',
-    'input_name': 'placed[]'
+    'input_name': 'filters[]placed[]'
   },
 
   PAYMENTS: {
@@ -412,7 +428,7 @@ ALL_FILTERS = {
     'label': 'Payments',
     'header_id': 'payments-heading',
     'content_id': 'payments-filter',
-    'input_name': 'payments[]'
+    'input_name': 'filters[]payments[]'
   },
 
 }

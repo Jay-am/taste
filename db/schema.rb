@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_05_121048) do
+ActiveRecord::Schema.define(version: 2020_03_09_090640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,13 +37,15 @@ ActiveRecord::Schema.define(version: 2020_03_05_121048) do
   end
 
   create_table "bookmarks", force: :cascade do |t|
-    t.text "set_note"
-    t.bigint "restaurant_id"
-    t.bigint "profile_id"
+    t.string "note"
+    t.string "bookmarkable_type"
+    t.bigint "bookmarkable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "profile_id"
+    t.index ["bookmarkable_id", "bookmarkable_type"], name: "index_bookmarks_on_bookmarkable_id_and_bookmarkable_type"
+    t.index ["bookmarkable_type", "bookmarkable_id"], name: "index_bookmarks_on_bookmarkable_type_and_bookmarkable_id"
     t.index ["profile_id"], name: "index_bookmarks_on_profile_id"
-    t.index ["restaurant_id"], name: "index_bookmarks_on_restaurant_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -132,8 +134,6 @@ ActiveRecord::Schema.define(version: 2020_03_05_121048) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "bookmarks", "profiles"
-  add_foreign_key "bookmarks", "restaurants"
   add_foreign_key "reviews", "profiles"
   add_foreign_key "reviews", "restaurants"
   add_foreign_key "user_followers", "users", column: "follower_id"

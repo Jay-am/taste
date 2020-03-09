@@ -1,0 +1,144 @@
+.colors {
+  position: absolute;
+  top: 0;
+  width: 100px;
+  height: 100px;
+  background: white;
+}
+
+// .a {
+//   background: #eee;
+// }
+// .b {
+//   top: 100px;
+//   background: #ccc;
+// }
+// .c {
+//   top: 200px;
+//   background: #999;
+// }
+// .d {
+//   top: 300px;
+//   background: #666;
+// }
+// .e {
+//   top: 400px;
+//   background: #333;
+// }
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 200px;
+  background: transparent;
+  margin-bottom: 10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type="range"]:focus {
+  outline: none;
+}
+
+input[type="range"]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: -8px;
+  background: white;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+        6px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+input[type="range"]:focus::-webkit-slider-thumb:hover {
+  background: #333;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 1px;
+  cursor: pointer;
+  background: #eee;
+  border-radius: 1.3px;
+}
+
+input[type="range"]:focus::-webkit-slider-runnable-track {
+  background: #eee;
+}
+
+
+
+/* -- slider black --*/
+
+// .v-range-slider {
+//   display: flex;
+//   align-items: center;
+//   padding: 2px 11px;
+// }
+// .v-range-slider input[type=range] {
+//   -webkit-appearance: none;
+//   flex: 1;
+//   display: block;
+//   overflow: hidden;
+//   margin: 5px 0 10px -5px;
+//   padding: 8px 1px 8px;
+//   box-sizing: border-box;
+//   outline: none;
+//   background: none;
+//   border: none;
+//   -webkit-tap-highlight-color: transparent;
+// }
+// .v-range-slider input::-webkit-slider-runnable-track {
+//   position: relative;
+//   height: 2px;
+//   background: black;
+//   border: none;
+//   border-radius: 3px;
+// }
+// .v-range-slider input::-webkit-slider-thumb {
+//   -webkit-appearance: none;
+//   position: relative;
+//   margin-top: -7px;
+//   cursor: pointer;
+//   width: 15px;
+//   height: 15px;
+//   border: 0;
+//   border-radius: 50%;
+//   background: black;
+//   box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+// }
+// .v-range-slider input::-webkit-slider-thumb:before {
+//   position: absolute;
+//   display: inline-block;
+//   content: '';
+//   top: 7px;
+//   left: -2001px;
+//   width: 2000px;
+//   height: 2px;
+// }
+
+// <p>Distance Slider black</p>
+//  <div class="v-range-slider">
+//  <input type="range" min="0" v-model="imgOpacity" max="100" step="0.1" name="distance">
+// </div>
+

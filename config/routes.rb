@@ -17,4 +17,16 @@ Rails.application.routes.draw do
   resources :restaurants do
     resources :reviews, only: [:new, :create]
   end
+
+
+ # Is that correct?
+
+  resources :restaurants do
+    resources :bookmarks, only: [:show, :new, :create, :destroy]
+  end
+
+  resources :reviews do
+    resources :bookmarks, only: [:show, :new, :create, :destroy]
+  end
+
 end

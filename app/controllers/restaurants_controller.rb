@@ -24,6 +24,7 @@ def show
   def index
     @restaurants = Restaurant.all
 
+
     # @restaurants = @restaurants.by_style(params[:styles])
     # @restaurants = @restaurants.by_cuisine(params[:cuisines])
     # @restaurants = @restaurants.by_dish(params[:dishes])
@@ -42,10 +43,20 @@ def show
     # @restaurants = @restaurants.by_located(params[:located])
     # @restaurants = @restaurants.by_payment(params[:payments])
 
-  end
+    if params[:filters]
+      if params[:filter_type] && params[:filter_type] == 'broad'
+        # otherwise, do this
+        params[:filters][0].keys.each do |key|
+          @restaurants = @restaurants.send("with_#{key}", params[:filters][0][key])
+        end
+      else
+        # if user did not tick broad filter checkbox, then do this
+        params[:filters][0].keys.each do |key|
+          @restaurants = @restaurants.send("by_#{key}", params[:filters][0][key])
+        end
+      end
+    end
 
-  def filter_result
-    payment_filter = params.dig('payment', 'payment_names')
-  end
 
+  end
 end
