@@ -22,6 +22,7 @@
              collection: OCCASSIONS, input_html: {multiple: :true}, item_wrapper_class: 'custom-checkbox' %>
           </div> -->
           <%= f.input :description %>
+          <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           <%= f.submit "Add Review", class: "btn btn-dark" %>
         <% end %>
 
