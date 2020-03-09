@@ -6,11 +6,11 @@ import { initStarRating } from '../plugins/init_star_rating';
 import { toggleCheckboxState } from '../plugins/checkboxes';
 import { initMapNavBtn } from '../navbar/map_btn';
 
+
 initMapNavBtn();
 initMapbox();
 initStarRating();
 toggleCheckboxState();
-
 
 
 // $(document).ready(function(){

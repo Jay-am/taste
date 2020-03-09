@@ -1,17 +1,22 @@
 class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:filter, :index]
 
+  def saved
+    @bookmarks = @restaurant.bookmarks
+  end
 
-def show
-  @restaurant = Restaurant.find(params[:id])
-  @reviews = @restaurant.reviews
+  def show
+    @restaurant = Restaurant.find(params[:id])
+    @reviews = @restaurant.reviews
 
-  @coordinates = @restaurant.geocode #returns restaurant with coordinates
+    @coordinates = @restaurant.geocode #returns restaurant with coordinates
 
-  @markers = [{
-    lat: @coordinates.first,
-    lng: @coordinates.last
-  }]
+
+    @markers = {
+     lat: @coordinates.first,
+      lng: @coordinates.last
+    }
+
   end
 
   def map
@@ -28,8 +33,9 @@ def show
     end
   end
 
-  def filter
+  def filter_result
   end
+
 
   def index
     @restaurants = Restaurant.all
