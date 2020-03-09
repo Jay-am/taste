@@ -407,13 +407,13 @@ ALL_FILTERS = {
     'input_name': 'filters[]open_hours[]'
   },
 
-  DISTANCE: {
-    'filters': DISTANCE,
-    'label': 'Distance',
-    'header_id': 'distance-heading',
-    'content_id': 'distance-filter',
-    'input_name': 'filters[]distance[]'
-  },
+  # DISTANCE: {
+  #   'filters': DISTANCE,
+  #   'label': 'Distance',
+  #   'header_id': 'distance-heading',
+  #   'content_id': 'distance-filter',
+  #   'input_name': 'filters[]distance[]'
+  # },
 
  LOCATED: {
     'filters': LOCATED,

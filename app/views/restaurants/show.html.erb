@@ -31,9 +31,7 @@
               <p>
                 <i class="fas fa-star" type="icon" data-toggle="collapse" data-target="#collapseReviews" aria-expanded="false" aria-controls="collapseReviews"><small class="icon-text">Reviews</small></i>
                 <i class="far fa-clock" type="icon" data-toggle="collapse" data-target="#collapseClock" aria-expanded="false" aria-controls="collapseClock"><small class="icon-text">Open</small></i>
-                <i class="fas fa-map-marked-alt" type="icon" data-toggle="collapse" data-target="#collapseMap" aria-expanded="false" aria-controls="collapseMap">
-                <small class="icon-text">Map</small>
-                </i>
+                <i class="fas fa-map-marked-alt" type="icon" data-toggle="collapse" data-target="#collapseMap" aria-expanded="false" aria-controls="collapseMap"><small class="icon-text">Map</small></i>
               </p>
             </div>
             <div class="collapse" id="collapseMap">
@@ -47,6 +45,7 @@
                 ></div>
               </div>
             </div>
+
             <div class="collapse" id="collapseReviews">
               <div class="card card-body" style="padding: 0 0;height: 300px;overflow-y: scroll;">
                 <div><% @reviews.each do |review| %>
@@ -61,6 +60,7 @@
                 </div>
               </div>
             </div>
+
             <div class="collapse" id="collapseClock">
               <div class="card card-body" style="padding: 0 0;">
                 <div>

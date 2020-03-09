@@ -45,16 +45,21 @@ const buildMap = () => {
   });
 };
 
-const addMarkersToMap = (map, marker) => {
-  new mapboxgl.Marker()
-      .setLngLat([ marker.lng, marker.lat ])
-      .addTo(map);
+const addMarkersToMap = (map, markers) => {
+  markers.forEach(marker => {
+    const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+
+    new mapboxgl.Marker()
+        .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
+        .addTo(map);
+  });
 };
 
-const fitMapToMarkers = (map, marker) => {
+const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
-  bounds.extend([marker.lng, marker.lat])
-  // markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+  // bounds.extend([marker.lng, marker.lat])
+  markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
   map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
 };
 

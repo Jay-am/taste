@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_09_090640) do
+ActiveRecord::Schema.define(version: 2020_03_09_114951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 2020_03_09_090640) do
     t.string "location", array: true
     t.string "languages", array: true
     t.string "open_hours", array: true
-    t.string "distance", array: true
     t.string "located", array: true
     t.string "payments", array: true
     t.boolean "marked", default: false

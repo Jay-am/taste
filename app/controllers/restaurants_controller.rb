@@ -1,28 +1,42 @@
 class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:filter, :index]
 
+  def saved
+    @bookmarks = @restaurant.bookmarks
+  end
 
-def show
-  @restaurant = Restaurant.find(params[:id])
-  @reviews = @restaurant.reviews
+  def show
+    @restaurant = Restaurant.find(params[:id])
+    @reviews = @restaurant.reviews
 
-  @coordinates = @restaurant.geocode #returns restaurant with coordinates
+    @coordinates = @restaurant.geocode #returns restaurant with coordinates
 
-  @markers = {
-    lat: @coordinates.first,
-    lng: @coordinates.last
-  }
+
+    @markers = {
+     lat: @coordinates.first,
+      lng: @coordinates.last
+    }
+
   end
 
   def map
-    @markers = { lat: params[:lat], lng: params[:lng] }
-  end
-
-  def filter
+    @markers = []
+    # @markers = [{ lat: params[:lat], lng: params[:lng] }]
+    @restaurants = Restaurant.near([params[:lat], params[:lng]], 3)
+    @restaurants.each do |restaurant|
+      @coordinates = restaurant.geocode
+      @markers << {
+        lat: @coordinates.first,
+        lng: @coordinates.last,
+        infoWindow: render_to_string(partial: "info_window", locals: { restaurant: restaurant })
+      }
+    end
   end
 
   def filter_result
   end
+
+
 
   def index
     @restaurants = Restaurant.all

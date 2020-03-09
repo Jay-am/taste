@@ -24,9 +24,9 @@
             <i class="fa fa-user-edit" type="icon" data-toggle="collapse" data-target="#collapseEdit" aria-expanded="false" aria-controls="collapseEdit"><small class="icon-text">Edit</small></i>
           </p>
         </div>
-
         <div class="collapse" id="collapseSaved">
           <div class="card card-body" style="padding: 0 0;">
+
             <% @bookmarks.each do |bookmark| %>
               <div class="row">
                 <div class="col-xs-12 col-md-6 offset-md-3">
@@ -35,11 +35,12 @@
                 </div>
               </div>
             <% end %>
+
           </div>
         </div>
 
         <div class="collapse" id="collapseReview">
-          <div class="card card-body" style="padding: 0 0;height: 300px;overflow-y: scroll;">
+          <div class="card card-body" style="padding: 0 0;height: 350px;overflow-y: scroll;">
             <div class="user-review">
               <% @reviews.each do |review| %>
               <div class="each-review">
@@ -55,28 +56,27 @@
           </div>
         </div>
 
+
+      
         <div class="collapse" id="collapseEdit">
-          <div class="card card-body" style="padding: 0 0;height: 300px;overflow-y: scroll;">
-            <div class="container">
-              <div class="row">
-                <div class="col-xs-12 col-md-6 offset-md-3 bg-white color-white">
-                  <%= simple_form_for @profile do |f| %>
-                    <%= f.input :gender, collection: [ [ "Male", 'Male' ], ['Female', 'Female'], ['Other', 'Other'] ], as: :radio_buttons, class: "gender-form" %>
-                  <%= f.input :age, collection: 15..99 %>
-                  <%= f.input :first_name %>
-                  <%= f.input :last_name %>
-                  <%= f.input :address %>
-                  <%= f.input :photo, as: :file, label: "avatar" %>
-                  <%= f.submit "Update", class: "btn btn-primary" %>
-                  <% end %>
-                </div>
-              </div>
-            </div>
+          <div class="card card-body" style="padding: 0 0;height: 350px;overflow-y: scroll;">
+            <%= simple_form_for @profile do |f| %>
+              <%= f.input :gender, collection: [ [ "Male", 'Male' ], ['Female', 'Female'], ['Other', 'Other'] ], as: :radio_buttons, class: "gender-form" %>
+            <%= f.input :age, collection: 15..99 %>
+            <%= f.input :first_name %>
+            <%= f.input :last_name %>
+            <%= f.input :address %>
+            <%= f.input :photo, as: :file, label: "avatar" %>
+            <%= f.submit "Update", class: "btn btn-primary" %>
+            <% end %>
           </div>
         </div>
       </div>
+     </div>
     </div>
   </div>
+</div>
+</div>
 </div>
 
 
