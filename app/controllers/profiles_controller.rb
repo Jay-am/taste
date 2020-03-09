@@ -1,8 +1,12 @@
 class ProfilesController < ApplicationController
   def show
-    @profile = Profile.find(params[:id])
-    @reviews = @profile.reviews
-    @restaurants = @profile.restaurants
+    # if @profile.restaurants == nil
+    #   @profile = Profile.find(params[:id])
+    # else
+      @profile = Profile.find(params[:id])
+      @reviews = @profile.reviews
+      @restaurants = @profile.restaurants
+
   end
 
   def edit

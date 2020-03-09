@@ -71,7 +71,6 @@ ActiveRecord::Schema.define(version: 2020_03_06_142929) do
     t.string "occasion", array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "marked", default: false
     t.float "latitude"
     t.float "longitude"
     t.string "styles", array: true
@@ -87,6 +86,7 @@ ActiveRecord::Schema.define(version: 2020_03_06_142929) do
     t.string "distance", array: true
     t.string "located", array: true
     t.string "payments", array: true
+    t.boolean "marked", default: false
     t.string "ratings", array: true
     t.index ["cuisine"], name: "index_restaurants_on_cuisine", using: :gin
     t.index ["occasion"], name: "index_restaurants_on_occasion", using: :gin
