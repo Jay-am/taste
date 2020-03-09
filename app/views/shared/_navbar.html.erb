@@ -1,10 +1,16 @@
 <div class="navbar">
-  <%= link_to profile_path(current_user.profile) do %>
-    <li><i class="fas fa-user"></i></li>
-  <% end %>
-<!--   <#%= link_to restaurants_saved_path do %> -->
-    <li><i class="fas fa-heart"></i></li>
-<!--   <#% end %> -->
+  <div class="dropdown">
+    <button class="dropbtn">
+      <i class="fas fa-user"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Home</a>
+<!--  <#%= link_to "Home", root_path, class: "dropdown-content-element" %>
+      <#%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-content-element" %> -->
+    </div>
+  </div>
+
+  <li><i class="fas fa-heart"></i></li>
   <li><i class="fas fa-bookmark"></i></li>
   <li><i class="fas fa-map-marker-alt"></i></li>
   <li><i class="fas fa-trash-alt"></i></li>
@@ -23,3 +29,17 @@
             </div>
           </div>
           <#% end %> -->
+<!--       <#%= link_to profile_path(current_user.profile) do %>
+      <li><i class="fas fa-user dropbtn"></i></li>
+      <#% end %> -->
+
+<div class="dropdown">
+    <button class="dropbtn">Dropdown
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+  </div>
