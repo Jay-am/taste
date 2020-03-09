@@ -1,0 +1,10 @@
+<% @restaurants.each do |restaurant| %>
+  <% if restaurant.marked == true %>
+    <div class="saved-restaurant-items">
+      <%= restaurant.name %>
+  <% else %>
+      <h3>Nothing saved yet.</h3>
+    </div>
+  <% end %>
+  <%= link_to "Review", new_restaurant_review_path(restaurant), class: "btn btn-warning jump-to-review" %>
+<% end %>

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   get '/restaurants/map', to: 'restaurants#map'
+  get '/restaurants/saved', to: 'restaurants#saved'
   get '/restaurants/filter', to: 'restaurants#filter'
   post '/restaurants/filter_result', to: 'restaurants#filter_result'
 
