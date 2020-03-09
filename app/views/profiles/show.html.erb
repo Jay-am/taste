@@ -27,16 +27,19 @@
       <div class="collapse-element1">
         <div class="collapse" id="collapseSaved">
           <div class="card card-body" style="padding: 0 0;">
-            <% @restaurants.each do |restaurant| %>
-              <% if restaurant.marked == true %>
-                <div class="saved-restaurant-items">
-                  <%= restaurant.name %>
-              <% else %>
-                  <h3>Nothing saved yet.</h3>
-                </div>
+<!--             <#% if @profile.restaurants =! nil %>
+            <#% raise %> -->
+              <% @restaurants.each do |restaurant| %>
+                <% if restaurant.marked == true %>
+                  <div class="saved-restaurant-items">
+                    <%= restaurant.name %>
+                <% else %>
+                    <h3>Nothing saved yet.</h3>
+                  </div>
+                <% end %>
+                <%= link_to "Review", new_restaurant_review_path(restaurant), class: "btn btn-warning jump-to-review" %>
               <% end %>
-              <%= link_to "Review", new_restaurant_review_path(restaurant), class: "btn btn-warning jump-to-review" %>
-            <% end %>
+<!--             <#% end %> -->
           </div>
         </div>
       </div>

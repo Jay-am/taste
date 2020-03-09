@@ -18,8 +18,9 @@ def show
     @markers = { lat: params[:lat], lng: params[:lng] }
   end
 
-  def filter
+  def filter_result
   end
+
 
   def index
     @restaurants = Restaurant.all
