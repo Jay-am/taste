@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   def show
     @profile = Profile.find(params[:id])
     @reviews = @profile.reviews
-    @restaurants = @profile.restaurants
+    @bookmarks = @profile.bookmarks.includes(:bookmarkable).where bookmarkable_type: Restaurant.name
   end
 
   def edit

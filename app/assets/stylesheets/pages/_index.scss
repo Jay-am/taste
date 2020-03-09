@@ -1,5 +1,11 @@
 // Import page-specific CSS files here.
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 @import "home";
 @import "filter";
 @import "restaurant_show";
 @import "home_screen";
+
+body {
+background: white;
+}
+

@@ -27,17 +27,11 @@
 
         <div class="collapse" id="collapseSaved">
           <div class="card card-body" style="padding: 0 0;">
-            <% @restaurants.each do |restaurant| %>
+            <% @bookmarks.each do |bookmark| %>
               <div class="row">
                 <div class="col-xs-12 col-md-6 offset-md-3">
-                  <% if restaurant.marked == true %>
-                    <div class="saved-restaurant-items">
-                      <%= restaurant.name %>
-                  <% else %>
-                      <h3>Nothing saved yet.</h3>
-                    </div>
-                  <% end %>
-                  <%= link_to "Review", new_restaurant_review_path(restaurant), class: "btn btn-warning jump-to-review" %>
+                  <%= bookmark.bookmarkable.name %>
+                  <%= link_to "Review", new_restaurant_review_path(bookmark.bookmarkable), class: "btn btn-warning jump-to-review" %>
                 </div>
               </div>
             <% end %>
@@ -81,78 +75,6 @@
           </div>
         </div>
       </div>
-
-
-
-        <!-- <div class="accordion profile-collapse-element" id="accordionExample">
-          <div class="profile-card-element">
-            <div class="card-header" id="headingOne">
-              <h5 class="mb-0">
-                <button class="btn btn-dark collapsed btn-profile" type="button" data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne">
-                  <i class="fas fa-bookmark"></i>
-                </button>
-              </h5>
-            </div>
-
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-              <div class="card-body">
-                <div class="container">
-                  <% @restaurants.each do |restaurant| %>
-                    <div class="row">
-                      <div class="col-xs-12 col-md-6 offset-md-3">
-                        <% if restaurant.marked == true %>
-                          <div class="saved-restaurant-items">
-                              <%= restaurant.name %>
-                            <% else %>
-                              <h3>Nothing saved yet.</h3>
-                          </div>
-                        <% end %>
-                        <%= link_to "Review", new_restaurant_review_path(restaurant), class: "btn btn-warning jump-to-review" %>
-                      </div>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="accordion profile-collapse-element" id="accordionExample">
-          <div class="profile-card-element">
-            <div class="card-header" id="headingTwo">
-                <button class="btn btn-dark collapsed btn-profile" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                  <i class="fas fa-file-alt"></i>
-                </button>
-            </div>
-
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-              <div class="card-body">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-xs-12 col-md-6 offset-md-3">
-                      <div class="user-review">
-                        <% @reviews.each do |review| %>
-                        <div class="each-review">
-                          <div class="restaurant-rating">
-                            <h2><%= review.restaurant.name %></h2>
-                            <h3><i class="fas fa-star user-review-star"></i><%= review.rating %></h3>
-                          </div>
-                            <h3><%= review.description %></h2>
-                            <h4><%= review.created_at %></h4>
-                          </div>
-                          <% end %>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
- -->
-
-
     </div>
   </div>
 </div>
