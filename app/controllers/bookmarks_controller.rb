@@ -1,5 +1,9 @@
 class BookmarksController < ApplicationController
+  def index
+    profile = Profile.find(params[:profile_id])
+    bookmarks = Bookmark.find_by(profile: profile, bookmarkable_type: "Restaurant")
 
+  end
 end
 
 
