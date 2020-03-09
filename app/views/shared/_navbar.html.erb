@@ -1,5 +1,7 @@
 <div class="navbar">
-  <li><i class="fas fa-user"></i></li>
+  <%= link_to profile_path(current_user.profile) do %>
+    <li><i class="fas fa-user"></i></li>
+  <% end %>
   <li><i class="fas fa-heart"></i></li>
   <li><i class="fas fa-bookmark"></i></li>
   <li><i class="fas fa-map-marker-alt"></i></li>
