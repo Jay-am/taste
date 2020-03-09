@@ -5,14 +5,14 @@
 <br>
 
       <%= form_tag restaurants_path, method: 'get' do %>
-
-<!--       <div class="switch-beween">
-        <div class="button-small"> -->
-          <%= check_box_tag 'filter_type', 'detailed', false, type: "checkbox" %>
-          <%= label_tag "Detailed Search" %>
-
-<!--         </div>
-      </div> -->
+        <div class="filter-method">
+        <div class="neu">
+          <%= check_box_tag 'filter_type', 'broad', false, type: "checkbox", class: 'neu-checkbox' %>
+        </div>
+        <div class="neu">
+          <%= check_box_tag 'filter_type', 'detailed', false, type: "checkbox", class: 'neu-checkbox' %>
+        </div>
+        </div>
 
       <div class="accordion" id="filters-accordion">
         <% ALL_FILTERS.each do |filter_key, filter_content| %>
