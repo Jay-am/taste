@@ -21,10 +21,17 @@
     </div>
   </div>
 
-  <li><i class="fas fa-heart"></i></li>
-  <li><i class="fas fa-bookmark"></i></li>
-  <li><i class="fas fa-map-marker-alt"></i></li>
-  <li><i class="fas fa-trash-alt"></i></li>
+  <li class="dropdown-element"><i class="fas fa-heart"></i></li>
+  <li class="dropdown-element"><i class="fas fa-bookmark"></i></li>
+  <%= link_to restaurants_map_path do %>
+    <li class="dropdown-element"><i class="fas fa-map-marker-alt" id="map-nav-btn"></i></li>
+  <% end %>
+  <%= link_to  do %>
+    <li class="dropdown-element"><i class="fas fa-plus"></i></li>
+  <% end %>
+  <%= link_to restaurants_filter_path do %>
+    <li class="dropdown-element"><i class="fas fa-sliders-h"></i></li>
+  <% end %>
 </div>
 
     <!-- <div class="navbar navbar-expand-sm navbar-light navbar-lewagon" > -->

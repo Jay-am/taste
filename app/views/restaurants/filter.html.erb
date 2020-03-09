@@ -2,49 +2,48 @@
   <div class="row">
     <div class="col-xs-12 col-md-8 offset-md-2">
 
-      <div class="switch-beween">
-        <div class="button-xs">
-          <%= button_to "Map", reviews_path, class:"button-xs" %>
-  <!--  <i class="fal fa-map-marked"></i> -->
-          <%= button_to "Filter", reviews_path, class:"button-xs" %>
-   <!--  <i class="fal fa-stream"></i> -->
-        </div>
+<br>
 
-        <div class="button-small">
-          <%= check_box_tag 'filter_type', 'broad', false, type: "checkbox" %>
-          <%= label_tag "Broad Search" %>
-        </div>
-
-      </div>
-
-      <h4>Filter your Search</h4>
       <%= form_tag restaurants_path, method: 'get' do %>
-        <div class="accordion" id="filters-accordion">
-          <% ALL_FILTERS.each do |filter_key, filter_content| %>
-            <div class="card accordion-item">
-              <div class="card-header accordion-title" id="<%= filter_content[:header_id] %>">
-                <h2 class="mb-0" data-toggle="collapse" data-target="#<%= filter_content[:content_id] %>" aria-expanded="true" aria-controls="<%= filter_content[:content_id] %>">
-                  <%= filter_content[:label] %>
-                </h2>
-              </div>
 
-              <div id="<%= filter_content[:content_id] %>" class="collapse" aria-labelledby="<%= filter_content[:header_id] %>" data-parent="#filters-accordion">
-                <div class="card-body accordion-content d-flex flex-wrap justify-content-around justify-content-md-start">
-                  <% filter_content[:filters].each do |filter| %>
-                  <div class="form-group custom-checkbox">
-                    <%= check_box_tag filter_content[:input_name], filter, false, type: "checkbox", id: "Checkbox" %>
-                    <%= label_tag filter %>
-                  </div>
-                  <% end %>
-                </div>
+<!--       <div class="switch-beween">
+        <div class="button-small"> -->
+          <%= check_box_tag 'filter_type', 'detailed', false, type: "checkbox" %>
+          <%= label_tag "Detailed Search" %>
+
+<!--         </div>
+      </div> -->
+
+      <div class="accordion" id="filters-accordion">
+        <% ALL_FILTERS.each do |filter_key, filter_content| %>
+        <div class="card accordion-item">
+          <div class="card-header accordion-title" id="<%= filter_content[:header_id] %>">
+            <h2 class="mb-0" data-toggle="collapse" data-target="#<%= filter_content[:content_id] %>" aria-expanded="true" aria-controls="<%= filter_content[:content_id] %>">
+              <%= filter_content[:label] %>
+            </h2>
+          </div>
+
+          <div id="<%= filter_content[:content_id] %>" class="collapse" aria-labelledby="<%= filter_content[:header_id] %>" data-parent="#filters-accordion">
+            <div class="card-body filter-container accordion-content d-flex flex-wrap justify-content-around justify-content-md-start">
+              <% filter_content[:filters].each_with_index do |filter, index| %>
+              <div class="form-group custom-checkbox <%= 'd-none' if index >= 6 %> ">
+                <%= check_box_tag filter_content[:input_name], filter, false, type: "checkbox", id: "checkbox" %>
+                <%= label_tag filter %>
+              </div>
+              <% end %>
+              <button class='show-more-btn'>show more</button>
               </div>
             </div>
-          <% end %>
         </div>
-        <div class="button">
-          <%= submit_tag "Filter search", class: "button" %>
-        </div>
+        <% end %>
+      </div>
+
+      <div class="button">
+        <%= submit_tag "Filter search", class: "button" %>
+      </div>
+
       <% end %>
+    </div>
 
 <!-- <p>Distance Slider</p>
     <div>
@@ -52,5 +51,4 @@
     </div> -->
 
   </div>
-</div>
 </div>

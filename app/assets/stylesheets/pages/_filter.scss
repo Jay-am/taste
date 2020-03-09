@@ -5,39 +5,41 @@
   border: #666;
 }
 
-.switch-beween {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-// h4 {
-// text-align: center;
+// .switch-beween {
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
 // }
 
 // .card {
 //   border-radius: 16px;
 //   height: 50px;
 //   margin: 5px;
-
 // }
 
-// .card-header {
-//   background: white;
-//   text-align: center;
-//   border-radius: 4px;
-//   margin: 5px;
-// }
+.card-header {
+  background: white;
+  text-align: left;
+  border-radius: 4px;
+  margin: 0px;
+}
 
-// .mb-0 {
-//   font-size: 18px;
-//   font-style: light;
-// }
+.mb-0 {
+  font-size: 18px;
+  font-style: light;
+  margin: 0px;
+}
 
-// .card-body {
+.card-body {
+ padding: 10px 0px 0px 0px;
+}
 
-// }
 
+.show-more-btn {
+  font-size: 10px;
+  font-color: blue;
+  text-align: left;
+}
 
 
 

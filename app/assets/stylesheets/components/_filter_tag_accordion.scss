@@ -1,13 +1,15 @@
 .custom-checkbox {
   input[type=checkbox] {
     display: none;
+    background: white;
+    boarder: #444;
   }
 
   input[type=checkbox] + label {
     display: inline-block;
     position: relative;
     border-radius: 70px;
-    padding: 10px 10px;
+    // padding: 10px 10px;
     width: 9.5em;
     display: flex;
     justify-content: center;
@@ -34,8 +36,8 @@
   }
 
   .checkmark {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     position: absolute;
     top: 4px;
     right: 8px;
@@ -70,9 +72,7 @@
   }
 }
 
-.checkbox {
- background-color: pink;
-}
+
 
 
 

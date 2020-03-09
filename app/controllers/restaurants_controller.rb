@@ -12,10 +12,10 @@ class RestaurantsController < ApplicationController
     @coordinates = @restaurant.geocode #returns restaurant with coordinates
 
 
-    @markers = {
+    @markers = [{
      lat: @coordinates.first,
       lng: @coordinates.last
-    }
+    }]
 
     if current_user
       @is_bookmarked = Bookmark.where(profile: current_user.profile, bookmarkable: @restaurant).exists?
@@ -27,7 +27,7 @@ class RestaurantsController < ApplicationController
   def map
     @markers = []
     # @markers = [{ lat: params[:lat], lng: params[:lng] }]
-    @restaurants = Restaurant.near([params[:lat], params[:lng]], 3)
+    @restaurants = Restaurant.near([params[:lat], params[:lng]], 1)
     @restaurants.each do |restaurant|
       @coordinates = restaurant.geocode
       @markers << {
