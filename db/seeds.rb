@@ -1,3 +1,5 @@
+require 'open-uri'
+require 'json'
 
 puts "Cleaning up data"
 Restaurant.destroy_all
@@ -124,3 +126,23 @@ review2.save!
 review3.save!
 review4.save!
 review5.save!
+
+puts "How many JSON's are you creating? 'All of them'"
+
+url = 'http://open.data.amsterdam.nl/EtenDrinken.json'
+amsterdam = open(url).read
+json = JSON.parse(amsterdam)
+json[1..-1].each do |data| # [1..-1] ignores first dummy element
+  Restaurant.create(
+    name: data['title'],
+    address: data['location']['adress']
+  )
+end
+
+
+
+
+
+
+
+
