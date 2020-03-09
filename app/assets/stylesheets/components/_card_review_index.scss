@@ -1,15 +1,18 @@
+.picture-review-index img {
+  z-index: -1;
+  width: 100%;
+  object-fit: cover;
+  // overflow: hidden;
+  border-radius: 16px 16px 0px 0px;
+}
+
 .card-review-index {
   display: flex;
   flex-direction: column;
+  margin-top: -15px;
   background: white;
-  border-radius: 16px;
+  border-radius: 36px 36px 0px 0px;
   box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
-}
-
-.picture-review-index img {
-  width: 315px;
-  height: 150px;
-  border-radius: 16px 16px 0px 0px;
 }
 
 .info-review-index {
