@@ -24,27 +24,21 @@
             <i class="fa fa-user-edit" type="icon" data-toggle="collapse" data-target="#collapseEdit" aria-expanded="false" aria-controls="collapseEdit"><small class="icon-text">Edit</small></i>
           </p>
         </div>
-      <div class="collapse-element1">
         <div class="collapse" id="collapseSaved">
           <div class="card card-body" style="padding: 0 0;">
-<!--             <#% if @profile.restaurants =! nil %>
-            <#% raise %> -->
-              <% @restaurants.each do |restaurant| %>
-                <% if restaurant.marked == true %>
-                  <div class="saved-restaurant-items">
-                    <%= restaurant.name %>
-                <% else %>
-                    <h3>Nothing saved yet.</h3>
-                  </div>
-                <% end %>
-                <%= link_to "Review", new_restaurant_review_path(restaurant), class: "btn btn-warning jump-to-review" %>
-              <% end %>
-<!--             <#% end %> -->
+
+            <% @bookmarks.each do |bookmark| %>
+              <div class="row">
+                <div class="col-xs-12 col-md-6 offset-md-3">
+                  <%= bookmark.bookmarkable.name %>
+                  <%= link_to "Review", new_restaurant_review_path(bookmark.bookmarkable), class: "btn btn-warning jump-to-review" %>
+                </div>
+              </div>
+            <% end %>
+
           </div>
         </div>
-      </div>
 
-      <div class="collapse-element2">
         <div class="collapse" id="collapseReview">
           <div class="card card-body" style="padding: 0 0;height: 350px;overflow-y: scroll;">
             <div class="user-review">
@@ -61,9 +55,9 @@
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="collapse-element3">
+
+      
         <div class="collapse" id="collapseEdit">
           <div class="card card-body" style="padding: 0 0;height: 350px;overflow-y: scroll;">
             <%= simple_form_for @profile do |f| %>
@@ -78,12 +72,11 @@
           </div>
         </div>
       </div>
-    </div>
-
-
-
+     </div>
     </div>
   </div>
+</div>
+</div>
 </div>
 
 

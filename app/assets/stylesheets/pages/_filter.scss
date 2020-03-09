@@ -1,15 +1,24 @@
-
-
 // ACCORDION
+
+.form-group {
+  background: white;
+  border: #666;
+}
+
+.switch-beween {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
 // h4 {
 // text-align: center;
 // }
 
 // .card {
-//   // border-radius: 16px;
-//   // height: 50px;
-//   // margin: 5px;
+//   border-radius: 16px;
+//   height: 50px;
+//   margin: 5px;
 
 // }
 
@@ -20,19 +29,16 @@
 //   margin: 5px;
 // }
 
-.mb-0 {
-  font-size: 18px;
-  font-style: light;
-}
+// .mb-0 {
+//   font-size: 18px;
+//   font-style: light;
+// }
 
 // .card-body {
 
 // }
 
-.form-group {
-  background: white;
-  border: #666;
-}
+
 
 
 

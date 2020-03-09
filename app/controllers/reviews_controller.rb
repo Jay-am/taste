@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = Review.new
     # if params[:restaurant_id].present?
-    #     @restaurants = Restaurant.basic_search(params[:restaurant_id][:name])
+    #  @restaurants = Restaurant.basic_search(params[:restaurant_id][:name])
     # else
     #  @restaurant = Restaurant.all
     # end
