@@ -1,5 +1,8 @@
 class ReviewsController < ApplicationController
 
+  def index
+  end
+
   def new
     # @profile = Profile.find(params[:id])
     @restaurant = Restaurant.find(params[:restaurant_id])
@@ -36,6 +39,9 @@ class ReviewsController < ApplicationController
   end
 
   def update
+  end
+
+  def show
   end
 
   def review_params
