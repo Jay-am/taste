@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :bookmarks
   end
 
-  get '/restaurants/search', to: 'restaurant#search'
+  get '/restaurants/search', to: 'restaurants#search'
   get '/restaurants/map', to: 'restaurants#map'
   get '/restaurants/saved', to: 'restaurants#saved'
   get '/restaurants/filter', to: 'restaurants#filter'
