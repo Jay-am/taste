@@ -1,0 +1,85 @@
+// Container
+.flex-btn-container {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 10px;
+}
+
+
+// Neu Checkbox Large
+.neu-checkbox-large {
+  position: relative;
+  width: 160px;
+  height: 50px;
+  margin: 0 5px;
+}
+
+.neu-label-large {
+  padding: 0px;
+  position: absolute;
+  width: 120px;
+  top: 50%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+}
+
+input[type="checkbox"].neu-checkbox-large {
+  appearance: none;
+  width: 160px;
+  height: 50px;
+  background: #eeeeee;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2),
+    -5px -5px 10px rgba(255, 255, 255, 1), inset 0 0 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 rgba(255, 255, 255, 0.2);
+  border-radius: 35px;
+  outline: none;
+  cursor: pointer;
+  transition: background 300ms ease-in-out, box-shadow 300ms ease-in-out;
+}
+
+input[type="checkbox"].neu-checkbox-large:checked {
+  background: #eeeeee;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 1),
+    inset 5px 5px 10px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 10px rgba(255, 255, 255, 0.2);
+}
+
+// Neu Checkbox Small
+.neu-checkbox-small {
+  position: relative;
+  width: 160px;
+  height: 40px;
+  margin: 10px 0px;
+}
+
+.neu-label-small {
+  position: absolute;
+  top: 64%;
+  left: 67%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+}
+
+input[type="checkbox"].neu-checkbox-small {
+  appearance: none;
+  width: 160px;
+  height: 30px;
+  background: #eeeeee;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2),
+    -5px -5px 10px rgba(255, 255, 255, 1), inset 0 0 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  outline: none;
+  cursor: pointer;
+  transition: background 300ms ease-in-out, box-shadow 300ms ease-in-out;
+}
+
+input[type="checkbox"].neu-checkbox-small:checked {
+  background: #eeeeee;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 1),
+    inset 5px 5px 10px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 10px rgba(255, 255, 255, 0.2);
+}
