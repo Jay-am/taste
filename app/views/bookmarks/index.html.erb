@@ -1,13 +1,15 @@
 <div class="restaurant-bookmark-container">
   <h2>Saved Restaurant</h2>
-  <div class="saved-restaurant-lists">
+    <div class="saved-restaurant-lists">
     <% @bookmarks.each do |bookmark| %>
       <div class="row">
         <div class="col-xs-12 col-md-6 offset-md-3">
-          <%= link_to restaurant_path(bookmark.bookmarkable.id), class: "jump-to-restaurant-show" do %>
-            <% bookmark.bookmarkable.name %>
-          <% end %>
-          <%= link_to "Review", new_restaurant_review_path(bookmark.bookmarkable), class: "btn btn-indigo jump-to-review-from-bookmark" %>
+          <div class="each-restaurant-list">
+            <%= link_to restaurant_path(bookmark.bookmarkable.id), class: "jump-to-restaurant-show" do %>
+              <% bookmark.bookmarkable.name %>
+            <% end %>
+            <%= link_to "Review", new_restaurant_review_path(bookmark.bookmarkable), class: "btn btn-indigo jump-to-review-from-bookmark" %>
+          </div>
         </div>
       </div>
     <% end %>
