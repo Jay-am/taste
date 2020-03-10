@@ -1,6 +1,6 @@
 <div class="search-container">
   <div class="search-restaurant-background-img" style="background-image: url('/assets/search-bg.png');">
-    <h3>Add new reviews to<br>your favorite restaurants</h3>
+    <h3 id="message-search-restaurant"><strong>Add new reviews to<br>your favorite Restaurants</strong></h3>
     <div class="search-form-restaurant">
       <%= form_tag restaurants_search_path, method: :get do %>
         <%= text_field_tag :query,
@@ -8,13 +8,13 @@
           class: "form-control search-restaurant",
           placeholder: "Search restaurant to add reviews"
         %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <%= submit_tag "Search", class: "btn btn-lg btn-dark", style: "margin-top: 20px;" %>
       <% end %>
     </div>
   </div>
   <div class="search-results">
     <% @restaurants.each do |restaurant| %>
-    <div class="each-restaurant-list">
+    <div class="w-100 each-restaurant-list">
       <%= render "quick_review", restaurant: restaurant %>
     </div>
     <% end %>
