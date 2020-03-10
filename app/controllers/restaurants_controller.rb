@@ -34,8 +34,10 @@ class RestaurantsController < ApplicationController
 
   def map
 
+
     # @markers = [{ lat: params[:lat], lng: params[:lng] }]
     @restaurants = Restaurant.near([params[:lat], params[:lng]], 1)
+
     @markers = @restaurants.map do |restaurant|
       @coordinates = restaurant.geocode
       {
@@ -66,6 +68,7 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
+    # @reviews = @restaurant.reviews
 
     if params[:query].present?
       @restaurants = Restaurant.where("name ILIKE ?", "%#{params[:query]}%")
