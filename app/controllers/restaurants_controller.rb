@@ -24,14 +24,6 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  def search
-    if params[:query].present?
-      @restaurants = Restaurant.where("name ILIKE ?", "%#{params[:query]}%")
-    else
-      @restaurants = Restaurant.all
-    end
-  end
-
   def map
     @markers = []
     # @markers = [{ lat: params[:lat], lng: params[:lng] }]
@@ -66,6 +58,12 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
+
+    if params[:query].present?
+      @restaurants = Restaurant.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @restaurants = Restaurant.all
+    end
 
     if params[:filters]
       if params[:filter_type] && params[:filter_type] == 'broad'
