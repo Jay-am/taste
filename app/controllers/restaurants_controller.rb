@@ -24,6 +24,14 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def search
+    if params[:query].present?
+      @restaurants = Restaurant.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @restaurants = Restaurant.all
+    end
+  end
+
   def map
     @markers = []
     # @markers = [{ lat: params[:lat], lng: params[:lng] }]

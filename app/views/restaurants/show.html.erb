@@ -1,109 +1,91 @@
-<!-- <div class="container">
-  <div class="col-xs-12 col-md-8 offset-md-2"> -->
-
-    <div class="restaurant-show">
-      <div class="background-picture">
-        <%= image_tag 'index_card_photo.jpeg', class: 'restaurant-show-image' %>
-      </div>
-
-      <div class="restaurant-card">
-
-        <% if @is_bookmarked %>
-        <%= link_to restaurant_unbookmark_path(@restaurant), method: :post do %>
-        <i
-        id="saved-restaurant-icon"
-        class="fas fa-bookmark"
-        ></i>
-        <% end %>
-        <% else %>
-        <%= link_to restaurant_bookmark_path(@restaurant), method: :post do %>
-        <i
-        id="saved-restaurant-icon"
-        class="far fa-bookmark"
-        ></i>
-        <% end %>
-        <% end %>
-
-        <h4> <%= @restaurant.name %></h4>
-        <% sum_rating = [] %>
-        <% @reviews.each do |review| %>
-        <% sum_rating << review.rating %>
-        <% end %>
-        <% number = sum_rating.sum / @reviews.count %>
-        <%= number.to_d %><i class="fas fa-star"></i><%= "(#{@reviews.count})" %>
-        <p><small> <%= @restaurant.description %></small></p>
-
-
-
-
-<!--       <div class="flex-btn-container">
-        <div class="neu-checkbox-xs">
-          <%= check_box_tag 'filter_type', 'select', false, type: "checkbox", class: 'neu-checkbox-xs', id: 'icons-restaurant' %>
-          <%= label_tag "icons-restaurant", 'X', class: 'neu-label-large' %>
-        </div>
-        <div class="neu-checkbox-xs">
-          <%= check_box_tag 'filter_type', 'select', false, type: "checkbox", class: 'neu-checkbox-xs', id: 'icons-restaurant' %>
-          <%= label_tag "icons-restaurant", 'X', class: 'neu-label-large' %>
-        </div>
-      </div>
- -->
-
-
-
-        <div class="restaurant-card-icons">
-          <p>
-            <i class="fas fa-star" type="icon" data-toggle="collapse" data-target="#collapseReviews" aria-expanded="false" aria-controls="collapseReviews"><small class="icon-text">Reviews</small></i>
-            <i class="far fa-clock" type="icon" data-toggle="collapse" data-target="#collapseClock" aria-expanded="false" aria-controls="collapseClock"><small class="icon-text">Open</small></i>
-            <i class="fas fa-map-marked-alt" type="icon" data-toggle="collapse" data-target="#collapseMap" aria-expanded="false" aria-controls="collapseMap"><small class="icon-text">Map</small></i>
-          </p>
-        </div>
-        <div class="collapse" id="collapseMap">
-          <div class="card card-body" style="padding: 0 0;">
-            <div
-            id="map"
-            style="width: 100%;
-            height: 300px;"
-            data-markers="<%= @markers.to_json %>"
-            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-            ></div>
-          </div>
+<div class="restaurant-show">
+  <div class="background-picture">
+    <%= image_tag 'index_card_photo.jpeg', class: 'testing' %>
+  </div>
+  <div class="restaurant-card">
+    <div class="container">
+      <div class="col-xs-12 col-md-6 offset-md-3">
+        <div class="show-avatar">
+          <%= image_tag "restaurant.png", class: "avatar-bordered", alt: "avatar-bordered" %>
         </div>
 
-        <div class="collapse" id="collapseReviews">
-          <div class="card card-body" style="padding: 0 0;height: 300px;overflow-y: scroll;">
-            <div><% @reviews.each do |review| %>
-              <%= review.profile.first_name %>
-              <%= review.rating %><i class="fas fa-star"></i>
+          <h4> <%= @restaurant.name %></h4>
+          <% sum_rating = [] %>
+          <% @reviews.each do |review| %>
+          <% sum_rating << review.rating %>
+            <% end %>
+          <% if sum_rating.empty? %>
+            <%= "No rating" %>
+          <% else %>
+            <% number = sum_rating.sum / @reviews.count %>
+            <%= number.to_d %><i class="fas fa-star"></i><%= "(#{@reviews.count})" %>
+          <% end %>
+          <p><small> <%= @restaurant.description %></small></p>
+            <div class="restaurant-card-icons">
+              <p>
+                <% if @is_bookmarked %>
+                  <%= link_to restaurant_unbookmark_path(@restaurant), method: :post do %>
+                  <i
+                    id="saved-restaurant-icon"
+                    class="fas fa-bookmark"
+                  ></i><small class="icon-text">Saved</small>
+                <% end %>
+                <% else %>
+                    <%= link_to restaurant_bookmark_path(@restaurant), method: :post do %>
+                  <i
+                    id="saved-restaurant-icon"
+                    class="far fa-bookmark"
+                  ></i><small class="icon-text">Unsaved</small>
+                <% end %>
+          <% end %>
+                <i class="fas fa-star" type="icon" data-toggle="collapse" data-target="#collapseReviews" aria-expanded="false" aria-controls="collapseReviews"><small class="icon-text">Reviews</small></i>
+                <i class="far fa-clock" type="icon" data-toggle="collapse" data-target="#collapseClock" aria-expanded="false" aria-controls="collapseClock"><small class="icon-text">Open</small></i>
+                <i class="fas fa-map-marked-alt" type="icon" data-toggle="collapse" data-target="#collapseMap" aria-expanded="false" aria-controls="collapseMap"><small class="icon-text">Map</small></i>
+              </p>
             </div>
-            <div>
-              <%= review.description %>
-              <p>--------------------</p>
-              <% end %>
-              @restaurant.opening
+            <div class="collapse" id="collapseMap">
+              <div class="card card-body" style="padding: 0 0;">
+                <div
+                id="map"
+                style="width: 100%;
+                height: 300px;"
+                data-markers="<%= @markers.to_json %>"
+                data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+                ></div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <div class="collapse" id="collapseClock">
-          <div class="card card-body" style="padding: 0 0;">
-            <div>
-              <ul>
-                <li>Mon</li>
-                <li>Tue</li>
-                <li>Wed</li>
-                <li>Thu</li>
-                <li>Fri</li>
-                <li>Sat</li>
-                <li>Sun</li>
-              </ul>
+            <div class="collapse" id="collapseReviews">
+              <div class="card card-body" style="padding: 0 0;height: 300px;overflow-y: scroll;">
+                <div><% @reviews.each do |review| %>
+                  <%= review.profile.first_name %>
+                  <%= review.rating %><i class="fas fa-star"></i>
+                </div>
+                <div>
+                  <%= review.description %>
+                  <p>--------------------</p>
+                  <% end %>
+                  @restaurant.opening
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
+            <div class="collapse" id="collapseClock">
+              <div class="card card-body" style="padding: 0 0;">
+                <div>
+                  <ul>
+                    <li>Mon</li>
+                    <li>Tue</li>
+                    <li>Wed</li>
+                    <li>Thu</li>
+                    <li>Fri</li>
+                    <li>Sat</li>
+                    <li>Sun</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
       </div>
-
     </div>
-
-<!--   </div>
-</div> -->
-
+  </div>
+</div>
