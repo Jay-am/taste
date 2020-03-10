@@ -21,7 +21,7 @@
   position: absolute;
   width: 120px;
   top: 50%;
-  left: 63%;
+  left: 65%;
   transform: translate(-50%, -50%);
   font-size: 14px;
 }
@@ -58,7 +58,7 @@ input[type="checkbox"].neu-checkbox-large:checked {
 .neu-label-small {
   position: absolute;
   top: 64%;
-  left: 67%;
+  left: 47%;
   transform: translate(-50%, -50%);
   font-size: 12px;
 }
@@ -78,6 +78,46 @@ input[type="checkbox"].neu-checkbox-small {
 }
 
 input[type="checkbox"].neu-checkbox-small:checked {
+  background: #eeeeee;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 1),
+    inset 5px 5px 10px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 10px rgba(255, 255, 255, 0.2);
+}
+
+
+// Neu Checkbox Extra Small
+.neu-checkbox-xs {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+}
+
+.neu-label-xs {
+  padding: 0px;
+  position: absolute;
+  width: 30px;
+  top: 50%;
+  left: 63%;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+}
+
+input[type="checkbox"].neu-checkbox-xs {
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  background: #eeeeee;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2),
+    -5px -5px 10px rgba(255, 255, 255, 1), inset 0 0 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 rgba(255, 255, 255, 0.2);
+  border-radius: 35px;
+  outline: none;
+  cursor: pointer;
+  transition: background 300ms ease-in-out, box-shadow 300ms ease-in-out;
+}
+
+input[type="checkbox"].neu-checkbox-xs:checked {
   background: #eeeeee;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 1),
     inset 5px 5px 10px rgba(0, 0, 0, 0.2),
