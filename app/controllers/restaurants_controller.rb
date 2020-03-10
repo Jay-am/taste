@@ -24,6 +24,10 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def search
+
+  end
+
   def map
     @markers = []
     # @markers = [{ lat: params[:lat], lng: params[:lng] }]

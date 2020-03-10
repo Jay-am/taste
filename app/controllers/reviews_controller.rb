@@ -17,8 +17,8 @@ class ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @review.special_features = review_params[:special_features] & SPECIAL_FEATURES
-    @review.occasion = review_params[:occasion] & OCCASSIONS
+    # @review.special_features = review_params[:special_features] & SPECIAL_FEATURES
+    # @review.occasion = review_params[:occasion] & OCCASSIONS
     @review.meal_rating = review_params[:meal_rating]
     @review.service_rating = review_params[:service_rating]
     @review.location_rating = review_params[:location_rating]
@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
     @review.restaurant = @restaurant
 
     if @review.save
-      redirect_to root_path
+      redirect_to profile_path(current_user.profile)
     else
       render :new
     end
