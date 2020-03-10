@@ -24,6 +24,7 @@
     %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
+</div>
   <div class="search-results">
     <% @restaurants.each do |restaurant| %>
     <div class="each-restaurant-list">
@@ -31,7 +32,7 @@
     </div>
     <% end %>
   </div>
-</div>
+
 <!-- <div class="search-form-home-page">
         <form class="search-form" action="action_page.php">
           <input type="text" placeholder="What are you searching for?" name="search">

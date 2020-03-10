@@ -5,6 +5,14 @@ class RestaurantsController < ApplicationController
     @bookmarks = @restaurant.bookmarks
   end
 
+  def search
+    if params[:query].present?
+      @restaurants = Restaurant.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @restaurants = Restaurant.all
+    end
+  end
+
   def show
     @restaurant = Restaurant.find(params[:id])
     @reviews = @restaurant.reviews
@@ -25,12 +33,12 @@ class RestaurantsController < ApplicationController
   end
 
   def map
-    @markers = []
+
     # @markers = [{ lat: params[:lat], lng: params[:lng] }]
     @restaurants = Restaurant.near([params[:lat], params[:lng]], 1)
-    @restaurants.each do |restaurant|
+    @markers = @restaurants.map do |restaurant|
       @coordinates = restaurant.geocode
-      @markers << {
+      {
         lat: @coordinates.first,
         lng: @coordinates.last,
         infoWindow: render_to_string(partial: "info_window", locals: { restaurant: restaurant })

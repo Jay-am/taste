@@ -16,21 +16,3 @@
   </div>
 </div>
 
-
-<div class="search-container">
-  <%= form_tag restaurant_filter_result_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control search-restaurant",
-      placeholder: "Search restaurant to add reviews"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
-  <div class="search-results">
-    <% @restaurants.each do |restaurant| %>
-    <div class="each-restaurant-list">
-      <%= render "quick_review", restaurant: restaurant %>
-    </div>
-    <% end %>
-  </div>
-</div>
