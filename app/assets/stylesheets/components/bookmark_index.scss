@@ -12,15 +12,25 @@ h2 {
 .saved-restaurant-lists{
   text-align: center;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 2fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
   margin-left: 22px;
-  margin-top: 30px;
+  margin-top: 25px;
   grid-gap: 0.8em;
 }
 
-.jump-to-review-from-bookmark {
-  background-color: #FFC700;
+#message-bookmark-restaurant{
+  margin-left: 22px;
+  margin-top: 15px;
 }
+
+// #picture-restaurant-bookmark {
+//   border-radius: 10px 10px 5px 5px;
+//   width: 100%;
+// }
+
+// .jump-to-review-from-bookmark {
+//   background-color: #FFC700;
+// }
 
 .jump-to-restaurant-show {
   color: black;

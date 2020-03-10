@@ -2,11 +2,12 @@
   <div class="restaurant-bookmark-background-img" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('/assets/restaurant-bookmark.png');">
     <h2>Saved Restaurant</h2>
   </div>
+    <h4 id="message-bookmark-restaurant">Your <strong>favorite</strong> restaurants</h4>
     <div class="saved-restaurant-lists">
     <% @bookmarks.each do |bookmark| %>
       <div class="each-saved-restaurant">
         <div class="picture-restaurant-index">
-          <img src="/assets/pizza.jpg" alt="Restaurant">
+          <img src="/assets/save-restaurant.png" alt="Restaurant">
         </div>
         <div class="each-restaurant-list">
           <%= link_to restaurant_path(bookmark.bookmarkable.id), class: "jump-to-restaurant-show" do %>
