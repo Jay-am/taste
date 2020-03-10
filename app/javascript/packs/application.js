@@ -7,7 +7,6 @@ import { toggleCheckboxState } from '../plugins/checkboxes';
 import { initMapNavBtn } from '../navbar/map_btn';
 import { expandFilters } from '../plugins/expandFilters'
 
-
 initStarRating();
 initMapNavBtn();
 initMapbox();

@@ -1,3 +1,59 @@
+<!-- Neomorphism -->
+
+<div class="container neu-filter">
+  <div class="row">
+    <div class="col-xs-12 col-md-8 offset-md-2">
+<br>
+      <%= form_tag restaurants_path, method: 'get' do %>
+      <%# For the label to work the label_tag for='' must be the same as the id='' of the input %>
+      <div class="flex-btn-container">
+        <div class="neu-checkbox-large">
+          <%= check_box_tag 'filter_type', 'broad', false, type: "checkbox", class: 'neu-checkbox-large', id: 'detailed_search' %>
+          <%= label_tag "detailed_search", 'Detailed Search', class: 'neu-label-large' %>
+        </div>
+        <div class="neu-checkbox-large">
+          <%= check_box_tag 'filter_type', 'detailed', false, type: "checkbox", class: 'neu-checkbox-large', id: 'other-btn' %>
+          <%= label_tag "other-btn", 'Broad Search', class: 'neu-label-large' %>
+        </div>
+      </div>
+      <div class="accordion neu-accordion" id="filters-accordion">
+        <% ALL_FILTERS.each do |filter_key, filter_content| %>
+        <div class="card accordion-item neu-accordion-item">
+          <div class="card-header accordion-title neu-card-header" id="<%= filter_content[:header_id] %>">
+            <h2 class="mb-0" data-toggle="collapse" data-target="#<%= filter_content[:content_id] %>" aria-expanded="true" aria-controls="<%= filter_content[:content_id] %>">
+              <%= filter_content[:label] %>
+            </h2>
+          </div>
+          <div id="<%= filter_content[:content_id] %>" class="collapse" aria-labelledby="<%= filter_content[:header_id] %>" data-parent="#filters-accordion">
+            <div class="card-body filter-container accordion-content d-flex flex-wrap justify-content-around justify-content-md-start">
+              <% filter_content[:filters].each_with_index do |filter, index| %>
+              <div class=" <%= 'd-none' if index >= 6 %> ">
+              <div class="neu-checkbox-small">
+                <%= check_box_tag filter_content[:input_name], filter, false, type: "checkbox", id: filter, class: ' neu-checkbox-small' %>
+                <%= label_tag filter, filter,  class: 'neu-label-small'%>
+                </div>
+              </div>
+              <% end %>
+              <button class='show-more-btn'>show more</button>
+              </div>
+            </div>
+        </div>
+        <% end %>
+      </div>
+      <div class="button">
+        <%= submit_tag "Filter search", class: "button" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- OLD CODE -->
+<!--
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8 offset-md-2">
@@ -43,12 +99,12 @@
       </div>
 
       <% end %>
-    </div>
+    </div> -->
 
 <!-- <p>Distance Slider</p>
     <div>
       <input id='slider' max='500' min='0' step='1' type='range' value='0'>
     </div> -->
 
-  </div>
-</div>
+<!--   </div>
+</div> -->

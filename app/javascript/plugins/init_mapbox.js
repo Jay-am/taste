@@ -58,9 +58,20 @@ const addMarkersToMap = (map, markers) => {
 
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
-  // bounds.extend([marker.lng, marker.lat])
-  markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
+
+  if (markers.length) {
+    markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
+    map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
+  } else {
+    const urlParams = new URLSearchParams(window.location.search)
+    const lat = urlParams.get('lat')
+    const lng = urlParams.get('lng')
+
+    if (lat && lng) {
+      bounds.extend([ urlParams.get('lng'), urlParams.get('lat') ])
+      map.fitBounds(bounds, { padding: 70, maxZoom: 15 });
+    }
+  }
 };
 
 const initMapbox = () => {
