@@ -8,8 +8,6 @@ import { initMapNavBtn } from '../navbar/map_btn';
 
 import { expandFilters } from '../plugins/expandFilters'
 
-
-initBookmark();
 initMapNavBtn();
 initMapbox();
 initStarRating();
