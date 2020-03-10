@@ -5,6 +5,12 @@
   margin-top: 50px;
 }
 
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
 .search-restaurant {
   margin-bottom: 20px;
 }

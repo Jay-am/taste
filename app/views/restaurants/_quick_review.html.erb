@@ -1,8 +1,12 @@
 <div class="row">
-  <div class="col-xs-12 col-md-6 offset-md-3">
-    <%= link_to restaurant_path(restaurant), class: "jump-to-restaurant-show" do %>
-      <% restaurant.name %>
-    <% end %>
-    <%= link_to "Review", new_restaurant_review_path(restaurant), class: "btn btn-indigo jump-to-review-from-bookmark" %>
+  <div class="w-100 d-flex">
+      <div class="w-75 d-flex justify-content-start ellipsis">
+        <%= link_to restaurant_path(restaurant), class: "jump-to-restaurant-show" do %>
+          <% restaurant.name %>
+        <% end %>
+      </div>
+      <div class="w-25 d-flex justify-content-end">
+        <%= link_to "Review", new_restaurant_review_path(restaurant), class: "btn btn-indigo jump-to-review-from-bookmark" %>
+      </div>
   </div>
 </div>

@@ -1,39 +1,39 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-8 offset-md-2">
-
-      <div class="filtered-restaurant-index">
-        <p> Here are your tailored results </p>
-      </div>
-
-      <% @restaurants.each do |restaurant| %>
-      <div class="card-restaurant-index">
-        <%= link_to restaurant_path(restaurant.id) do %>
-        <div class="picture-restaurant-index">
-          <img src="/assets/pizza.jpg" alt="Restaurant">
+      <div class="restaurant-index-container">
+        <div class="filtered-restaurant-index">
+          <p> Here are your tailored results </p>
         </div>
 
-        <div class="card-info-restaurant-index">
+        <% @restaurants.each do |restaurant| %>
+        <div class="card-restaurant-index">
+          <%= link_to restaurant_path(restaurant.id) do %>
+          <div class="picture-restaurant-index">
+            <img src="/assets/pizza.jpg" alt="Restaurant">
+          </div>
 
-          <div class="info-restaurant-index">
-         <!--   <p class="restaurant-name">Name</p> -->
-           <p class="restaurant-name-index"><%= restaurant.name %></p>
-           <!-- <p class="restaurant-address">Address</p> -->
-           <p class="restaurant-address-index"> € <%= restaurant.address %></p>
+          <div class="card-info-restaurant-index">
+
+            <div class="info-restaurant-index">
+           <!--   <p class="restaurant-name">Name</p> -->
+             <p class="restaurant-name-index"><%= restaurant.name %></p>
+             <!-- <p class="restaurant-address">Address</p> -->
+             <p class="restaurant-address-index"> € <%= restaurant.address %></p>
+           </div>
+
+           <div class="details-restaurant-index">
+            <!-- <p>Stars</p> -->
+             <p><i class="fas fa-star user-review-star"></i></p>
+             <p><%= restaurant.ratings %></p>
+             <p>Price</p>
+           </div>
+
          </div>
-
-         <div class="details-restaurant-index">
-          <!-- <p>Stars</p> -->
-           <p><i class="fas fa-star user-review-star"></i></p>
-           <p><%= restaurant.ratings %></p>
-           <p>Price</p>
-         </div>
-
+         <% end %>
        </div>
        <% end %>
-     </div>
-     <% end %>
-
+    </div>
    </div>
  </div>
 </div>
