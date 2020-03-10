@@ -5,6 +5,7 @@
       <div class="filtered-restaurant-index">
         <p> Here are your tailored results </p>
       </div>
+
       <% @restaurants.each do |restaurant| %>
       <div class="card-restaurant-index">
         <%= link_to restaurant_path(restaurant.id) do %>
