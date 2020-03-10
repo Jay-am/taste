@@ -8,6 +8,7 @@
 
       <div class="restaurant-card">
 
+        <div class="bookmark-restaurant">
         <% if @is_bookmarked %>
         <%= link_to restaurant_unbookmark_path(@restaurant), method: :post do %>
         <i
@@ -23,8 +24,15 @@
         ></i>
         <% end %>
         <% end %>
+        </div>
 
         <h4> <%= @restaurant.name %></h4>
+
+        <div class="review-restaurant">
+          <p>Food</p>
+          <p>Service</p>
+          <p>Location</p>
+          <p>Prices</p>
         <% sum_rating = [] %>
         <% @reviews.each do |review| %>
         <% sum_rating << review.rating %>
@@ -32,22 +40,25 @@
         <% number = sum_rating.sum / @reviews.count %>
         <%= number.to_d %><i class="fas fa-star"></i><%= "(#{@reviews.count})" %>
         <p><small> <%= @restaurant.description %></small></p>
+        </div>
 
 
 
-
-<!--       <div class="flex-btn-container">
+<div class="flex-btn-container">
         <div class="neu-checkbox-xs">
-          <%= check_box_tag 'filter_type', 'select', false, type: "checkbox", class: 'neu-checkbox-xs', id: 'icons-restaurant' %>
-          <%= label_tag "icons-restaurant", 'X', class: 'neu-label-large' %>
+          <%= check_box_tag 'filter_type', 'select', false, type: "checkbox", class: 'neu-checkbox-xs', id: 'restaurant' %>
+          <%= label_tag "Info", 'X', class: 'neu-label-large' %>
         </div>
         <div class="neu-checkbox-xs">
-          <%= check_box_tag 'filter_type', 'select', false, type: "checkbox", class: 'neu-checkbox-xs', id: 'icons-restaurant' %>
-          <%= label_tag "icons-restaurant", 'X', class: 'neu-label-large' %>
+          <%= check_box_tag 'filter_type', 'select', false, type: "checkbox", class: 'neu-checkbox-xs', id: 'restaurant' %>
+          <%= label_tag "Pics", 'X', class: 'neu-label-large' %>
         </div>
+        <div class="neu-checkbox-xs">
+          <%= check_box_tag 'filter_type', 'select', false, type: "checkbox", class: 'neu-checkbox-xs', id: 'restaurant' %>
+          <%= label_tag "Ratings", 'X', class: 'neu-label-large' %>
+        </div>
+
       </div>
- -->
-
 
 
         <div class="restaurant-card-icons">
