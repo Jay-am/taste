@@ -17,6 +17,7 @@ export const initMapNavBtn = () => {
     // add click event listener to button
     btn.addEventListener('click', (event) => {
     // on click fetch geolocation of current user
+    console.log(event)
       navigator.geolocation.getCurrentPosition(navigateToMapPage, handleError)
   });
   };

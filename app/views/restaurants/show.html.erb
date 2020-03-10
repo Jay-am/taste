@@ -1,120 +1,194 @@
 <!-- <div class="container">
   <div class="col-xs-12 col-md-8 offset-md-2"> -->
+<div class="restaurant-show">
 
-    <div class="restaurant-show">
-      <div class="background-picture">
-        <%= image_tag 'index_card_photo.jpeg', class: 'restaurant-show-image' %>
-      </div>
-
-      <div class="restaurant-card">
-
-        <div class="bookmark-restaurant">
-        <% if @is_bookmarked %>
+  <!-- <div class="container-fluid p-0"> -->
+  <div
+    class="restaurant-hero-picture"
+    style="background-image: url('/assets/index_card_photo.jpeg');"
+  >
+    <div class="position-absolute top-0 left-0 m-2">
+      <% if @is_bookmarked %>
         <%= link_to restaurant_unbookmark_path(@restaurant), method: :post do %>
-        <i
-        id="saved-restaurant-icon"
-        class="fas fa-bookmark"
-        ></i>
+          <i id="saved-restaurant-show-icon" class="fas fa-bookmark"></i>
         <% end %>
-        <% else %>
+      <% else %>
         <%= link_to restaurant_bookmark_path(@restaurant), method: :post do %>
-        <i
-        id="saved-restaurant-icon"
-        class="far fa-bookmark"
-        ></i>
+          <i id="saved-restaurant-show-icon" class="far fa-bookmark"></i>
         <% end %>
-        <% end %>
-        </div>
-
-        <h4> <%= @restaurant.name %></h4>
-
-        <div class="review-restaurant">
-          <p>Food</p>
-          <p>Service</p>
-          <p>Location</p>
-          <p>Prices</p>
-        <% sum_rating = [] %>
-        <% @reviews.each do |review| %>
-        <% sum_rating << review.rating %>
-        <% end %>
-        <% number = sum_rating.sum / @reviews.count %>
-        <%= number.to_d %><i class="fas fa-star"></i><%= "(#{@reviews.count})" %>
-        <p><small> <%= @restaurant.description %></small></p>
-        </div>
-
-
-
-<div class="flex-btn-container">
-        <div class="neu-checkbox-xs">
-          <%= check_box_tag 'filter_type', 'select', false, type: "checkbox", class: 'neu-checkbox-xs', id: 'restaurant' %>
-          <%= label_tag "Info", 'X', class: 'neu-label-large' %>
-        </div>
-        <div class="neu-checkbox-xs">
-          <%= check_box_tag 'filter_type', 'select', false, type: "checkbox", class: 'neu-checkbox-xs', id: 'restaurant' %>
-          <%= label_tag "Pics", 'X', class: 'neu-label-large' %>
-        </div>
-        <div class="neu-checkbox-xs">
-          <%= check_box_tag 'filter_type', 'select', false, type: "checkbox", class: 'neu-checkbox-xs', id: 'restaurant' %>
-          <%= label_tag "Ratings", 'X', class: 'neu-label-large' %>
-        </div>
-
-      </div>
-
-
-        <div class="restaurant-card-icons">
-          <p>
-            <i class="fas fa-star" type="icon" data-toggle="collapse" data-target="#collapseReviews" aria-expanded="false" aria-controls="collapseReviews"><small class="icon-text">Reviews</small></i>
-            <i class="far fa-clock" type="icon" data-toggle="collapse" data-target="#collapseClock" aria-expanded="false" aria-controls="collapseClock"><small class="icon-text">Open</small></i>
-            <i class="fas fa-map-marked-alt" type="icon" data-toggle="collapse" data-target="#collapseMap" aria-expanded="false" aria-controls="collapseMap"><small class="icon-text">Map</small></i>
-          </p>
-        </div>
-        <div class="collapse" id="collapseMap">
-          <div class="card card-body" style="padding: 0 0;">
-            <div
-            id="map"
-            style="width: 100%;
-            height: 300px;"
-            data-markers="<%= @markers.to_json %>"
-            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-            ></div>
-          </div>
-        </div>
-
-        <div class="collapse" id="collapseReviews">
-          <div class="card card-body" style="padding: 0 0;height: 300px;overflow-y: scroll;">
-            <div><% @reviews.each do |review| %>
-              <%= review.profile.first_name %>
-              <%= review.rating %><i class="fas fa-star"></i>
-            </div>
-            <div>
-              <%= review.description %>
-              <p>--------------------</p>
-              <% end %>
-              @restaurant.opening
-            </div>
-          </div>
-        </div>
-
-        <div class="collapse" id="collapseClock">
-          <div class="card card-body" style="padding: 0 0;">
-            <div>
-              <ul>
-                <li>Mon</li>
-                <li>Tue</li>
-                <li>Wed</li>
-                <li>Thu</li>
-                <li>Fri</li>
-                <li>Sat</li>
-                <li>Sun</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
+      <% end %>
     </div>
+  </div>
+
+  <!-- </div> -->
+  <div class="row">
+    <div class="col-12 py-3 text-center">
+      <h4> <%= @restaurant.name %></h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 col-sm-3 text-center">
+      Food
+    </div>
+    <div class="col-6 col-sm-3 text-center">
+      Service
+    </div>
+    <div class="col-6 col-sm-3 text-center">
+      Location
+    </div>
+    <div class="col-6 col-sm-3 text-center">
+      Prices
+    </div>
+  </div>
+
+  <div class="row d-flex justify-content-center">
+    <div class="total-rating-restaurant-show">
+      <%= @restaurant.get_avg_rating %>
+      <i class="fas fa-star px-1"></i>
+      <%= "(#{@reviews.count})" %>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
+      <li class="nav-item">
+        <a
+          class="nav-link active"
+          id="info-tab"
+          data-toggle="pill"
+          href="#info-container"
+          role="tab"
+          aria-controls="info-container"
+          aria-selected="true"
+        >
+          Info
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          id="specials-tab"
+          data-toggle="pill"
+          href="#specials-container"
+          role="tab"
+          aria-controls="specials-container"
+          aria-selected="false"
+        >
+          Specials
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          id="reviews-tab"
+          data-toggle="pill"
+          href="#reviews-container"
+          role="tab"
+          aria-controls="reviews-container"
+          aria-selected="false"
+        >
+          Reviews
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          id="pics-tab"
+          data-toggle="pill"
+          href="#pics-container"
+          role="tab"
+          aria-controls="pics-container"
+          aria-selected="false"
+        >
+          Pics
+        </a>
+      </li>
+    </ul>
+
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="info-container" role="tabpanel" aria-labelledby="info-tab">
+        <div class="container">
+          <div class="row">
+            <%= @restaurant.description %>
+          </div>
+          <div class="row">
+            <strong> Address: </strong>
+          </div>
+          <div class="row">
+            <strong> Phone: </strong>
+          </div>
+          <div class="row">
+            <strong> Website: </strong>
+          </div>
+          <div class="row">
+            <strong> Open: </strong>
+          </div>
+          <div class="row">
+            <ul>
+              <li>Monday</li>
+              <li>Tuesday</li>
+              <li>Wednesday</li>
+              <li>Thursday</li>
+              <li>Friday</li>
+              <li>Saturday</li>
+              <li>Sunday</li>
+              <li>Public Holidays</li>
+            </ul>
+          </div>
+          <div class="row" style="height: 300px">
+            <div
+              id="map"
+              class="card card-body-restaurant-show-map w-100 h-100 mb-5 pb-5"
+              data-markers="<%= @markers.to_json %>"
+              data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+            >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="specials-container" role="tabpanel" aria-labelledby="specials-tab">
+        <ul>
+          <% @restaurant.special_features.each do |special| %>
+            <li> <%= special %> </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="tab-pane fade" id="reviews-container" role="tabpanel" aria-labelledby="reviews-tab">
+        <div class="container">
+          <% @reviews.each do |review| %>
+            <div class="row">
+              <div class="col-12">
+                <%= review.profile.first_name %> -
+                <%= review.rating %>
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="col-12">
+                <%= review.description %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="pics-container" role="tabpanel" aria-labelledby="pics-tab">
+        4
+      </div>
+    </div>
+  </div>
+</div>
 
 <!--   </div>
 </div> -->
+
+
+
+
+
+
+
+
+
+
 
