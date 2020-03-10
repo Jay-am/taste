@@ -1,0 +1,26 @@
+.restaurant-bookmark-container {
+  margin-top: 20px;
+
+h2 {
+    padding-left: 15px;
+    font-size: 30px;
+  }
+}
+
+.saved-restaurant-lists{
+  text-align: center;
+}
+
+.jump-to-review-from-bookmark {
+  border-radius: 10px;
+  background-color: #FFC700;
+}
+
+.jump-to-restaurant-show {
+  color: black;
+}
+
+a.jump-to-restaurant-show:hover {
+  color: blue !important;
+  text-decoration: none;
+}

@@ -9,22 +9,6 @@
           <%= image_tag "restaurant.png", class: "avatar-bordered", alt: "avatar-bordered" %>
         </div>
 
-          <% if @is_bookmarked %>
-            <%= link_to restaurant_unbookmark_path(@restaurant), method: :post do %>
-               <i
-                  id="saved-restaurant-icon"
-                  class="fas fa-bookmark"
-                ></i>
-            <% end %>
-          <% else %>
-            <%= link_to restaurant_bookmark_path(@restaurant), method: :post do %>
-               <i
-                  id="saved-restaurant-icon"
-                  class="far fa-bookmark"
-                ></i>
-            <% end %>
-          <% end %>
-
           <h4> <%= @restaurant.name %></h4>
           <% sum_rating = [] %>
           <% @reviews.each do |review| %>
@@ -35,6 +19,21 @@
           <p><small> <%= @restaurant.description %></small></p>
             <div class="restaurant-card-icons">
               <p>
+                <% if @is_bookmarked %>
+                  <%= link_to restaurant_unbookmark_path(@restaurant), method: :post do %>
+                  <i
+                    id="saved-restaurant-icon"
+                    class="fas fa-bookmark"
+                  ></i><small class="icon-text">Saved</small>
+                <% end %>
+                <% else %>
+                    <%= link_to restaurant_bookmark_path(@restaurant), method: :post do %>
+                  <i
+                    id="saved-restaurant-icon"
+                    class="far fa-bookmark"
+                  ></i><small class="icon-text">Unsaved</small>
+                <% end %>
+          <% end %>
                 <i class="fas fa-star" type="icon" data-toggle="collapse" data-target="#collapseReviews" aria-expanded="false" aria-controls="collapseReviews"><small class="icon-text">Reviews</small></i>
                 <i class="far fa-clock" type="icon" data-toggle="collapse" data-target="#collapseClock" aria-expanded="false" aria-controls="collapseClock"><small class="icon-text">Open</small></i>
                 <i class="fas fa-map-marked-alt" type="icon" data-toggle="collapse" data-target="#collapseMap" aria-expanded="false" aria-controls="collapseMap"><small class="icon-text">Map</small></i>
