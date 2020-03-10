@@ -44,6 +44,25 @@ class ReviewsController < ApplicationController
   def show
   end
 
+  def bookmark
+    review = Review.find(params[:review_id])
+    bookmark = Bookmark.find_by(profile: current_user.profile, bookmarkable: review)
+    if bookmark.nil?
+      Bookmark.create profile: current_user.profile, bookmarkable: review
+    end
+    redirect_to restaurant_path(restaurant)
+  end
+
+  def unbookmark
+    review = Review.find(params[:review_id])
+    bookmark = Bookmark.find_by(profile: current_user.profile, bookmarkable: review)
+    if !bookmark.nil?
+      bookmark.destroy
+    end
+    redirect_to restaurant_path(restaurant)
+  end
+
+
   def review_params
     params.require(:review).permit(:restaurant_id, :profile_id, :description, :rating, :meal_rating, :service_rating, :location_rating, :local, special_features: [], occasion: [])
   end

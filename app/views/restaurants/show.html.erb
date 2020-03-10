@@ -58,6 +58,22 @@
             <div class="collapse" id="collapseReviews">
               <div class="card card-body" style="padding: 0 0;height: 300px;overflow-y: scroll;">
                 <div><% @reviews.each do |review| %>
+                   <!--<#% if @is_review_bookmarked %>
+                    <#%= link_to restaurant_review_unbookmark_path(@restaurant), method: :post do %>
+                    <i
+                      id="saved-review-icon"
+                      class="far fa-heart"
+                    ></i><small class="icon-text">Unsaved</small>
+                    <#% end %>
+                  <#% else %>
+                    <#%= link_to restaurant_review_bookmark_path(@restaurant), method: :post do %>
+                    <i
+                      id="saved-review-icon"
+                      class="fas fa-heart"
+                    ></i><small class="icon-text">Saved</small>
+                  <#% end %>
+                  <#% end %> -->
+
                   <%= review.profile.first_name %>
                   <%= review.rating %><i class="fas fa-star"></i>
                 </div>
