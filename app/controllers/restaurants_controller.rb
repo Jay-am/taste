@@ -5,6 +5,14 @@ class RestaurantsController < ApplicationController
     @bookmarks = @restaurant.bookmarks
   end
 
+  def search
+    if params[:query].present?
+      @restaurants = Restaurant.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @restaurants = Restaurant.all
+    end
+  end
+
   def show
     @restaurant = Restaurant.find(params[:id])
     @reviews = @restaurant.reviews
@@ -24,15 +32,9 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  def search
-    if params[:query].present?
-      @restaurants = Restaurant.where("name ILIKE ?", "%#{params[:query]}%")
-    else
-      @restaurants = Restaurant.all
-    end
-  end
-
   def map
+
+
     # @markers = [{ lat: params[:lat], lng: params[:lng] }]
     @restaurants = Restaurant.near([params[:lat], params[:lng]], 1)
 
@@ -67,6 +69,12 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
     # @reviews = @restaurant.reviews
+
+    if params[:query].present?
+      @restaurants = Restaurant.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @restaurants = Restaurant.all
+    end
 
     if params[:filters]
       if params[:filter_type] && params[:filter_type] == 'broad'
