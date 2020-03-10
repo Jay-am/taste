@@ -1,42 +1,94 @@
-.restaurant-show-image {
-  width: 100%;
-  object-fit: cover;
-  border-radius: 0%;
-  justify-content: center;
+.restaurant-hero-picture {
+  height: 250px;
+  background-size: cover;
 }
 
-.restaurant-card {
-  padding-top: 40px;
-  padding-bottom: 24px;
-  border-radius: 10px;
-  width: 100%;
-  margin: 0 20px;
-  position: absolute;
-  top: 240px;
-  text-align: center;
-  box-shadow: 3px -2px 9px 0px rgba(0, 0, 0, 0.1);
-  background-color: white;
-}
 
-.restaurant-card-icons {
-  display: flex;
-  justify-content: space-around;
-  width: max-content;
-}
 
-.icon-text {
-  padding-left: 8px;
-  padding-right: 16px;
-}
+// .restaurant-show-image {
+//   width: 100%;
+//   object-fit: cover;
+//   border-radius: 0%;
+//   justify-content: center;
+// }
 
-.restaurant-card-icons i {
+// .restaurant-show-card {
+//   padding-top: 20px;
+//   padding-bottom: 24px;
+//   border-radius: 10px;
+//   width: 100%;
+//   margin: 0px;
+//   position: absolute;
+//   top: 240px;
+//   text-align: center;
+//   box-shadow: 3px -2px 9px 0px rgba(0, 0, 0, 0.1);
+//   background-color: white;
+// }
 
-}
+// .restaurant-show-card-header {
 
-.card-body li {
-  list-style: none;
-}
+// }
 
+// .restaurant-show-card h4 {
+//   margin-bottom: 10px;
+//   font-size: 20px;
+//   font-weight: bold;
+// }
+
+// .restaurant-show-card p {
+//   font-size: 12px;
+//   padding: 0px;
+//   margin: 0px;
+// }
+
+// .restaurant-show-card-icons {
+//   display: flex;
+//   justify-content: space-around;
+//   width: max-content;
+// }
+
+// .icon-text {
+//   padding-left: 8px;
+//   padding-right: 16px;
+// }
+
+// .restaurant-show-card-icons i {
+
+// }
+
+// .card-body-restaurant-show li {
+//   list-style: none;
+// }
+
+// .card-body-restaurant-show ul {
+//   margin: 0px;
+//   padding: 0px;
+// }
+
+// .restaurant-info-restaurant-show p {
+//   font-size: 12px;
+// }
+
+// .rated-by-restaurant-show {
+
+// }
+
+// .card-body-restaurant-show-review {
+
+// }
+
+// .card-body-restaurant-show-map {
+
+// }
+
+// .card-body-restaurant-show-open {
+
+// }
+
+// .total-rating-restaurant-show {
+//   padding-top: 10px;
+//   font-size: 14px;
+// }
 
 // .restaurant-banner {
 //   object

@@ -1,6 +1,6 @@
 // Container
 .flex-btn-container {
-  height: 100px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,6 +87,45 @@ input[type="checkbox"].neu-checkbox-small:checked {
     inset 5px 5px 10px rgba(0, 0, 0, 0.2),
     inset -5px -5px 10px rgba(255, 255, 255, 0.2);
 }
+
+
+// Neu Checkbox SM
+.neu-checkbox-sm {
+  position: relative;
+  width: 70px;
+  height: 40px;
+  margin: 10px 0px;
+}
+
+.neu-label-sm {
+  position: absolute;
+  top: 64%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+}
+
+input[type="checkbox"].neu-checkbox-sm {
+  appearance: none;
+  width: 70px;
+  height: 30px;
+  background: #eeeeee;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2),
+    -5px -5px 10px rgba(255, 255, 255, 1), inset 0 0 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  outline: none;
+  cursor: pointer;
+  transition: background 300ms ease-in-out, box-shadow 300ms ease-in-out;
+}
+
+input[type="checkbox"].neu-checkbox-sm:checked {
+  background: #eeeeee;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 1),
+    inset 5px 5px 10px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 10px rgba(255, 255, 255, 0.2);
+}
+
 
 
 // Neu Checkbox Extra Small

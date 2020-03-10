@@ -33,12 +33,12 @@ class RestaurantsController < ApplicationController
   end
 
   def map
-    @markers = []
     # @markers = [{ lat: params[:lat], lng: params[:lng] }]
     @restaurants = Restaurant.near([params[:lat], params[:lng]], 1)
-    @restaurants.each do |restaurant|
+
+    @markers = @restaurants.map do |restaurant|
       @coordinates = restaurant.geocode
-      @markers << {
+      {
         lat: @coordinates.first,
         lng: @coordinates.last,
         infoWindow: render_to_string(partial: "info_window", locals: { restaurant: restaurant })
@@ -66,6 +66,7 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
+    # @reviews = @restaurant.reviews
 
     if params[:filters]
       if params[:filter_type] && params[:filter_type] == 'broad'
