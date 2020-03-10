@@ -14,8 +14,12 @@
           <% @reviews.each do |review| %>
           <% sum_rating << review.rating %>
             <% end %>
-          <% number = sum_rating.sum / @reviews.count %>
-          <%= number.to_d %><i class="fas fa-star"></i><%= "(#{@reviews.count})" %>
+          <% if sum_rating.empty? %>
+            <%= "No rating" %>
+          <% else %>
+            <% number = sum_rating.sum / @reviews.count %>
+            <%= number.to_d %><i class="fas fa-star"></i><%= "(#{@reviews.count})" %>
+          <% end %>
           <p><small> <%= @restaurant.description %></small></p>
             <div class="restaurant-card-icons">
               <p>

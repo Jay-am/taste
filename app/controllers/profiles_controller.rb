@@ -9,7 +9,6 @@ class ProfilesController < ApplicationController
 
   end
 
-
   def edit
     @profile = Profile.find(params[:id])
     require_owner!(@profile)

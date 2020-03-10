@@ -17,21 +17,22 @@
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
       <%= link_to "Home", root_path, class: "dropdown-item" %>
+
       <%= link_to "Profile", profile_path(current_user.profile), class: "dropdown-item" %>
       <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
     </div>
   </div>
 
   <li class="dropdown-element"><i class="fas fa-heart"></i></li>
-  <%= link_to profile_bookmarks_path(current_user.profile) do %>
+   <%= link_to profile_bookmarks_path(current_user.profile) do %>
     <li class="dropdown-element"><i class="fas fa-bookmark"></i></li>
   <% end %>
-  <%= link_to restaurants_map_path do %>
+
     <li class="dropdown-element"><i class="fas fa-map-marker-alt" id="map-nav-btn"></i></li>
-  <% end %>
 
+  <%= link_to restaurants_search_path do %>
     <li class="dropdown-element"><i class="fas fa-plus"></i></li>
-
+  <% end %>
   <%= link_to restaurants_filter_path do %>
     <li class="dropdown-element"><i class="fas fa-sliders-h"></i></li>
   <% end %>
