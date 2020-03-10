@@ -20,6 +20,7 @@ h2 {
   color: black;
 }
 
-.jump-to-restaurant-show:hover {
-  color: red;
+a.jump-to-restaurant-show:hover {
+  color: blue !important;
+  text-decoration: none;
 }
