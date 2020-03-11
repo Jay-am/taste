@@ -31,10 +31,8 @@
 </head>
 
 <body>
-
-  <% if controller_name != 'pages' && action_name != 'home' %>
+  <%= render 'shared/navbar_top' %>
     <%= render 'shared/navbar' %>
-  <% end %>
   <%= render 'shared/flashes' %>
 
 
