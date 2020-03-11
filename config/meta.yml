@@ -1,0 +1,7 @@
+# config/meta.yml
+
+meta_product_name: "Taste"
+meta_title: "Taste - Find And Remember Your Favorite Places"
+meta_description: "Taste will not only save you loads of time researching for the best restaurants out there, tailored to your very specific needs but most of all meaning you’ll never be disappointed with a restaurant choice ever again."
+meta_image: "profile-background-og.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
