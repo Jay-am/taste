@@ -10,7 +10,7 @@
           <img src="/assets/save-restaurant.png" alt="Restaurant">
         </div>
         <div class="each-restaurant-list">
-          <%= link_to restaurant_path(bookmark.bookmarkable.id), class: "jump-to-restaurant-show" do %>
+          <%= link_to restaurant_path(bookmark.bookmarkable.id), id: "restaurant-name-for-bookmark" do %>
             <% bookmark.bookmarkable.name %>
           <% end %>
         </div>
