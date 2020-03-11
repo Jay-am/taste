@@ -14,7 +14,15 @@
 
 .search-results {
   margin-top: 30px;
-  margin: 0 30px;
+  padding: 0 30px;
+  transition: transform 220ms ease-in;
+  background-color: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+  padding-top: 10px;
+}
+
+.search-results.animate{
+  transform: translateY(calc(-100vh + 32px));
 }
 
 .search-restaurant-background-img {

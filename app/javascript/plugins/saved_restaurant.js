@@ -1,4 +1,3 @@
-
 export const initBookmark = () => {
 
   const savedElement = document.getElementById('saved-restaurant-icon');
