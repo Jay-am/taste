@@ -6,10 +6,9 @@ class RestaurantsController < ApplicationController
   end
 
   def search
+    @restaurants = []
     if params[:query].present?
       @restaurants = Restaurant.where("name ILIKE ?", "%#{params[:query]}%")
-    else
-      @restaurants = Restaurant.all
     end
   end
 
