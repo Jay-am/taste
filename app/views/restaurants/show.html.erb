@@ -22,36 +22,81 @@
 
   <!-- </div> -->
   <div class="row">
-    <div class="col-12 py-3 text-center">
+    <div class="col-12 pt-3 center-rating-group">
       <h4> <%= @restaurant.name %></h4>
     </div>
   </div>
-  <div class="row">
-    <div class="col-6 col-sm-3 text-center">
-      Food
-    </div>
-    <div class="col-6 col-sm-3 text-center">
-      Service
-    </div>
-    <div class="col-6 col-sm-3 text-center">
-      Location
-    </div>
-    <div class="col-6 col-sm-3 text-center">
-      Prices
-    </div>
-  </div>
 
-  <div class="row d-flex justify-content-center">
+  <div class="row d-flex justify-content-center pb-2">
     <div class="total-rating-restaurant-show">
-      <%= @restaurant.get_avg_rating %>
-      <i class="fas fa-star px-1"></i>
+
+      <% @restaurant.get_avg_rating.to_i.times do %>
+        <i class="fas fa-star px-1 yellow"></i>
+      <% end %>
+
+      <% (5 - @restaurant.get_avg_rating.to_i).times do %>
+        <i class="fas fa-star px-1 gray"></i>
+      <% end %>
+
       <%= "(#{@reviews.count})" %>
     </div>
   </div>
 
-  <div class="container mt-5">
+  <div class="row">
+    <div class="col-6 col-sm-3 py-2 center-rating-group rating-align-left">
+    <div class="rating-title">
+      Food
+    </div>
+      <div class="ratings-container">
+        <i class="fas fa-star px-1 yellow"></i>
+        <i class="fas fa-star px-1 yellow"></i>
+        <i class="fas fa-star px-1 yellow"></i>
+        <i class="fas fa-star px-1 yellow"></i>
+        <i class="fas fa-star px-1 gray"></i>
+      </div>
+    </div>
+    <div class="col-6 col-sm-3 py-2 center-rating-group rating-align-right">
+    <div class="rating-title">
+      Service
+    </div>
+      <div class="ratings-container">
+        <i class="fas fa-star px-1 yellow"></i>
+        <i class="fas fa-star px-1 yellow"></i>
+        <i class="fas fa-star px-1 yellow"></i>
+        <i class="fas fa-star px-1 yellow"></i>
+        <i class="fas fa-star px-1 gray"></i>
+      </div>
+    </div>
+    <div class="col-6 col-sm-3 py-2 center-rating-group rating-align-left">
+    <div class="rating-title">
+      Location
+    </div>
+      <div class="ratings-container">
+        <i class="fas fa-star px-1 yellow"></i>
+        <i class="fas fa-star px-1 yellow"></i>
+        <i class="fas fa-star px-1 yellow"></i>
+        <i class="fas fa-star px-1 yellow"></i>
+        <i class="fas fa-star px-1 gray"></i>
+      </div>
+    </div>
+    <div class="col-6 col-sm-3 py-2 center-rating-group rating-align-right">
+    <div class="rating-title">
+      Prices
+    </div>
+            <div class="ratings-container">
+        <i class="fas fa-star px-1 yellow"></i>
+        <i class="fas fa-star px-1 yellow"></i>
+        <i class="fas fa-star px-1 yellow"></i>
+        <i class="fas fa-star px-1 yellow"></i>
+        <i class="fas fa-star px-1 gray"></i>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="mt-5">
     <ul class="nav nav-pills mb-3 justify-content-center" id="pills-tab" role="tablist">
-      <li class="nav-item">
+      <li class="nav-item neu-tab-btn">
         <a
           class="nav-link active"
           id="info-tab"
@@ -65,7 +110,7 @@
         </a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item neu-tab-btn">
         <a
           class="nav-link"
           id="specials-tab"
@@ -79,7 +124,7 @@
         </a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item neu-tab-btn">
         <a
           class="nav-link"
           id="reviews-tab"
@@ -93,7 +138,7 @@
         </a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item neu-tab-btn">
         <a
           class="nav-link"
           id="pics-tab"
@@ -111,32 +156,34 @@
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="info-container" role="tabpanel" aria-labelledby="info-tab">
         <div class="container">
-          <div class="row">
-            <%= @restaurant.description %>
-          </div>
-          <div class="row">
-            <strong> Address: </strong>
-          </div>
-          <div class="row">
-            <strong> Phone: </strong>
-          </div>
-          <div class="row">
-            <strong> Website: </strong>
-          </div>
-          <div class="row">
-            <strong> Open: </strong>
-          </div>
-          <div class="row">
-            <ul>
-              <li>Monday</li>
-              <li>Tuesday</li>
-              <li>Wednesday</li>
-              <li>Thursday</li>
-              <li>Friday</li>
-              <li>Saturday</li>
-              <li>Sunday</li>
-              <li>Public Holidays</li>
-            </ul>
+          <div class="tab-info">
+            <div class="row">
+              <%= @restaurant.description %>
+            </div>
+            <div class="row">
+              <make-bold>Address:</make-bold> 42 Wallaby Way Sydney
+            </div>
+            <div class="row">
+              <make-bold>Phone:</make-bold> 021 106 106 44
+            </div>
+            <div class="row">
+              <make-bold>Website:</make-bold> www.foodisgoodforyou.com
+            </div>
+            <div class="row">
+              <make-bold>Open:</> 10am - 8pm
+            </div>
+            <div class="row">
+              <ul>
+                <li>Monday</li>
+                <li>Tuesday</li>
+                <li>Wednesday</li>
+                <li>Thursday</li>
+                <li>Friday</li>
+                <li>Saturday</li>
+                <li>Sunday</li>
+                <li>Public Holidays</li>
+              </ul>
+            </div>
           </div>
           <div class="row" style="height: 300px">
             <div
@@ -150,30 +197,32 @@
         </div>
       </div>
       <div class="tab-pane fade" id="specials-container" role="tabpanel" aria-labelledby="specials-tab">
-        <ul>
-          <% @restaurant.special_features.each do |special| %>
-            <li> <%= special %> </li>
-          <% end %>
-        </ul>
+        <div class="tab-info">
+
+        </div>
       </div>
       <div class="tab-pane fade" id="reviews-container" role="tabpanel" aria-labelledby="reviews-tab">
         <div class="container">
-          <% @reviews.each do |review| %>
-            <div class="row">
-              <div class="col-12">
-                <%= review.profile.first_name %> -
-                <%= review.rating %>
-                <i class="fas fa-star"></i>
+          <div class="tab-info">
+            <% @reviews.each do |review| %>
+              <div class="row">
+                <div class="col-12">
+                  <%= review.profile.first_name %> -
+                  <%= review.rating %>
+                  <i class="fas fa-star"></i>
+                </div>
+                <div class="col-12">
+                  <%= review.description %>
+                </div>
               </div>
-              <div class="col-12">
-                <%= review.description %>
-              </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
       <div class="tab-pane fade" id="pics-container" role="tabpanel" aria-labelledby="pics-tab">
-        4
+        <div class="tab-info">
+          4
+        </div>
       </div>
     </div>
   </div>
@@ -181,7 +230,6 @@
 
 <!--   </div>
 </div> -->
-
 
 
 
