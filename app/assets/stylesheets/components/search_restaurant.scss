@@ -13,7 +13,6 @@
 }
 
 .search-results {
-  margin-top: 30px;
   padding: 0 40px;
   transition: transform 220ms ease-in;
   background-color: rgba(0,0,0,0.5);
@@ -23,7 +22,7 @@
 
 .search-results.animate{
   transform: translateY(calc(-100vh + 32px));
-  height: 94vh;
+  height: 100vh;
   padding-top: 50px;
 }
 
