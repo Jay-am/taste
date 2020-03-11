@@ -1,0 +1,16 @@
+.neu-accordion {
+  background: transparent;
+
+  height: calc(100vh - 70px - 90px - 60px);
+  overflow-y: scroll;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.neu-accordion-item {
+  background: #eeeeee;
+  /* box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2),
+  -5px -5px 10px rgba(255, 255, 255, 1), inset 0 0 0 rgba(0, 0, 0, 0.2),
+  inset 0 0 0 rgba(255, 255, 255, 0.2); */
+  border-radius: 5px;
+}

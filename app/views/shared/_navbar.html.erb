@@ -1,47 +1,30 @@
 
-<div class="navbar">
-  <div class="dropdown">
-    <button class="btn background-transparent dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <i class="fas fa-user"></i>
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <% if current_user %>
-        <%= link_to "Home", root_path, class: "dropdown-item" %>
-        <%= link_to "Profile", profile_path(current_user.profile), class: "dropdown-item" %>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-      <% else %>
-        <%= link_to "Home", root_path, class: "dropdown-item" %>
-        <%= link_to "Log in", user_session_path, method: :post, class: "dropdown-item" %>
-      <% end %>
-    </div>
-  </div>
+<div class="app-navbar">
 
-    <li class="dropdown-element"><i class="fas fa-heart"></i></li>
-    <% if current_user %>
-      <%= link_to profile_bookmarks_path(current_user.profile) do %>
-        <li class="dropdown-element"><i class="fas fa-bookmark"></i></li>
-      <% end %>
-    <% end %>
+  <%= link_to reviews_path, class: "item #{ controller_name == 'reviews' ? "active" : ""}" do %>
+  <li class="dropdown-element"><i class="fas fa-home"></i></li>
+  <% end %>
 
-    <li class="dropdown-element"><i class="fas fa-map-marker-alt" id="map-nav-btn"></i></li>
+  <!-- NO LINK NEEDED -->
+  <li class="dropdown-element item <%= controller_name == 'restaurants' and action_name == 'map' ? "active" : "" %>"><i class="fas fa-map-marker-alt" id="map-nav-btn"></i></li>
 
-    <%= link_to restaurants_search_path do %>
-      <li class="dropdown-element"><i class="fas fa-plus"></i></li>
-    <% end %>
-    <%= link_to restaurants_filter_path do %>
-      <li class="dropdown-element"><i class="fas fa-sliders-h"></i></li>
-    <% end %>
+  <%= link_to restaurants_filter_path, class: "item #{controller_name == 'restaurants' and action_name == 'filter' ? "active" : ""}" do %>
+  <li class="dropdown-element"><i class="fas fa-sliders-h"></i></li>
+  <% end %>
+
+  <%= link_to restaurants_search_path, class: "item #{controller_name == 'restaurants' and action_name == 'search' ? "active" : ""}" do %>
+  <li class="dropdown-element"><i class="fas fa-plus"></i></li>
+  <% end %>
+
+  <% if current_user %>
+  <%= link_to profile_path(current_user.profile), class: "item #{controller_name == 'profiles' ? "active" : ""}" do %>
+  <li class="dropdown-element"><i class="fas fa-user"></i></li>
+  <% end %>
+  <% else %>
+  <%= link_to user_session_path, method: :post, class: "item #{controller_name == 'users' ? "active" : ""}" do %>
+  <li class="dropdown-element"><i class="fas fa-user"></i></li>
+  <% end %>
+  <% end %>
+
 </div>
-
-<!-- <div class="dropdown">
-  <button class="dropbtn">
-    Dropdown
-    <i class="fa fa-caret-down"></i>
-  </button>
-  <div class="dropdown-content">
-    <a href="#">Link 1</a>
-    <a href="#">Link 2</a>
-    <a href="#">Link 3</a>
-  </div>
-</div> -->
 

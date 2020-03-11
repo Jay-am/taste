@@ -32,7 +32,6 @@
     &:nth-child(1) {
       box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
         6px 6px 10px rgba(0, 0, 0, 0.2);
-      color: #6f6cde;
 
       &:hover {
         opacity: 0.3;
@@ -191,6 +190,12 @@
           6px 6px 10px rgba(0, 0, 0, 0.2);
       }
     }
+  }
+
+
+  .button-dark {
+    background-color: #222;
+    color: white;
   }
 
 
