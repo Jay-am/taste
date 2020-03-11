@@ -5,26 +5,32 @@
       <i class="fas fa-user"></i>
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <%= link_to "Home", root_path, class: "dropdown-item" %>
-
-      <%= link_to "Profile", profile_path(current_user.profile), class: "dropdown-item" %>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+      <% if current_user %>
+        <%= link_to "Home", root_path, class: "dropdown-item" %>
+        <%= link_to "Profile", profile_path(current_user.profile), class: "dropdown-item" %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+      <% else %>
+        <%= link_to "Home", root_path, class: "dropdown-item" %>
+        <%= link_to "Log in", user_session_path, method: :post, class: "dropdown-item" %>
+      <% end %>
     </div>
   </div>
 
-  <li class="dropdown-element"><i class="fas fa-heart"></i></li>
-  <%= link_to profile_bookmarks_path(current_user.profile) do %>
-    <li class="dropdown-element"><i class="fas fa-bookmark"></i></li>
-  <% end %>
+    <li class="dropdown-element"><i class="fas fa-heart"></i></li>
+    <% if current_user %>
+      <%= link_to profile_bookmarks_path(current_user.profile) do %>
+        <li class="dropdown-element"><i class="fas fa-bookmark"></i></li>
+      <% end %>
+    <% end %>
 
-  <li class="dropdown-element"><i class="fas fa-map-marker-alt" id="map-nav-btn"></i></li>
+    <li class="dropdown-element"><i class="fas fa-map-marker-alt" id="map-nav-btn"></i></li>
 
-  <%= link_to restaurants_search_path do %>
-    <li class="dropdown-element"><i class="fas fa-plus"></i></li>
-  <% end %>
-  <%= link_to restaurants_filter_path do %>
-    <li class="dropdown-element"><i class="fas fa-sliders-h"></i></li>
-  <% end %>
+    <%= link_to restaurants_search_path do %>
+      <li class="dropdown-element"><i class="fas fa-plus"></i></li>
+    <% end %>
+    <%= link_to restaurants_filter_path do %>
+      <li class="dropdown-element"><i class="fas fa-sliders-h"></i></li>
+    <% end %>
 </div>
 
 <!-- <div class="dropdown">
