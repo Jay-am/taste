@@ -6,10 +6,9 @@ class RestaurantsController < ApplicationController
   end
 
   def search
+    @restaurants = []
     if params[:query].present?
       @restaurants = Restaurant.where("name ILIKE ?", "%#{params[:query]}%")
-    else
-      @restaurants = Restaurant.all
     end
   end
 
@@ -29,6 +28,12 @@ class RestaurantsController < ApplicationController
       @is_bookmarked = Bookmark.where(profile: current_user.profile, bookmarkable: @restaurant).exists?
     else
       @is_bookmarked = false
+    end
+
+    if current_user
+      @is_review_bookmarked = Bookmark.where(profile: current_user.profile, bookmarkable: @review).exists?
+    else
+      @is_review_bookmarked = false
     end
   end
 
