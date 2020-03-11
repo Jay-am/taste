@@ -7,15 +7,52 @@ body {
   font-size: 20px;
 }
 
-.logo img {
-  width: 100%;
+// .search-container {
+//   width: 100%;
+//   text-align: center;
+// }
+
+// .ellipsis {
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
+//   overflow: hidden;
+// }
+// .search-restaurant {
+//   margin-bottom: 20px;
+// }
+
+// .search-results {
+//   padding: 0 40px;
+//   transition: transform 220ms ease-in;
+//   background-color: rgba(0,0,0,0.5);
+//   backdrop-filter: blur(10px);
+//   padding-top: 10px;
+// }
+
+// .search-results.animate{
+//   transform: translateY(calc(-100vh + 32px));
+//   height: 100vh;
+//   padding-top: 50px;
+// }
+
+// .back-to-search-icon {
+//   color: white;
+// }
+
+.landing-background-img {
+  background-size: cover;
+  height: 94vh;
 }
-
-.slogan p {
-  text-align: center;
-  font-size: 20px;
+.landing-element-container {
+  padding-top: 122px;
 }
+// #message-search-restaurant {
+//   padding-top: 235px;
+//   margin-bottom: 20px;
+// }
 
-
-
-
+// .search-restaurant {
+//   width: 70%;
+//   margin-top: 20px;
+//   margin: auto;
+// }

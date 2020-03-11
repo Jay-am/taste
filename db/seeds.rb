@@ -113,7 +113,7 @@ REVIEWS = [
 ]
 
 puts "Creating new restaurants"
-restaurant1 = Restaurant.new(name: "The French Connection", address: "Hammarbystraat 5, Amsterdam", description: "Nice french cuisine, lovely staff, amazing atmosphere.", cuisine: ["French"], occasion: ["Candle Lit"], special_features: ["Open Fire"])
+restaurant1 = Restaurant.new(name: "The French Connection", address: "Hammarbystraat 5, Amsterdam", description: "Nice french cuisine, lovely staff, amazing atmosphere.", cuisine: ["French"], occasion: ["Candle Lit"], special_features: ["Open Fire"], ratings: ["4 *"])
 restaurant2 = Restaurant.new(name: "Choux", address: "Singel 460, Amsterdam", description: "Vegetarian, progressive, quirky location, great food.", cuisine: ["French"], occasion: ["Couple"], special_features: ["Vegetarian"])
 restaurant3 = Restaurant.new(name: "Burger King", address: "Spadinalaan 50, Amsterdam", description: "Classic american style fastfood.", cuisine: ["American"], occasion: ["Group"], special_features: ["Vegetarian"])
 restaurant4 = Restaurant.new(name: "Pianeta Terra", address: "Beulingstraat 7, 1017 BA, Amsterdam", description: "Pianeta Terra has been chosen as one of world's Best 50 Italian Restaurants", styles: ["Dinner"], cuisine: ["Italian"], dishes: ["Organic"], occasion: ["Romantic"], special_features: ["Sustainable"], service: ["Excellent"], languages: ["German"])
@@ -138,7 +138,7 @@ puts "Making users"
 
 USER_INFORMATION.each do |user_data|
   user = User.create email: user_data[:email], password: user_data[:password]
-  profile = Profile.create user: user, first_name: user_data[:profile][:first_name], last_name: user_data[:profile][:last_name], first_name: user_data[:profile][:description]
+  profile = Profile.create user: user, first_name: user_data[:profile][:first_name], last_name: user_data[:profile][:last_name], information: user_data[:profile][:information]
 
   REVIEWS.each do |desc|
     Review.create(
