@@ -1,23 +1,29 @@
 
-<div class="navbar">
+<div class="app-navbar">
 
-  <!-- NO LINK NEEDED -->
-  <li class="dropdown-element"><i class="fas fa-map-marker-alt" id="map-nav-btn"></i></li>
-
-  <%= link_to restaurants_filter_path do %>
-  <li class="dropdown-element"><i class="fas fa-sliders-h"></i></li>
-  <% end %>
-
-  <%= link_to restaurants_search_path do %>
-  <li class="dropdown-element"><i class="fas fa-plus"></i></li>
-  <% end %>
-
-  <%= link_to reviews_path do %>
+  <%= link_to reviews_path, class: "item #{ controller_name == 'reviews' ? "active" : ""}" do %>
   <li class="dropdown-element"><i class="fas fa-home"></i></li>
   <% end %>
 
-  <%= link_to profile_path(current_user.profile) do %>
+  <!-- NO LINK NEEDED -->
+  <li class="dropdown-element item <%= controller_name == 'restaurants' and action_name == 'map' ? "active" : "" %>"><i class="fas fa-map-marker-alt" id="map-nav-btn"></i></li>
+
+  <%= link_to restaurants_filter_path, class: "item #{controller_name == 'restaurants' and action_name == 'filter' ? "active" : ""}" do %>
+  <li class="dropdown-element"><i class="fas fa-sliders-h"></i></li>
+  <% end %>
+
+  <%= link_to restaurants_search_path, class: "item #{controller_name == 'restaurants' and action_name == 'search' ? "active" : ""}" do %>
+  <li class="dropdown-element"><i class="fas fa-plus"></i></li>
+  <% end %>
+
+  <% if current_user %>
+  <%= link_to profile_path(current_user.profile), class: "item #{controller_name == 'profiles' ? "active" : ""}" do %>
   <li class="dropdown-element"><i class="fas fa-user"></i></li>
+  <% end %>
+  <% else %>
+  <%= link_to user_session_path, method: :post, class: "item #{controller_name == 'users' ? "active" : ""}" do %>
+  <li class="dropdown-element"><i class="fas fa-user"></i></li>
+  <% end %>
   <% end %>
 
 </div>
