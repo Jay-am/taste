@@ -16,12 +16,9 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @reviews = @restaurant.reviews
 
-    @coordinates = @restaurant.geocode #returns restaurant with coordinates
-
-
     @markers = [{
-     lat: @coordinates.first,
-      lng: @coordinates.last
+     lat: @restaurant.latitude,
+      lng: @restaurant.longitude
     }]
 
     if current_user
