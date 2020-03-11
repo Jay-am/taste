@@ -13,72 +13,81 @@ USER_INFORMATION = [
       first_name: "David",
       last_name: "Thoreau",
       information: "Just love food. There's nothing that makes me happier."
-    },
-    {
+    }
+  },
+  {
     email: 'k.johnson@gmail.com',
     password: 'testing',
     profile: {
       first_name: "Kamal",
       last_name: "Johnson",
       information: "Food just amazes me. I can spend all day thinking of it."
-    },
-    {
+    }
+  },
+  {
     email: 'rayan@gmail.com',
     password: 'testing',
     profile: {
       first_name: "Rayan",
       last_name: "laStrada",
       information: "Passionate about Food."
-    },
-    {
+    }
+  },
+  {
     email: 'emma@email.com',
     password: 'testing',
     profile: {
       first_name: "Emma",
       last_name: "Smith",
       information: "Just love food. There's nothing that makes me happier."
-    },
-    {
+    }
+  },
+  {
     email: 'olivia@email.com',
     password: 'testing',
     profile: {
       first_name: "Olivia",
       last_name: "Williams",
       information: "Food just amazes me. I can spend all day thinking of it."
-    },
-    {
+    }
+  },
+  {
     email: 'ava@email.com',
     password: 'testing',
     profile: {
       first_name: "Ava",
       last_name: "Moore",
       information: "Passionate about Food."
-    },
-    {
+    }
+  },
+  {
     email: 'sophia@email.com',
     password: 'testing',
     profile: {
       first_name: "Sophia",
       last_name: "Scott",
       information: "I could go to a restaurant every day. No better 3 times a day!"
-    },
-    {
+    }
+  },
+  {
     email: 'charlotte@email.com',
     password: 'testing',
     profile: {
       first_name: "Charlotte",
       last_name: "Hill",
       information: "I am a Food Photographer and Columnist of Ohhhhhhh that foooooood! DM me for fancy Restaurant Tips."
-    },
-    {
+    }
+  },
+  {
     email: 'mia@email.com',
     password: 'testing',
     profile: {
       first_name: "Mia",
       last_name: "Davis",
       information: "Never met a calorie I didn't like!"
-    },
-    {
+    }
+  },
+  {
     email: 'amelia@email.com',
     password: 'testing',
     profile: {
@@ -99,7 +108,7 @@ REVIEWS = [
   'Amazing restaurant!',
   'Bloodly lovely food.',
   'Visited this restaurant with my gf! She loves it.',
-  'Had a amazing couple dinner.'
+  'Had a amazing couple dinner.',
   'Good food! Good service! Good location!'
 ]
 
@@ -107,9 +116,23 @@ puts "Creating new restaurants"
 restaurant1 = Restaurant.new(name: "The French Connection", address: "Hammarbystraat 5, Amsterdam", description: "Nice french cuisine, lovely staff, amazing atmosphere.", cuisine: ["French"], occasion: ["Candle Lit"], special_features: ["Open Fire"])
 restaurant2 = Restaurant.new(name: "Choux", address: "Singel 460, Amsterdam", description: "Vegetarian, progressive, quirky location, great food.", cuisine: ["French"], occasion: ["Couple"], special_features: ["Vegetarian"])
 restaurant3 = Restaurant.new(name: "Burger King", address: "Spadinalaan 50, Amsterdam", description: "Classic american style fastfood.", cuisine: ["American"], occasion: ["Group"], special_features: ["Vegetarian"])
+restaurant4 = Restaurant.new(name: "Pianeta Terra", address: "Beulingstraat 7, 1017 BA, Amsterdam", description: "Pianeta Terra has been chosen as one of world's Best 50 Italian Restaurants", styles: ["Dinner"], cuisine: ["Italian"], dishes: ["Organic"], occasion: ["Romantic"], special_features: ["Sustainable"], service: ["Excellent"], languages: ["German"])
+restaurant5 = Restaurant.new(name: "Dope", address: "Eerste van der Helststraat 68-82, 1073 AD Amsterdam", description: "Italian Restaurant. Attire. Casual.", cuisine: ["Italian"])
+restaurant6 = Restaurant.new(name: "Hearth", address: "Albert Cuypstraat 215, 1073 BG Amsterdam", description: "Vegetarian Friendly, Vegan Options, Gluten Free Options", cuisine: ["Italian"])
+restaurant7 = Restaurant.new(name: "Trattoria Fantasia", address: "Marnixstraat 402, 1017 PL Amsterdam", description: "Pianeta Terra has been chosen as one of world's Best 50 Italian Restaurants", cuisine: ["Italian"])
+restaurant8 = Restaurant.new(name: "Bussia", address: "Reestraat 2-32, 1016 DN Amsterdam", description: "Fine Italian dining with an elegant ambience in the heart of Amsterdam.", cuisine: ["Italian"])
+restaurant9 = Restaurant.new(name: "Pastai", address: "Jan Pieter Heijestraat 119-113, 1054 MD Amsterdam", description: "LOVE LIVE EAT. every days. REAL ITALIAN PASTA. take away service available", cuisine: ["Italian"])
+
+
 restaurant1.save!
 restaurant2.save!
 restaurant3.save!
+restaurant4.save!
+restaurant5.save!
+restaurant6.save!
+restaurant7.save!
+restaurant8.save!
+restaurant9.save!
 puts "Making users"
 
 
