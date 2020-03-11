@@ -1,14 +1,48 @@
 .search-container {
-  width: 80vw;
+  width: 100%;
   text-align: center;
-  margin: auto;
-  margin-top: 50px;
 }
 
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
 .search-restaurant {
   margin-bottom: 20px;
 }
 
 .search-results {
   margin-top: 30px;
+  padding: 0 40px;
+  transition: transform 220ms ease-in;
+  background-color: rgba(0,0,0,0.5);
+  backdrop-filter: blur(10px);
+  padding-top: 10px;
+}
+
+.search-results.animate{
+  transform: translateY(calc(-100vh + 32px));
+  height: 94vh;
+  padding-top: 50px;
+}
+
+.back-to-search-icon {
+  color: white;
+}
+
+.search-restaurant-background-img {
+  background-size: cover;
+  height: 94vh;
+}
+
+#message-search-restaurant {
+  padding-top: 235px;
+  margin-bottom: 20px;
+}
+
+.search-restaurant {
+  width: 70%;
+  margin-top: 20px;
+  margin: auto;
 }

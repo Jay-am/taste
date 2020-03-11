@@ -30,6 +30,12 @@ class RestaurantsController < ApplicationController
     else
       @is_bookmarked = false
     end
+
+    if current_user
+      @is_review_bookmarked = Bookmark.where(profile: current_user.profile, bookmarkable: @review).exists?
+    else
+      @is_review_bookmarked = false
+    end
   end
 
   def map
