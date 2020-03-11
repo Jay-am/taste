@@ -1,47 +1,49 @@
 <div class="profile-container">
   <div class="profile-background-img" style="background: linear-gradient( 135deg, rgba(214, 55, 55, 0.8), #fbdd0a);"></div>
-    <div class="profile-card" style="margin-top: -35px;">
+  <div class="profile-card" style="margin-top: -35px;">
 
-      <h3><%= "#{@profile.first_name} #{@profile.last_name}" %></h3>
-      <% if current_user.following.include?(@profile.user) %>
-        <%= link_to "Unfollow", unfollow_user_path(@profile.user), method: :post, class: "btn btn-outline-dark" %>
-      <% else %>
-        <%= link_to "Follow", follow_user_path(@profile.user), method: :post, class: "btn btn-dark" %>
-      <% end %>
+    <h3><%= "#{@profile.first_name} #{@profile.last_name}" %></h3>
+    <% if current_user.following.include?(@profile.user) %>
+    <%= link_to "Unfollow", unfollow_user_path(@profile.user), method: :post, class: "btn btn-outline-dark" %>
+    <% else %>
+    <%= link_to "Follow", follow_user_path(@profile.user), method: :post, class: "btn btn-dark" %>
+    <% end %>
 
-      <div class="collapse-elements">
-        <div class="profile-card-icons">
-          <p>
-            <i class="fas fa-bookmark" type="icon" data-toggle="collapse" data-target="#collapseSaved" aria-expanded="false" aria-controls="collapseSaved"><small class="icon-text">Saved</small></i>
-            <i class="fas fa-file-alt" type="icon" data-toggle="collapse" data-target="#collapseReview" aria-expanded="false" aria-controls="collapseReview"><small class="icon-text">Review</small></i>
-            <i class="fa fa-user-edit" type="icon" data-toggle="collapse" data-target="#collapseEdit" aria-expanded="false" aria-controls="collapseEdit"><small class="icon-text">Edit</small></i>
-          </p>
-        </div>
-        <div class="collapse" id="collapseSaved">
-          <div class="card card-body" style="padding: 0 0;">
+    <div class="collapse-elements">
+      <div class="profile-card-icons">
+        <p>
+          <i class="fas fa-bookmark" type="icon" data-toggle="collapse" data-target="#collapseSaved" aria-expanded="false" aria-controls="collapseSaved"><small class="icon-text">Saved</small></i>
+          <i class="fas fa-file-alt" type="icon" data-toggle="collapse" data-target="#collapseReview" aria-expanded="false" aria-controls="collapseReview"><small class="icon-text">Review</small></i>
+          <i class="fa fa-user-edit" type="icon" data-toggle="collapse" data-target="#collapseEdit" aria-expanded="false" aria-controls="collapseEdit"><small class="icon-text">Edit</small></i>
+        </p>
+      </div>
+      <div class="collapse show" id="collapseSaved">
+        <div class="card card-body" style="padding: 0 0;">
 
+          <ul class="list-group">
             <% @bookmarks.each do |bookmark| %>
-              <div class="row">
-                <div class="col-xs-12 col-md-6 offset-md-3">
-                  <%= bookmark.bookmarkable.name %>
-                  <%= link_to "Review", new_restaurant_review_path(bookmark.bookmarkable), class: "btn btn-dark jump-to-review" %>
-                </div>
-              </div>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <%= bookmark.bookmarkable.name %>
+              <span class="badge badge-pill">
+                <%= link_to "Review", new_restaurant_review_path(bookmark.bookmarkable), class: "btn btn-dark jump-to-review" %>
+
+              </span>
+            </li>
             <% end %>
-
-          </div>
+          </ul>
         </div>
+      </div>
 
-        <div class="collapse" id="collapseReview">
-          <div class="card card-body" style="padding: 0 0;height: 350px;overflow-y: scroll;">
-            <div class="user-review">
-              <% @reviews.each do |review| %>
-              <div class="each-review">
-                <div class="restaurant-rating">
-                  <h2><%= review.restaurant.name %></h2>
-                  <h3><i class="fas fa-star user-review-star"></i><%= review.rating %></h3>
-                </div>
-                <h3><%= review.description %></h2>
+      <div class="collapse" id="collapseReview">
+        <div class="card card-body" style="padding: 0 0;height: 350px;overflow-y: scroll;">
+          <div class="user-review">
+            <% @reviews.each do |review| %>
+            <div class="each-review">
+              <div class="restaurant-rating">
+                <h2><%= review.restaurant.name %></h2>
+                <h3><i class="fas fa-star user-review-star"></i><%= review.rating %></h3>
+              </div>
+              <h3><%= review.description %></h2>
                 <h4><%= review.created_at %></h4>
               </div>
               <% end %>
@@ -54,7 +56,7 @@
         <div class="collapse" id="collapseEdit">
           <div class="card card-body" style="padding: 0 0;height: 350px;overflow-y: scroll;">
             <%= simple_form_for @profile do |f| %>
-              <%= f.input :gender, collection: [ [ "Male", 'Male' ], ['Female', 'Female'], ['Other', 'Other'] ], as: :radio_buttons, class: "gender-form" %>
+            <%= f.input :gender, collection: [ [ "Male", 'Male' ], ['Female', 'Female'], ['Other', 'Other'] ], as: :radio_buttons, class: "gender-form" %>
             <%= f.input :age, collection: 15..99 %>
             <%= f.input :first_name %>
             <%= f.input :last_name %>
@@ -65,9 +67,9 @@
           </div>
         </div>
       </div>
-     </div>
     </div>
   </div>
+</div>
 </div>
 </div>
 </div>
