@@ -83,22 +83,13 @@
     <div class="rating-title">
       Prices
     </div>
-      <div class="ratings-container">
+            <div class="ratings-container">
         <i class="fas fa-star px-1 yellow"></i>
         <i class="fas fa-star px-1 yellow"></i>
         <i class="fas fa-star px-1 yellow"></i>
         <i class="fas fa-star px-1 yellow"></i>
         <i class="fas fa-star px-1 gray"></i>
       </div>
-
-  </div>
-
-
-  <div class="row d-flex justify-content-center">
-    <div class="total-rating-restaurant-show">
-      <%= @restaurant.get_avg_rating %>
-      <i class="fas fa-star px-1"></i>
-      <%= "(#{@reviews.count})" %>
     </div>
   </div>
 
@@ -207,7 +198,11 @@
       </div>
       <div class="tab-pane fade" id="specials-container" role="tabpanel" aria-labelledby="specials-tab">
         <div class="tab-info">
-
+          <ul>
+            <% @restaurant.special_features.each do |special| %>
+              <li> <%= special %> </li>
+            <% end %>
+          </ul>
         </div>
       </div>
       <div class="tab-pane fade" id="reviews-container" role="tabpanel" aria-labelledby="reviews-tab">
@@ -239,7 +234,6 @@
 
 <!--   </div>
 </div> -->
-
 
 
 
