@@ -16,15 +16,22 @@ Rails.application.routes.draw do
   get '/restaurants/filter', to: 'restaurants#filter'
   post '/restaurants/filter_result', to: 'restaurants#filter_result'
 
+  # resources :reviews do
+  #   post '/bookmark', to: "reviews#bookmark"
+  #   post '/unbookmark', to: "reviews#unbookmark"
+  # end
+
   # resources :restaurants do
   #   post 'filter_result', to: 'restaurants#filter_result'
   # end
-
-
+  
   resources :restaurants do
     resources :reviews, only: [:new, :create]
     post 'bookmark', to: "restaurants#bookmark"
     post 'unbookmark', to: "restaurants#unbookmark"
+    post '/bookmark', to: "reviews#bookmark", as: "review_bookmark"
+    post '/unbookmark', to: "reviews#unbookmark", as: "review_unbookmark"
+
   end
 
 
