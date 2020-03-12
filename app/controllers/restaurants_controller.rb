@@ -85,10 +85,6 @@ class RestaurantsController < ApplicationController
           @restaurants = @restaurants.send("with_#{key}", params[:filters][0][key])
         end
       else
-        # if user did not tick broad filter checkbox, then do this
-        params[:filters][0].keys.each do |key|
-          @restaurants = @restaurants.send("by_#{key}", params[:filters][0][key])
-        end
       end
     end
   end
