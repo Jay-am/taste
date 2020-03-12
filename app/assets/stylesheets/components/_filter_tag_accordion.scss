@@ -1,3 +1,8 @@
+
+.body {
+  background-color: white;
+}
+
 .custom-checkbox {
   input[type=checkbox] {
     display: none;
@@ -13,7 +18,7 @@
     width: 9.5em;
     display: flex;
     justify-content: center;
-    background: #eeeeee;
+    background: white;
     font-family: Arial, Helvetica, sans-serif;
     color: #444;
     cursor: pointer;
@@ -116,8 +121,9 @@ input[type="checkbox"].neu-checkbox:checked {
     inset -5px -5px 10px rgba(255, 255, 255, 0.2);
 }
 
-
-
+.filter-container {
+  background-color: white;
+}
 
 
 

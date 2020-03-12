@@ -2,7 +2,7 @@
 
 .form-group {
   background: white;
-  border: #666;
+  border: lightgrey;
 }
 
 .filter-method {
@@ -37,6 +37,11 @@
 
 .card-body {
  padding: 0px;
+ background-color: white;
+}
+
+.filter-container {
+   background-color: white;
 }
 
 
