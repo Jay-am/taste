@@ -10,7 +10,11 @@
         <div class="card-restaurant-index">
           <%= link_to restaurant_path(restaurant.id) do %>
           <div class="picture-restaurant-index">
-            <img src="/assets/pizza.jpg" alt="Restaurant">
+            <% if restaurant.photo.attached? %>
+              <%= cl_image_tag restaurant.photo.key, alt: "Restaurant" %>
+            <% else %>
+              <img src="/assets/pizza.jpg" alt="Restaurant">
+            <% end %>
           </div>
 
           <div class="card-info-restaurant-index">
