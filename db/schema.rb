@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_09_143515) do
+ActiveRecord::Schema.define(version: 2020_03_12_084709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,27 +65,27 @@ ActiveRecord::Schema.define(version: 2020_03_09_143515) do
     t.string "name"
     t.string "address"
     t.text "description"
-    t.string "cuisine", array: true
-    t.string "special_features", array: true
-    t.string "occasion", array: true
+    t.string "cuisine", default: [], array: true
+    t.string "special_features", default: [], array: true
+    t.string "occasion", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "latitude"
     t.float "longitude"
-    t.string "styles", array: true
-    t.string "dishes", array: true
-    t.string "food_types", array: true
-    t.string "food_styles", array: true
-    t.string "gastronomies", array: true
-    t.string "drinks", array: true
-    t.string "service", array: true
-    t.string "location", array: true
-    t.string "languages", array: true
-    t.string "open_hours", array: true
-    t.string "located", array: true
-    t.string "payments", array: true
+    t.string "styles", default: [], array: true
+    t.string "dishes", default: [], array: true
+    t.string "food_types", default: [], array: true
+    t.string "food_styles", default: [], array: true
+    t.string "gastronomies", default: [], array: true
+    t.string "drinks", default: [], array: true
+    t.string "service", default: [], array: true
+    t.string "location", default: [], array: true
+    t.string "languages", default: [], array: true
+    t.string "open_hours", default: [], array: true
+    t.string "located", default: [], array: true
+    t.string "payments", default: [], array: true
     t.boolean "marked", default: false
-    t.string "ratings", array: true
+    t.string "ratings", default: [], array: true
     t.index ["cuisine"], name: "index_restaurants_on_cuisine", using: :gin
     t.index ["occasion"], name: "index_restaurants_on_occasion", using: :gin
     t.index ["special_features"], name: "index_restaurants_on_special_features", using: :gin
