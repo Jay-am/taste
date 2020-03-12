@@ -1,56 +1,164 @@
 require 'open-uri'
 require 'json'
-
 puts "Cleaning up data"
 Restaurant.destroy_all
 User.destroy_all
 Profile.destroy_all
 Review.destroy_all
-
 USER_INFORMATION = [
   {
     email: 'nature_boy@gmail.com',
-    password: '123456',
+    password: 'testing',
+    profile: {
+      first_name: "David",
+      last_name: "Thoreau",
+      information: "Just love food. There's nothing that makes me happier."
+    }
+  },
+  {
+    email: 'k.johnson@gmail.com',
+    password: 'testing',
+    profile: {
+      first_name: "Kamal",
+      last_name: "Johnson",
+      information: "Food just amazes me. I can spend all day thinking of it."
+    }
+  },
+  {
+    email: 'rayan@gmail.com',
+    password: 'testing',
+    profile: {
+      first_name: "Rayan",
+      last_name: "laStrada",
+      information: "Passionate about Food."
+    }
+  },
+  {
+    email: 'emma@email.com',
+    password: 'testing',
     profile: {
       first_name: "Emma",
       last_name: "Smith",
       information: "Just love food. There's nothing that makes me happier."
     }
+  },
+  {
+    email: 'olivia@email.com',
+    password: 'testing',
+    profile: {
+      first_name: "Olivia",
+      last_name: "Williams",
+      information: "Food just amazes me. I can spend all day thinking of it."
+    }
+  },
+  {
+    email: 'ava@email.com',
+    password: 'testing',
+    profile: {
+      first_name: "Ava",
+      last_name: "Moore",
+      information: "Passionate about Food."
+    }
+  },
+  {
+    email: 'sophia@email.com',
+    password: 'testing',
+    profile: {
+      first_name: "Sophia",
+      last_name: "Scott",
+      information: "I could go to a restaurant every day. No better 3 times a day!"
+    }
+  },
+  {
+    email: 'charlotte@email.com',
+    password: 'testing',
+    profile: {
+      first_name: "Charlotte",
+      last_name: "Hill",
+      information: "I am a Food Photographer and Columnist of Ohhhhhhh that foooooood! DM me for fancy Restaurant Tips."
+    }
+  },
+  {
+    email: 'mia@email.com',
+    password: 'testing',
+    profile: {
+      first_name: "Mia",
+      last_name: "Davis",
+      information: "Never met a calorie I didn't like!"
+    }
+  },
+  {
+    email: 'amelia@email.com',
+    password: 'testing',
+    profile: {
+      first_name: "Amelia",
+      last_name: "Miller",
+      information: "Food is our Common Ground. A universal Experience."
+    }
   }
 ]
 
 REVIEWS = [
-
+  'Amazing restaurant! Had a beautiful dinner night!!',
+  'Amazing Food! Highly recommended!!',
+  'I love this restaurant! I had a great experience',
+  'Great Restaurant! Love it!',
+  'Beautiful restaurant!',
+  'Good food! good service!!',
+  'Amazing restaurant!',
+  'Bloodly lovely food.',
+  'Visited this restaurant with my gf! She loves it.',
+  'Had a amazing couple dinner.',
+  'Good food! Good service! Good location!'
 ]
 
 puts "Creating new restaurants"
-restaurant1 = Restaurant.new(name: "The French Connection", address: "Hammarbystraat 5, Amsterdam", description: "Nice french cuisine, lovely staff, amazing atmosphere.", cuisine: ["French"], occasion: ["Candle Lit"], special_features: ["Open Fire"])
-restaurant2 = Restaurant.new(name: "Choux", address: "Singel 460, Amsterdam", description: "Vegetarian, progressive, quirky location, great food.", cuisine: ["French"], occasion: ["Couple"], special_features: ["Vegetarian"])
-restaurant3 = Restaurant.new(name: "Burger King", address: "Spadinalaan 50, Amsterdam", description: "Classic american style fastfood.", cuisine: ["American"], occasion: ["Group"], special_features: ["Vegetarian"])
 
-restaurant1.save!
-restaurant2.save!
-restaurant3.save!
+RESTAURANTS = [
+  Restaurant.create(name: "The French Connection", address: "Hammarbystraat 5, Amsterdam", description: "Nice french cuisine, lovely staff, amazing atmosphere.", cuisine: ["French"], occasion: ["Candle Lit"], special_features: ["Open Fire"], ratings: ["4"]),
+  Restaurant.create(name: "Choux", address: "Singel 460, Amsterdam", description: "Vegetarian, progressive, quirky location, great food.", cuisine: ["French"], occasion: ["Couple"], special_features: ["Vegetarian"]),
+  Restaurant.create(name: "Burger King", address: "Spadinalaan 50, Amsterdam", description: "Classic american style fastfood.", cuisine: [CUISINES.sample], occasion: ["Group"], special_features: ["Vegetarian"]),
+  Restaurant.create(name: "Pianeta Terra", address: "Beulingstraat 7, 1017 BA, Amsterdam", description: "Pianeta Terra has been chosen as one of world's Best 50 Italian Restaurants", styles: ["Dinner"], cuisine: ["Italian"], dishes: ["Organic"], occasion: ["Romantic"], special_features: ["Sustainable"], service: ["Excellent"], languages: ["German"]),
+  Restaurant.create(name: "Dope", address: "Eerste van der Helststraat 68-82, 1073 AD Amsterdam", description: "Italian Restaurant. Attire. Casual.", cuisine: ["Italian"]),
+  Restaurant.create(name: "Hearth", address: "Albert Cuypstraat 215, 1073 BG Amsterdam", description: "Vegetarian Friendly, Vegan Options, Gluten Free Options", cuisine: ["Italian"]),
+  Restaurant.create(name: "Trattoria Fantasia", address: "Marnixstraat 402, 1017 PL Amsterdam", description: "Pianeta Terra has been chosen as one of world's Best 50 Italian Restaurants", cuisine: ["Italian"]),
+  Restaurant.create(name: "Bussia", address: "Reestraat 2-32, 1016 DN Amsterdam", description: "Fine Italian dining with an elegant ambience in the heart of Amsterdam.", cuisine: ["Italian"]),
+  Restaurant.create(name: "Pastai", address: "Jan Pieter Heijestraat 119-113, 1054 MD Amsterdam", description: "LOVE LIVE EAT. every days. REAL ITALIAN PASTA. take away service available", cuisine: ["Italian"])
+
+]
 
 puts "Making users"
 
+
 USER_INFORMATION.each do |user_data|
   user = User.create email: user_data[:email], password: user_data[:password]
-  profile = Profile.create user: user, first_name: user_data[:profile][:first_name], last_name: user_data[:profile][:last_name], first_name: user_data[:profile][:description]
+  profile = Profile.create user: user, first_name: user_data[:profile][:first_name], last_name: user_data[:profile][:last_name], information: user_data[:profile][:information]
 
-  5.times do
+  REVIEWS.each do |desc|
+    Review.create(
+      description: desc,
+      rating: rand(3..5),
+      meal_rating: rand(3..4),
+      service_rating: rand(3..5),
+      location_rating: rand(3..5),
+      cuisine: [CUISINES.sample],
+      occasion: [OCCASIONS.sample],
+      special_features: [SPECIAL_FEATURES.sample],
+      local: true,
+      profile: profile,
+      restaurant: RESTAURANTS.sample
+    )
+  end
+
+#   review1 = Review.new(description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi quae sunt excepturi magnam porro maxime earum, deleniti magni. Cupiditate nobis ducimus, eius quaerat! Perferendis necessitatibus rem inventore reiciendis amet veniam!", rating: 3, meal_rating: 5, service_rating: 2, location_rating: 2, cuisine: ["french"], occasion: ["candle light"], special_features: ["fireplace"], restaurant: restaurant1, profile: profile1, local: false)
+# review2 = Review.new(description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi quae sunt excepturi magnam porro maxime earum, deleniti magni. Cupiditate nobis ducimus, eius quaerat! Perferendis necessitatibus rem inventore reiciendis amet veniam!", rating: 3, meal_rating: 5, service_rating: 2, location_rating: 2, cuisine: ["french"], occasion: ["candle light"], special_features: ["fireplace"], restaurant: restaurant2, profile: profile2, local: true)
+# review3 = Review.new(description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi quae sunt excepturi magnam porro maxime earum, deleniti magni. Cupiditate nobis ducimus, eius quaerat! Perferendis necessitatibus rem inventore reiciendis amet veniam!", rating: 3, meal_rating: 5, service_rating: 2, location_rating: 2, cuisine: ["french"], occasion: ["candle light"], special_features: ["fireplace"], restaurant: restaurant3, profile: profile3, local: true)
+# review4 = Review.new(description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi quae sunt excepturi magnam porro maxime earum, deleniti magni. Cupiditate nobis ducimus, eius quaerat! Perferendis necessitatibus rem inventore reiciendis amet veniam!", rating: 3, meal_rating: 5, service_rating: 2, location_rating: 2, cuisine: ["french"], occasion: ["candle light"], special_features: ["fireplace"], restaurant: restaurant1, profile: profile2, local: false)
+# review5 = Review.new(description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi quae sunt excepturi magnam porro maxime earum, deleniti magni. Cupiditate nobis ducimus, eius quaerat! Perferendis necessitatibus rem inventore reiciendis amet veniam!", rating: 3, meal_rating: 5, service_rating: 2, location_rating: 2, cuisine: ["french"], occasion: ["candle light"], special_features: ["fireplace"], restaurant: restaurant1, profile: profile3, local: false)
+
 end
 
-# user1 = User.new(email: "nature_boy@gmail.com", password: "testing")
-# user2 = User.new(email: "k.johnson@gmail.com", password: "testing")
-# user3 = User.new(email: "rayan@gmail.com", password: "testing")
-# user4 = User.new(email: "emma@email.com", password: "123456")
-# user5 = User.new(email: "olivia@email.com", password: "123456")
-# user6 = User.new(email: "ava@email.com", password: "123456")
-# user7 = User.new(email: "sophia@email.com", password: "123456")
-# user8 = User.new(email: "charlotte@email.com", password: "123456")
-# user9 = User.new(email: "mia@email.com", password: "123456")
-# user10 = User.new(email: "amelia@email.com", password: "123456")
+
 # user11 = User.new(email: "grace@email.com", password: "123456")
 # user12 = User.new(email: "chloe@email.com", password: "123456")
 # user13 = User.new(email: "zoey@email.com", password: "123456")
@@ -64,18 +172,11 @@ end
 # user21 = User.new(email: "william@email.com", password: "123456")
 # user22 = User.new(email: "james@email.com", password: "123456")
 # user23 = User.new(email: "oliver@email.com", password: "123456")
-
-
 # puts "Assigning users to profiles"
-# profile1 = Profile.new(user: user1, first_name: "David", last_name: "Thoreau")
-# profile2 = Profile.new(user: user2, first_name: "Kamal", last_name: "Johnson")
-# profile3 = Profile.new(user: user3, first_name: "Rayan", last_name: "laStrada")
-# profile4 = Profile.new(user: user4, first_name: "Emma", last_name: "Smith", information: "Just love food. There's nothing that makes me happier.")
-# profile5 = Profile.new(user: user5, first_name: "Olivia", last_name: "Williams", information: "Food just amazes me. I can spend all day thinking of it.")
-# profile6 = Profile.new(user: user6, first_name: "Ava", last_name: "Moore", information: "Passionate about Food.")
-# profile7 = Profile.new(user: user7, first_name: "Sophia", last_name: "Scott", information: "I could go to a restaurant every day. No better 3 times a day!")
-# profile8 = Profile.new(user: user8, first_name: "Charlotte", last_name: "Hill", information: "I am a Food Photographer and Columnist of Ohhhhhhh that foooooood! DM me for fancy Restaurant Tips.")
-# profile9 = Profile.new(user: user9, first_name: "Mia", last_name: "Davis", information: "Never met a calorie I didn't like!")
+
+
+
+
 # profile10 = Profile.new(user: user10, first_name: "Amelia", last_name: "Miller", information: "But First.....Food!")
 # profile11 = Profile.new(user: user11, first_name: "Grace", last_name: "Wilson", information: "Foodie and Food Photographer.")
 # profile12 = Profile.new(user: user12, first_name: "Chloe", last_name: "Parker", information: "Yes I can eat all day long :)")
@@ -90,23 +191,13 @@ end
 # profile21 = Profile.new(user: user21, first_name: "William", last_name: "Torres", information: "Vegetarian on Rehab!")
 # profile22 = Profile.new(user: user22, first_name: "James", last_name: "Brown", information: "Meat addicted. Not even lying!")
 # profile23 = Profile.new(user: user23, first_name: "Oliver", last_name: "Carter", information: "What I love about food? Everything!")
-
-
 puts "Making reviews"
-review1 = Review.new(description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi quae sunt excepturi magnam porro maxime earum, deleniti magni. Cupiditate nobis ducimus, eius quaerat! Perferendis necessitatibus rem inventore reiciendis amet veniam!", rating: 3, meal_rating: 5, service_rating: 2, location_rating: 2, cuisine: ["french"], occasion: ["candle light"], special_features: ["fireplace"], restaurant: restaurant1, profile: profile1, local: false)
-review2 = Review.new(description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi quae sunt excepturi magnam porro maxime earum, deleniti magni. Cupiditate nobis ducimus, eius quaerat! Perferendis necessitatibus rem inventore reiciendis amet veniam!", rating: 3, meal_rating: 5, service_rating: 2, location_rating: 2, cuisine: ["french"], occasion: ["candle light"], special_features: ["fireplace"], restaurant: restaurant2, profile: profile2, local: true)
-review3 = Review.new(description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi quae sunt excepturi magnam porro maxime earum, deleniti magni. Cupiditate nobis ducimus, eius quaerat! Perferendis necessitatibus rem inventore reiciendis amet veniam!", rating: 3, meal_rating: 5, service_rating: 2, location_rating: 2, cuisine: ["french"], occasion: ["candle light"], special_features: ["fireplace"], restaurant: restaurant3, profile: profile3, local: true)
-review4 = Review.new(description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi quae sunt excepturi magnam porro maxime earum, deleniti magni. Cupiditate nobis ducimus, eius quaerat! Perferendis necessitatibus rem inventore reiciendis amet veniam!", rating: 3, meal_rating: 5, service_rating: 2, location_rating: 2, cuisine: ["french"], occasion: ["candle light"], special_features: ["fireplace"], restaurant: restaurant1, profile: profile2, local: false)
-review5 = Review.new(description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi quae sunt excepturi magnam porro maxime earum, deleniti magni. Cupiditate nobis ducimus, eius quaerat! Perferendis necessitatibus rem inventore reiciendis amet veniam!", rating: 3, meal_rating: 5, service_rating: 2, location_rating: 2, cuisine: ["french"], occasion: ["candle light"], special_features: ["fireplace"], restaurant: restaurant1, profile: profile3, local: false)
-
-review1.save!
-review2.save!
-review3.save!
-review4.save!
-review5.save!
-
+# review1.save!
+# review2.save!
+# review3.save!
+# review4.save!
+# review5.save!
 puts "How many JSON's are you creating? 'All of them'"
-
 url = 'http://open.data.amsterdam.nl/EtenDrinken.json'
 amsterdam = open(url).read
 json = JSON.parse(amsterdam)
@@ -116,11 +207,4 @@ json[1..-1].each do |data| # [1..-1] ignores first dummy element
     address: data['location']['adress']
   )
 end
-
-
-
-
-
-
-
 
