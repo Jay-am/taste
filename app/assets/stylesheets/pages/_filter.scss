@@ -8,6 +8,9 @@
 .filter-method {
   display: flex;
   justify-content: space-evenly;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 1),
+  inset 5px 5px 10px rgba(0, 0, 0, 0.2),
+  inset -5px -5px 10px rgba(255, 255, 255, 0.2);
 }
 // .switch-beween {
 //   display: flex;
