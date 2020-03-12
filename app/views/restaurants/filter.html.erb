@@ -7,13 +7,13 @@
 <!-- SEARCH FILTER -->
 
 <div class="search-container-filter">
-  <%= form_tag restaurants_path, method: :get do %>
+  <%= form_tag restaurants_path, method: :get, class: "restaurant-filter-form" do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control search-restaurant-filter",
       placeholder: "Search restaurant"
     %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <%= button_tag type: "submit", class: "btn search-btn" do %><i class="fas fa-chevron-right"></i> <% end %>
   <% end %>
 </div>
 
