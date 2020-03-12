@@ -21,24 +21,6 @@ body {
 //   margin-bottom: 20px;
 // }
 
-// .search-results {
-//   padding: 0 40px;
-//   transition: transform 220ms ease-in;
-//   background-color: rgba(0,0,0,0.5);
-//   backdrop-filter: blur(10px);
-//   padding-top: 10px;
-// }
-
-// .search-results.animate{
-//   transform: translateY(calc(-100vh + 32px));
-//   height: 100vh;
-//   padding-top: 50px;
-// }
-
-// .back-to-search-icon {
-//   color: white;
-// }
-
 .landing-background-img {
   background-size: cover;
   height: 94vh;
@@ -47,13 +29,11 @@ body {
 .landing-element-container {
   padding-top: 122px;
 }
-// #message-search-restaurant {
-//   padding-top: 235px;
-//   margin-bottom: 20px;
-// }
 
-// .search-restaurant {
-//   width: 70%;
-//   margin-top: 20px;
-//   margin: auto;
-// }
+#home-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 25px 10px;
+  margin: 10px 0;
+}
+
