@@ -3,6 +3,21 @@
 <div class="container neu-filter">
   <div class="row">
     <div class="col-xs-12 col-md-8 offset-md-2">
+
+<!-- SEARCH FILTER -->
+
+<div class="search-container-filter">
+  <%= form_tag restaurants_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control search-restaurant-filter",
+      placeholder: "Search restaurant"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+
       <%= form_tag restaurants_path, method: 'get' do %>
       <%# For the label to work the label_tag for='' must be the same as the id='' of the input %>
       <div class="flex-btn-container">

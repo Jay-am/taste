@@ -208,6 +208,3 @@ json[1..-1].each do |data| # [1..-1] ignores first dummy element
   )
 end
 
-
-
-
