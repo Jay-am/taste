@@ -161,7 +161,7 @@ end
 
 # user11 = User.new(email: "grace@email.com", password: "123456")
 # user12 = User.new(email: "chloe@email.com", password: "123456")
-# user13 = User.new(email: "zoey@email.com", password: "123456")
+# user13 = User.new(email: "zoey@email.comf", password: "123456")
 # user14 = User.new(email: "nora@email.com", password: "123456")
 # user15 = User.new(email: "hannah@email.com", password: "123456")
 # user16 = User.new(email: "lucy@email.com", password: "123456")

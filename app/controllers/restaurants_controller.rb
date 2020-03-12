@@ -41,7 +41,7 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.near([params[:lat], params[:lng]], 1)
 
     @markers = @restaurants.map do |restaurant|
-      @coordinates = restaurant.geocode
+      # @coordinates = restaurant.geocode
       {
         lat: @coordinates.first,
         lng: @coordinates.last,
@@ -82,6 +82,9 @@ class RestaurantsController < ApplicationController
           @restaurants = @restaurants.send("with_#{key}", params[:filters][0][key])
         end
       else
+        params[:filters][0].keys.each do |key|
+          @restaurants = @restaurants.send("by_#{key}", params[:filters][0][key])
+        end
       end
     end
   end
