@@ -115,8 +115,8 @@ REVIEWS = [
 puts "Creating new restaurants"
 
 RESTAURANTS = [
-  Restaurant.create(name: "The French Connection", address: "Hammarbystraat 5, Amsterdam", description: "Nice french cuisine, lovely staff, amazing atmosphere.", cuisine: ["French"], occasion: ["Candle Lit"], special_features: ["Open Fire"], ratings: ["4"]),
-  Restaurant.create(name: "Choux", address: "Singel 460, Amsterdam", description: "Vegetarian, progressive, quirky location, great food.", cuisine: ["French"], occasion: ["Couple"], special_features: ["Vegetarian"]),
+  { name: "The French Connection", address: "Hammarbystraat 5, Amsterdam", description: "Nice french cuisine, lovely staff, amazing atmosphere.", cuisine: ["French"], occasion: ["Candle Lit"], special_features: ["Open Fire"], ratings: ["4"]},
+  { name: "Choux", address: "Singel 460, Amsterdam", description: "Vegetarian, progressive, quirky location, great food.", cuisine: ["French"], occasion: ["Couple"], special_features: ["Vegetarian"]),
   Restaurant.create(name: "Burger King", address: "Spadinalaan 50, Amsterdam", description: "Classic american style fastfood.", cuisine: [CUISINES.sample], occasion: ["Group"], special_features: ["Vegetarian"]),
   Restaurant.create(name: "Pianeta Terra", address: "Beulingstraat 7, 1017 BA, Amsterdam", description: "Pianeta Terra has been chosen as one of world's Best 50 Italian Restaurants", styles: ["Dinner"], cuisine: ["Italian"], dishes: ["Organic"], occasion: ["Romantic"], special_features: ["Sustainable"], service: ["Excellent"], languages: ["German"]),
   Restaurant.create(name: "Dope", address: "Eerste van der Helststraat 68-82, 1073 AD Amsterdam", description: "Italian Restaurant. Attire. Casual.", cuisine: ["Italian"]),
@@ -124,8 +124,27 @@ RESTAURANTS = [
   Restaurant.create(name: "Trattoria Fantasia", address: "Marnixstraat 402, 1017 PL Amsterdam", description: "Pianeta Terra has been chosen as one of world's Best 50 Italian Restaurants", cuisine: ["Italian"]),
   Restaurant.create(name: "Bussia", address: "Reestraat 2-32, 1016 DN Amsterdam", description: "Fine Italian dining with an elegant ambience in the heart of Amsterdam.", cuisine: ["Italian"]),
   Restaurant.create(name: "Pastai", address: "Jan Pieter Heijestraat 119-113, 1054 MD Amsterdam", description: "LOVE LIVE EAT. every days. REAL ITALIAN PASTA. take away service available", cuisine: ["Italian"])
-
 ]
+
+RESTAURANT_PICS = [
+  'https://res.cloudinary.com/kaori-kk/image/upload/v1584014168/taste/Screenshot_2020-03-12_at_12.55.09_kstkjy.png',
+  'https://res.cloudinary.com/kaori-kk/image/upload/v1584014168/taste/Screenshot_2020-03-12_at_12.55.39_jruss6.png',
+  'https://res.cloudinary.com/kaori-kk/image/upload/v1584014166/taste/Screenshot_2020-03-12_at_12.55.54_vpiq5f.png',
+  'https://res.cloudinary.com/kaori-kk/image/upload/v1584014048/taste/Screenshot_2020-03-12_at_12.52.43_niqyp9.png',
+  'https://res.cloudinary.com/kaori-kk/image/upload/v1584013879/taste/Screenshot_2020-03-12_at_12.50.10_msawer.png',
+  'https://res.cloudinary.com/kaori-kk/image/upload/v1584013749/taste/pizza_lkevm7.jpg',
+  'https://res.cloudinary.com/kaori-kk/image/upload/v1584014049/taste/Screenshot_2020-03-12_at_12.51.03_ua5l69.png',
+  'https://res.cloudinary.com/kaori-kk/image/upload/v1584013880/taste/Screenshot_2020-03-12_at_12.50.21_eax7cy.png',
+  'https://res.cloudinary.com/kaori-kk/image/upload/v1584013765/taste/pasta3_qtakga.jpg'
+]
+
+RESTAURANTS.each_with_index do　|restaurant_data, index|
+  restaurant = Restaurant.new restaurant_data
+  file = URI.open(RESTAURANT_PICS[index])
+  restaurant.photo.attach(io: file, filename: File.basename(file.path))
+  restaurant.save
+end
+
 
 puts "Making users"
 
