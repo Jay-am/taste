@@ -3,112 +3,49 @@
 <div class="container">
   <div id="home-layout">
 
+    <div class="card-review-index">
+      <% @reviews.each_with_index do |review, index| %>
+        <% if index%2 == 0 %>
+          <div class="picture-review-index">
+            <% if review.photo.attached? %>
+              <%= cl_image_tag review.photo.key, alt: "Review" %>
+            <% else %>
+              <img src="/assets/pizza.jpg" alt="Restaurant">
+            <% end %>
+          <%= link_to "/reviews/show" do %>
+            <div class="description description-review">
+              <!-- Button trigger modal -->
+              <%= review.description %>
+            </div>
+          <% end %>
+          </div>
+        <% end  %>
+      <% end  %>
+    </div>
+    <div class="card-review-index">
+      <% @reviews.each_with_index do |review, index| %>
+        <% if index%2 != 0 %>
+          <div class="picture-review-index">
+            <% if review.photo.attached? %>
+              <%= cl_image_tag review.photo.key, alt: "Review" %>
+            <% else %>
+              <img src="/assets/pizza.jpg" alt="Restaurant">
+            <% end %>
+
+            <div class="description">
+              <!-- Button trigger modal -->
+              <%= review.description %>
+            </div>
+          </div>
+        <% end  %>
+      <% end  %>
+    </div>
+  </div>
+</div>
     <!-- No 1 -->
 
-    <div class="card-review-index">
-
+    <!-- <div class="card-review-index">
       <div class="picture-review-index">
-        <img src="/assets/pizza.jpg" alt="Restaurant">
-      </div>
-
-      <div class="description">
-        <%= link_to "/reviews/show" do %>
-        <!-- Button trigger modal -->
-        <div class="btn btn-dark">Description</div>
-        <% end %>
-
-        <!-- Modal -->
-
-      </div>
-    </div>
-
-
-    <!-- No 2 -->
-
-    <div class="card-review-index">
-
-      <div class="picture-review-index">
-        <img src="/assets/pizza.jpg" alt="Restaurant">
-      </div>
-
-      <div class="description">
-        <p>Description</p>
-      </div>
-    </div>
-
-
-    <!-- No 3 -->
-
-    <div class="card-review-index">
-
-      <div class="picture-review-index">
-        <img src="/assets/pizza.jpg" alt="Restaurant">
-      </div>
-
-      <div class="description">
-        <p>Description</p>
-      </div>
-    </div>
-
-
-    <!--   No 4 -->
-
-    <div class="card-review-index">
-      <div class="picture-review-index">
-        <img src="/assets/pizza.jpg" alt="Restaurant">
+        <img src="https://res.cloudinary.com/kaori-kk/image/upload/v1584020781/taste/review6_yuaeum.png" alt="Restaurant">
       </div>
       <div class="description">
-        <p>Description</p>
-      </div>
-    </div>
-
-    <div class="card-review-index">
-      <div class="picture-review-index">
-        <img src="/assets/pizza.jpg" alt="Restaurant">
-      </div>
-      <div class="description">
-        <p>Description</p>
-      </div>
-    </div>
-    <div class="card-review-index">
-      <div class="picture-review-index">
-        <img src="/assets/pizza.jpg" alt="Restaurant">
-      </div>
-      <div class="description">
-        <p>Description</p>
-      </div>
-    </div>
-    <div class="card-review-index">
-      <div class="picture-review-index">
-        <img src="/assets/pizza.jpg" alt="Restaurant">
-      </div>
-      <div class="description">
-        <p>Description</p>
-      </div>
-    </div>
-
-  </div>
-
-</div>
-
-
-
-
-
-<!--  No 1  -->
-
-<!--  <div class="reviews-following">
-
-        <div class="reviews-following-post w-100 p-0 rounded mt-0">
-
-          <div class="reviews-following-post-image">
-            <img src="/assets/pizza.jpg" alt="Restaurant">
-          </div>
-
-          <div class="reviews-following-post-description">
-            <p>Description</p>
-          </div>
-
-        </div>
-
-      </div>  -->

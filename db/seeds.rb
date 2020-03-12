@@ -1,10 +1,12 @@
 require 'open-uri'
 require 'json'
 puts "Cleaning up data"
+
 Restaurant.destroy_all
 User.destroy_all
 Profile.destroy_all
 Review.destroy_all
+
 USER_INFORMATION = [
   {
     email: 'nature_boy@gmail.com',
@@ -99,18 +101,30 @@ USER_INFORMATION = [
 ]
 
 REVIEWS = [
-  'Amazing restaurant! Had a beautiful dinner night!!',
-  'Amazing Food! Highly recommended!!',
-  'I love this restaurant! I had a great experience',
+  'Amazing restaurant! Had a wonderful branch there!',
+  'Had a great italian food at this restaurant.',
+  'Great vegan restaurant. Service was amazing too!',
   'Great Restaurant! Love it!',
-  'Beautiful restaurant!',
-  'Good food! good service!!',
-  'Amazing restaurant!',
-  'Bloodly lovely food.',
-  'Visited this restaurant with my gf! She loves it.',
-  'Had a amazing couple dinner.',
-  'Good food! Good service! Good location!'
+  'Super fluffy pancakes. My gf loved this place!',
+  'Location is amazing. Food is amazing. Service is amazing!',
+  'Tasty asian food. Very authentic.',
+  'Had a great rib there. Food quality was wonderful!',
+  'Love this restaurant! Highly recommended'
 ]
+
+REVIEWS_PICS = [
+  "https://res.cloudinary.com/kaori-kk/image/upload/v1584020781/taste/review6_yuaeum.png",
+  "https://res.cloudinary.com/kaori-kk/image/upload/v1584021093/taste/review8_jed5bl.png",
+  'https://res.cloudinary.com/kaori-kk/image/upload/v1584021092/taste/review7_caxnns.png',
+  'https://res.cloudinary.com/kaori-kk/image/upload/v1584021093/taste/review8_jed5bl.png',
+  "https://res.cloudinary.com/kaori-kk/image/upload/v1584021193/taste/review11_vgzhnb.png",
+  "https://res.cloudinary.com/kaori-kk/image/upload/v1584021184/taste/review10_dngazd.png",
+  "https://res.cloudinary.com/kaori-kk/image/upload/v1584021283/taste/Screenshot_2020-03-12_at_14.54.25_hy5zqz.png",
+  "https://res.cloudinary.com/kaori-kk/image/upload/v1584021235/taste/review9_ntdavi.png",
+  "https://res.cloudinary.com/kaori-kk/image/upload/v1584026215/taste/review15_zy2bhp.png"
+]
+
+
 
 puts "Creating new restaurants"
 
@@ -135,7 +149,7 @@ RESTAURANT_PICS = [
   'https://res.cloudinary.com/kaori-kk/image/upload/v1584013749/taste/pizza_lkevm7.jpg',
   'https://res.cloudinary.com/kaori-kk/image/upload/v1584014049/taste/Screenshot_2020-03-12_at_12.51.03_ua5l69.png',
   'https://res.cloudinary.com/kaori-kk/image/upload/v1584013880/taste/Screenshot_2020-03-12_at_12.50.21_eax7cy.png',
-  'https://res.cloudinary.com/kaori-kk/image/upload/v1584013765/taste/pasta3_qtakga.jpg'
+  'https://res.cloudinary.com/kaori-kk/image/upload/v1584018112/taste/Screenshot_2020-03-12_at_14.01.30_zyphhz.png'
 ]
 
 RESTAURANTS_HASH.each_with_index do |value, index|
@@ -148,24 +162,30 @@ end
 puts "Making users"
 
 
-USER_INFORMATION.each do |user_data|
+USER_INFORMATION.each_with_index do |user_data, user_index|
   user = User.create email: user_data[:email], password: user_data[:password]
   profile = Profile.create user: user, first_name: user_data[:profile][:first_name], last_name: user_data[:profile][:last_name], information: user_data[:profile][:information]
 
-  REVIEWS.each do |desc|
-    Review.create(
-      description: desc,
-      rating: rand(3..5),
-      meal_rating: rand(3..4),
-      service_rating: rand(3..5),
-      location_rating: rand(3..5),
-      cuisine: [CUISINES.sample],
-      occasion: [OCCASIONS.sample],
-      special_features: [SPECIAL_FEATURES.sample],
-      local: true,
-      profile: profile,
-      restaurant: Restaurant.all.sample
-    )
+  if user_index < REVIEWS.length
+    REVIEWS.each_with_index do |desc, index|
+      review = Review.new(
+        description: desc,
+        rating: rand(3..5),
+        meal_rating: rand(3..4),
+        service_rating: rand(3..5),
+        location_rating: rand(3..5),
+        cuisine: [CUISINES.sample],
+        occasion: [OCCASIONS.sample],
+        special_features: [SPECIAL_FEATURES.sample],
+        local: true,
+        profile_id: profile.id,
+        restaurant: Restaurant.all.sample
+      )
+
+      file = URI.open(REVIEWS_PICS[index])
+      review.photo.attach(io: file, filename: File.basename(file.path))
+      review.save
+    end
   end
 end
 

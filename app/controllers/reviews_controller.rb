@@ -1,6 +1,8 @@
 class ReviewsController < ApplicationController
 
   def index
+    @reviews = Review.all
+    # @reviews = Review.select(:description).distinct
   end
 
   def new
