@@ -116,7 +116,7 @@ REVIEWS_PICS = [
   "https://res.cloudinary.com/kaori-kk/image/upload/v1584020781/taste/review6_yuaeum.png",
   "https://res.cloudinary.com/kaori-kk/image/upload/v1584021093/taste/review8_jed5bl.png",
   'https://res.cloudinary.com/kaori-kk/image/upload/v1584021092/taste/review7_caxnns.png',
-  'https://res.cloudinary.com/kaori-kk/image/upload/v1584021093/taste/review8_jed5bl.png',
+  'https://res.cloudinary.com/kaori-kk/image/upload/v1584050450/taste/review20_oq7kav.png',
   "https://res.cloudinary.com/kaori-kk/image/upload/v1584021193/taste/review11_vgzhnb.png",
   "https://res.cloudinary.com/kaori-kk/image/upload/v1584021184/taste/review10_dngazd.png",
   "https://res.cloudinary.com/kaori-kk/image/upload/v1584021283/taste/Screenshot_2020-03-12_at_14.54.25_hy5zqz.png",

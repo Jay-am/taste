@@ -1,21 +1,8 @@
 
 <div class="restaurant-show">
 
-  <div
-  class="restaurant-hero-picture"
-  style="background-image: url('/assets/index_card_photo.jpeg');"
-  >
-  <div class="position-absolute top-0 left-1 m-2">
-    <% if @is_bookmarked %>
-    <%= link_to restaurant_unbookmark_path(@restaurant), method: :post do %>
-    <i id="saved-restaurant-show-icon" class="fas fa-bookmark"></i>
-    <% end %>
-    <% else %>
-    <%= link_to restaurant_bookmark_path(@restaurant), method: :post do %>
-    <i id="saved-restaurant-show-icon" class="far fa-bookmark"></i>
-    <% end %>
-    <% end %>
-  </div>
+  <div>
+  <%= cl_image_tag @restaurant.photo.key, class: "restaurant-hero-picture" %>
 </div>
 
 <div class="restaurant-details">
@@ -23,7 +10,18 @@
     <div class="row">
       <div class="col-12 pt-3 center-rating-group">
         <div class="whitespace">
-          <h4> <%= @restaurant.name %></h4>
+          <div class="position-absolute top-0 left-1 m-2">
+            <% if @is_bookmarked %>
+              <%= link_to restaurant_unbookmark_path(@restaurant), method: :post do %>
+                <i id="saved-restaurant-show-icon" class="fas fa-bookmark" style="font-size: 25px; color: black; padding-left: 15px; padding-top: 6px;"></i>
+              <% end %>
+            <% else %>
+              <%= link_to restaurant_bookmark_path(@restaurant), method: :post do %>
+                <i id="saved-restaurant-show-icon" class="far fa-bookmark" style="font-size: 25px; color: black; padding-left: 15px; padding-top: 6px;"></i>
+              <% end %>
+            <% end %>
+          </div>
+          <h4 style="padding-top: 10px;"> <%= @restaurant.name %></h4>
         </div>
       </div>
     </div>
