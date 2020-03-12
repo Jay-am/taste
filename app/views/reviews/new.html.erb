@@ -3,29 +3,25 @@
     <div class="review-container">
       <%= simple_form_for [@restaurant, @review] do |f| %>
         <%= f.input :local, as: :radio_buttons, label: :"Are you local or tourist?" , collection: ['Local', 'Tourist'] %>
-        <div class="review-rating">
 
-          <h3>Food</h3>
+
+        <div class="review-rating">
+          <h3 class="food-new">Food</h3>
           <%=  f.input :meal_rating, collection: (1..5).to_a, label: false, class: 'review-stars' %>
-          <h3>Service</h3>
+          <h3 class="service-new">Service</h3>
           <%=  f.input :service_rating, collection: (1..5).to_a, label: false, class: 'review-stars' %>
-          <h3>Location</h3>
+          <h3 class="location-new">Location</h3>
           <%=  f.input :location_rating, collection: (1..5).to_a, label: false, class: 'review-stars' %>
-          <h3>Overall</h3>
+          <h3 class="price-new">Price</h3>
+          <%=  f.input :rating, collection: (1..5).to_a, label: false, class: 'review-stars' %>
+          <h3 class="overall-new">Overall</h3>
           <%=  f.input :rating, collection: (1..5).to_a, label: false, class: 'review-stars' %>
         </div>
-<!--           <div class="review-categories">
-            <#%= f.input :special_features, as: :check_boxes,
-                collection: SPECIAL_FEATURES, input_html: {multiple: :true}, item_wrapper_class: 'custom-checkbox' %>
 
-            <#%= f.input :occasion, as: :check_boxes,
-             collection: OCCASSIONS, input_html: {multiple: :true}, item_wrapper_class: 'custom-checkbox' %>
-          </div> -->
           <%= f.input :description %>
           <%= f.input :photos, as: :file, input_html: { multiple: true } %>
           <%= f.submit "Add Review", class: "btn btn-dark" %>
         <% end %>
-
     </div>
   </div>
 </div>

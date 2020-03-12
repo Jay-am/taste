@@ -1,14 +1,16 @@
 <div class="map-container">
+
   <div class="search-container-filter">
     <%= form_tag restaurants_path, method: :get, class: "restaurant-filter-form" do %>
     <%= text_field_tag :query,
     params[:query],
-    class: "form-control search-restaurant-filter",
-      placeholder: "Search restaurant"
+    class: "form-control-maps search-restaurant-filter",
+      placeholder: "Search Restaurant"
       %>
       <%= button_tag type: "submit", class: "btn search-btn" do %><i class="fas fa-chevron-right"></i> <% end %>
       <% end %>
     </div>
+
     <div
     id="map"
     data-markers="<%= @markers.to_json %>"

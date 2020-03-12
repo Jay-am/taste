@@ -1,245 +1,241 @@
-<!-- <div class="container">
-  <div class="col-xs-12 col-md-8 offset-md-2"> -->
-    <div class="restaurant-show">
 
-      <!-- <div class="container-fluid p-0"> -->
-        <div
-        class="restaurant-hero-picture"
-        style="background-image: url('/assets/index_card_photo.jpeg');"
-        >
-        <div class="position-absolute top-0 left-1 m-2">
-          <% if @is_bookmarked %>
-          <%= link_to restaurant_unbookmark_path(@restaurant), method: :post do %>
-          <i id="saved-restaurant-show-icon" class="fas fa-bookmark"></i>
-          <% end %>
-          <% else %>
-          <%= link_to restaurant_bookmark_path(@restaurant), method: :post do %>
-          <i id="saved-restaurant-show-icon" class="far fa-bookmark"></i>
-          <% end %>
-          <% end %>
+<div class="restaurant-show">
+
+  <div
+  class="restaurant-hero-picture"
+  style="background-image: url('/assets/index_card_photo.jpeg');"
+  >
+  <div class="position-absolute top-0 left-1 m-2">
+    <% if @is_bookmarked %>
+    <%= link_to restaurant_unbookmark_path(@restaurant), method: :post do %>
+    <i id="saved-restaurant-show-icon" class="fas fa-bookmark"></i>
+    <% end %>
+    <% else %>
+    <%= link_to restaurant_bookmark_path(@restaurant), method: :post do %>
+    <i id="saved-restaurant-show-icon" class="far fa-bookmark"></i>
+    <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="restaurant-details">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 pt-3 center-rating-group">
+        <div class="whitespace">
+          <h4> <%= @restaurant.name %></h4>
         </div>
       </div>
+    </div>
+    <div class="total-rating-restaurant-show d-flex justify-content-center align-items-center mb-3">
 
-      <!-- </div> -->
-      <div class="restaurant-details">
-        <div class="container">
-          <div class="row">
-            <div class="col-12 pt-3 center-rating-group">
-              <div class="whitespace">
-                <h4> <%= @restaurant.name %></h4>
-              </div>
-            </div>
+      <% @restaurant.get_avg_rating.to_i.times do %>
+      <i class="fas fa-star px-1 yellow"></i>
+      <% end %>
+
+      <% (5 - @restaurant.get_avg_rating.to_i).times do %>
+      <i class="far fa-star px-1 gray"></i>
+      <% end %>
+
+      <span class="review-count"><%= "(#{@reviews.count})" %></span>
+    </div>
+
+    <div class="row">
+      <div class="col-6 col-sm-3 py-2">
+        <div class="pl-4">
+          <div class="rating-title">
+            Food
           </div>
-          <div class="total-rating-restaurant-show d-flex justify-content-center align-items-center mb-3">
-
-            <% @restaurant.get_avg_rating.to_i.times do %>
+          <div class="ratings-container">
             <i class="fas fa-star px-1 yellow"></i>
-            <% end %>
-
-            <% (5 - @restaurant.get_avg_rating.to_i).times do %>
+            <i class="fas fa-star px-1 yellow"></i>
+            <i class="fas fa-star px-1 yellow"></i>
+            <i class="fas fa-star px-1 yellow"></i>
             <i class="far fa-star px-1 gray"></i>
-            <% end %>
-
-            <span class="review-count"><%= "(#{@reviews.count})" %></span>
           </div>
-
-          <div class="row">
-            <div class="col-6 col-sm-3 py-2">
-              <div class="pl-4">
-                <div class="rating-title">
-                  Food
-                </div>
-                <div class="ratings-container">
-                  <i class="fas fa-star px-1 yellow"></i>
-                  <i class="fas fa-star px-1 yellow"></i>
-                  <i class="fas fa-star px-1 yellow"></i>
-                  <i class="fas fa-star px-1 yellow"></i>
-                  <i class="far fa-star px-1 gray"></i>
-                </div>
-              </div>
-            </div>
-            <div class="col-6 col-sm-3 py-2">
-              <div class="pr-4">
-                <div class="rating-title">
-                  Service
-                </div>
-                <div class="ratings-container">
-                  <i class="fas fa-star px-1 yellow"></i>
-                  <i class="fas fa-star px-1 yellow"></i>
-                  <i class="fas fa-star px-1 yellow"></i>
-                  <i class="fas fa-star px-1 yellow"></i>
-                  <i class="far fa-star px-1 gray"></i>
-                </div>
-              </div>
-            </div>
-            <div class="col-6 col-sm-3 py-2">
-              <div class="pl-4">
-                <div class="rating-title">
-                  Location
-                </div>
-                <div class="ratings-container">
-                  <i class="fas fa-star px-1 yellow"></i>
-                  <i class="fas fa-star px-1 yellow"></i>
-                  <i class="fas fa-star px-1 yellow"></i>
-                  <i class="fas fa-star px-1 yellow"></i>
-                  <i class="far fa-star px-1 gray"></i>
-                </div>
-              </div>
-            </div>
-            <div class="col-6 col-sm-3 py-2">
-              <div class="pr-4">
-                <div class="rating-title">
-                  Prices
-                </div>
-                <div class="ratings-container">
-                  <i class="fas fa-star px-1 yellow"></i>
-                  <i class="fas fa-star px-1 yellow"></i>
-                  <i class="fas fa-star px-1 yellow"></i>
-                  <i class="fas fa-star px-1 yellow"></i>
-                  <i class="far fa-star px-1 gray"></i>
-                </div>
-              </div>
-            </div>
+        </div>
+      </div>
+      <div class="col-6 col-sm-3 py-2">
+        <div class="pr-4">
+          <div class="rating-title">
+            Service
           </div>
+          <div class="ratings-container">
+            <i class="fas fa-star px-1 yellow"></i>
+            <i class="fas fa-star px-1 yellow"></i>
+            <i class="fas fa-star px-1 yellow"></i>
+            <i class="fas fa-star px-1 yellow"></i>
+            <i class="far fa-star px-1 gray"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-sm-3 py-2">
+        <div class="pl-4">
+          <div class="rating-title">
+            Location
+          </div>
+          <div class="ratings-container">
+            <i class="fas fa-star px-1 yellow"></i>
+            <i class="fas fa-star px-1 yellow"></i>
+            <i class="fas fa-star px-1 yellow"></i>
+            <i class="fas fa-star px-1 yellow"></i>
+            <i class="far fa-star px-1 gray"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-sm-3 py-2">
+        <div class="pr-4">
+          <div class="rating-title">
+            Prices
+          </div>
+          <div class="ratings-container">
+            <i class="fas fa-star px-1 yellow"></i>
+            <i class="fas fa-star px-1 yellow"></i>
+            <i class="fas fa-star px-1 yellow"></i>
+            <i class="fas fa-star px-1 yellow"></i>
+            <i class="far fa-star px-1 gray"></i>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
-          <div class="mt-5">
-            <ul class="nav nav-pills mb-4 justify-content-center" id="pills-tab" role="tablist">
-              <li class="nav-item neu-tab-btn">
-                <a
-                class="nav-link active"
-                id="info-tab"
-                data-toggle="pill"
-                href="#info-container"
-                role="tab"
-                aria-controls="info-container"
-                aria-selected="true"
-                >
-                Info
-              </a>
-            </li>
-
-            <li class="nav-item neu-tab-btn">
-              <a
-              class="nav-link"
-              id="specials-tab"
-              data-toggle="pill"
-              href="#specials-container"
-              role="tab"
-              aria-controls="specials-container"
-              aria-selected="false"
-              >
-              Specials
-            </a>
-          </li>
-
-          <li class="nav-item neu-tab-btn">
-            <a
-            class="nav-link"
-            id="reviews-tab"
-            data-toggle="pill"
-            href="#reviews-container"
-            role="tab"
-            aria-controls="reviews-container"
-            aria-selected="false"
-            >
-            Reviews
-          </a>
-        </li>
-
+    <div class="mt-5">
+      <ul class="nav nav-pills mb-4 justify-content-center" id="pills-tab" role="tablist">
         <li class="nav-item neu-tab-btn">
           <a
-          class="nav-link"
-          id="pics-tab"
+          class="nav-link active"
+          id="info-tab"
           data-toggle="pill"
-          href="#pics-container"
+          href="#info-container"
           role="tab"
-          aria-controls="pics-container"
-          aria-selected="false"
+          aria-controls="info-container"
+          aria-selected="true"
           >
-          Pics
+          Info
         </a>
       </li>
-    </ul>
 
-    <div class="tab-content" id="pills-tabContent">
-      <div class="tab-pane fade show active" id="info-container" role="tabpanel" aria-labelledby="info-tab">
-        <div class="container">
-          <div class="tab-info">
-            <div class="restaurant-info-description">
-              <%= @restaurant.description %>
-            </div>
-            <div class="restaurant-info-address">
-              <p>42 Wallaby Way Sydney</p>
-              <p>021 106 106 44</p>
-              <p>www.foodisgoodforyou.com</p>
-            </div>
-            <div class="restaurant-info-open">
-              <make-bold>Open:</> 10am - 8pm
-              </div>
-              <div>
-                <ul>
-                  <li>Monday</li>
-                  <li>Tuesday</li>
-                  <li>Wednesday</li>
-                  <li>Thursday</li>
-                  <li>Friday</li>
-                  <li>Saturday</li>
-                  <li>Sunday</li>
-                  <li>Public Holidays</li>
-                </ul>
-              </div>
-            </div>
-            <div>
-              <div
-              id="map"
-              class="card card-body-restaurant-show-map w-100 h-100 mb-5 pb-5"
-              data-markers="<%= @markers.to_json %>"
-              data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-              >
-            </div>
+      <li class="nav-item neu-tab-btn">
+        <a
+        class="nav-link"
+        id="specials-tab"
+        data-toggle="pill"
+        href="#specials-container"
+        role="tab"
+        aria-controls="specials-container"
+        aria-selected="false"
+        >
+        Specials
+      </a>
+    </li>
+
+    <li class="nav-item neu-tab-btn">
+      <a
+      class="nav-link"
+      id="reviews-tab"
+      data-toggle="pill"
+      href="#reviews-container"
+      role="tab"
+      aria-controls="reviews-container"
+      aria-selected="false"
+      >
+      Reviews
+    </a>
+  </li>
+
+  <li class="nav-item neu-tab-btn">
+    <a
+    class="nav-link"
+    id="pics-tab"
+    data-toggle="pill"
+    href="#pics-container"
+    role="tab"
+    aria-controls="pics-container"
+    aria-selected="false"
+    >
+    Pics
+  </a>
+</li>
+</ul>
+
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="info-container" role="tabpanel" aria-labelledby="info-tab">
+    <div class="tab-info">
+      <div class="container">
+        <div class="restaurant-info-description">
+          <%= @restaurant.description %>
+        </div>
+        <div class="restaurant-info-address">
+          <p>42 Wallaby Way Sydney</p>
+          <p>021 106 106 44</p>
+          <p>www.foodisgoodforyou.com</p>
+        </div>
+        <div class="restaurant-info-open">
+          <make-bold>Open:</> 10am - 8pm
+          </div>
+          <div>
+            <ul>
+              <li>Monday</li>
+              <li>Tuesday</li>
+              <li>Wednesday</li>
+              <li>Thursday</li>
+              <li>Friday</li>
+              <li>Saturday</li>
+              <li>Sunday</li>
+              <li>Public Holidays</li>
+            </ul>
           </div>
         </div>
-      </div>
-      <div class="tab-pane fade" id="specials-container" role="tabpanel" aria-labelledby="specials-tab">
-        <div class="tab-info">
-          <ul class="pl-0">
-            <% @restaurant.special_features.each do |special| %>
-            <li> <%= special %> </li>
-            <% end %>
-          </ul>
+        <div>
+          <div
+          id="map"
+          class="card card-body-restaurant-show-map w-100 h-100 mb-5 pb-5"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+          >
         </div>
       </div>
-      <div class="tab-pane fade" id="reviews-container" role="tabpanel" aria-labelledby="reviews-tab">
-        <div class="container">
-          <div class="tab-info">
-            <% @reviews.each do |review| %>
-            <div class="row">
-              <div class="col-12">
-                <%= review.profile.first_name %> -
-                <%= review.rating %>
-                <i class="fas fa-star"></i>
-              </div>
-              <div class="col-12">
-                <%= review.description %>
-              </div>
-            </div>
-            <% end %>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="specials-container" role="tabpanel" aria-labelledby="specials-tab">
+    <div class="tab-info">
+      <ul class="pl-0">
+        <% @restaurant.special_features.each do |special| %>
+        <li> <%= special %> </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="reviews-container" role="tabpanel" aria-labelledby="reviews-tab">
+    <div class="tab-info">
+      <div class="container">
+        <% @reviews.each do |review| %>
+        <div class="row">
+          <div class="col-12">
+            <%= review.profile.first_name %> -
+            <%= review.rating %>
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="col-12">
+            <%= review.description %>
           </div>
         </div>
+        <% end %>
       </div>
-      <div class="tab-pane fade" id="pics-container" role="tabpanel" aria-labelledby="pics-tab">
-        <div class="tab-info">
-          4
-        </div>
-      </div>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="pics-container" role="tabpanel" aria-labelledby="pics-tab">
+    <div class="tab-info">
+      4
     </div>
   </div>
 </div>
 </div>
 </div>
-<!--   </div>
-</div> -->
+</div>
+</div>
+
 
 
 

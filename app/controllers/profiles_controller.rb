@@ -4,9 +4,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     @reviews = @profile.reviews
     @bookmarks = @profile.bookmarks.includes(:bookmarkable).where bookmarkable_type: Restaurant.name
-
-      @restaurants = @profile.restaurants
-
+    @restaurants = @profile.restaurants
   end
 
   def edit

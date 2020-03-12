@@ -2,7 +2,7 @@
 
 <div class="container neu-filter">
   <div class="row">
-    <div class="col-xs-12 col-md-8 offset-md-2">
+    <div class="col-xs-12 col-md-8 offset-md-2" style="background-color: white;">
 
 <!-- SEARCH FILTER -->
 
@@ -11,12 +11,11 @@
     <%= text_field_tag :query,
       params[:query],
       class: "form-control search-restaurant-filter",
-      placeholder: "Search restaurant"
+      placeholder: "Search Restaurant"
     %>
     <%= button_tag type: "submit", class: "btn search-btn" do %><i class="fas fa-chevron-right"></i> <% end %>
   <% end %>
 </div>
-
 
       <%= form_tag restaurants_path, method: 'get' do %>
       <%# For the label to work the label_tag for='' must be the same as the id='' of the input %>

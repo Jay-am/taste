@@ -6,17 +6,22 @@
       <h3 id="message-landing-home" class="my-4">
         <strong>Find Your Favorite Restaurants<br>Share with Others</strong>
       </h3>
-      <div class="search-form-restaurant">
-        <%= form_tag restaurants_path, method: :get do %>
-          <%= text_field_tag :query,
+      <div class="container">
+        <div class="col-12>
+          <div class="search-container-filter">
+            <%= form_tag restaurants_path, method: :get, class: "restaurant-filter-form" do %>
+            <%= text_field_tag :query,
             params[:query],
-            class: "form-control search-restaurant",
-            placeholder: "Search restaurants"
-          %>
-          <%= submit_tag "Search", class: "btn btn-lg btn-dark", id: "search-btn", style: "margin-top: 20px;" %>
-        <% end %>
+            class: "form-control search-restaurant-filter",
+              placeholder: "Search Restaurant"
+              %>
+              <%= button_tag type: "submit", class: "btn search-btn" do %><i class="fas fa-chevron-right"></i> <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+
+
 
