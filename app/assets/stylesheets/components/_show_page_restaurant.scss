@@ -8,6 +8,21 @@
   padding-right: 16px;
 }
 
+.restaurant-details {
+  border-radius: 26px / 32px;
+  margin-top: -30px;
+  background-color: white;
+}
+
+.total-rating-restaurant-show {
+  i {
+    font-size: 14px;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    letter-spacing: 4px;
+  }
+}
+
 .restaurant-card-icons i {
   .card-body li {
     list-style: none;
@@ -18,7 +33,7 @@
   }
 
   // .card-body li {
-  .gray {
+    .gray {
     // color: rgb(243, 243, 243);
     color: rgba(255,255,255,0.8)
   }
@@ -39,10 +54,6 @@
     padding: 0;
     justify-content: flex-end;
     padding-right: 50px;
-  }
-
-  .rating-title {
-    width: 60px;
   }
 
   .ratings-container {
