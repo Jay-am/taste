@@ -18,6 +18,7 @@
   <div class="search-results">
     <% @restaurants.each do |restaurant| %>
     <div class="w-100 each-restaurant-list">
+
       <%= render "quick_review", restaurant: restaurant %>
     </div>
     <% end %>
