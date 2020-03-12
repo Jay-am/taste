@@ -41,10 +41,9 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.near([params[:lat], params[:lng]], 1)
 
     @markers = @restaurants.map do |restaurant|
-      @coordinates = restaurant.geocode
       {
-        lat: @coordinates.first,
-        lng: @coordinates.last,
+        lat: restaurant.latitude,
+        lng: restaurant.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { restaurant: restaurant })
       }
     end
