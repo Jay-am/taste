@@ -4,7 +4,7 @@
     <%= form_tag restaurants_path, method: :get, class: "restaurant-filter-form" do %>
     <%= text_field_tag :query,
     params[:query],
-    class: "form-control search-restaurant-filter",
+    class: "form-control-maps search-restaurant-filter",
       placeholder: "Search Restaurant"
       %>
       <%= button_tag type: "submit", class: "btn search-btn" do %><i class="fas fa-chevron-right"></i> <% end %>
