@@ -74,8 +74,6 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
     #@reviews = @restaurant.reviews
-
-    @restaurants = []
     if params[:query].present?
       @restaurants = Restaurant.where("name ILIKE ?", "%#{params[:query]}%")
     end

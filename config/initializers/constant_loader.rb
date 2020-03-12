@@ -14,6 +14,7 @@ STYLES = [
 ]
 
 CUISINES = [
+  "Italian",
   "Afghan",
   "African",
   "American",
@@ -41,7 +42,6 @@ CUISINES = [
   "Indonesian",
   "International",
   "Israeli",
-  "Italian",
   "Japanese",
   "Lebanese",
   "Mediterranean",
