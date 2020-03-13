@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 
   def index
-    @reviews = Review.all
+    @reviews = Review.where(profile_id: current_user.profile.id)
     # @reviews = Review.select(:description).distinct
   end
 
@@ -44,6 +44,7 @@ class ReviewsController < ApplicationController
   end
 
   def show
+    @review = Review.find params[:id]
   end
 
   def bookmark

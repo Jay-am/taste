@@ -12,7 +12,7 @@
             <% else %>
               <img src="/assets/pizza.jpg" alt="Restaurant">
             <% end %>
-          <%= link_to "/reviews/show" do %>
+          <%= link_to review_path review do %>
             <div class="description description-review">
               <!-- Button trigger modal -->
               <%= review.description %>
@@ -31,11 +31,12 @@
             <% else %>
               <img src="/assets/pizza.jpg" alt="Restaurant">
             <% end %>
-
-            <div class="description">
-              <!-- Button trigger modal -->
-              <%= review.description %>
-            </div>
+            <%= link_to review_path review do %>
+              <div class="description text-dark">
+                <!-- Button trigger modal -->
+                <%= review.description %>
+              </div>
+            <% end %>
           </div>
         <% end  %>
       <% end  %>

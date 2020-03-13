@@ -9,94 +9,74 @@ Review.destroy_all
 
 USER_INFORMATION = [
   {
-    email: 'nature_boy@gmail.com',
+    email: 'nature_boy@gmail.co',
     password: 'testing',
-    profile: {
-      first_name: "David",
-      last_name: "Thoreau",
-      information: "Just love food. There's nothing that makes me happier."
-    }
+    first_name: "David",
+    last_name: "Thoreau",
+    information: "Just love food. There's nothing that makes me happier."
   },
   {
     email: 'k.johnson@gmail.com',
     password: 'testing',
-    profile: {
-      first_name: "Kamal",
-      last_name: "Johnson",
-      information: "Food just amazes me. I can spend all day thinking of it."
-    }
+    first_name: "Kamal",
+    last_name: "Johnson",
+    information: "Food just amazes me. I can spend all day thinking of it."
   },
   {
     email: 'rayan@gmail.com',
     password: 'testing',
-    profile: {
-      first_name: "Rayan",
-      last_name: "laStrada",
-      information: "Passionate about Food."
-    }
+    first_name: "Rayan",
+    last_name: "laStrada",
+    information: "Passionate about Food."
   },
   {
     email: 'emma@email.com',
     password: 'testing',
-    profile: {
-      first_name: "Emma",
-      last_name: "Smith",
-      information: "Just love food. There's nothing that makes me happier."
-    }
+    first_name: "Emma",
+    last_name: "Smith",
+    information: "Just love food. There's nothing that makes me happier."
   },
   {
     email: 'olivia@email.com',
     password: 'testing',
-    profile: {
-      first_name: "Olivia",
-      last_name: "Williams",
-      information: "Food just amazes me. I can spend all day thinking of it."
-    }
+    first_name: "Olivia",
+    last_name: "Williams",
+    information: "Food just amazes me. I can spend all day thinking of it."
   },
   {
     email: 'ava@email.com',
     password: 'testing',
-    profile: {
-      first_name: "Ava",
-      last_name: "Moore",
-      information: "Passionate about Food."
-    }
+    first_name: "Ava",
+    last_name: "Moore",
+    information: "Passionate about Food."
   },
   {
     email: 'sophia@email.com',
     password: 'testing',
-    profile: {
-      first_name: "Sophia",
-      last_name: "Scott",
-      information: "I could go to a restaurant every day. No better 3 times a day!"
-    }
+    first_name: "Sophia",
+    last_name: "Scott",
+    information: "I could go to a restaurant every day. No better 3 times a day!"
   },
   {
     email: 'charlotte@email.com',
     password: 'testing',
-    profile: {
-      first_name: "Charlotte",
-      last_name: "Hill",
-      information: "I am a Food Photographer and Columnist of Ohhhhhhh that foooooood! DM me for fancy Restaurant Tips."
-    }
+    first_name: "Charlotte",
+    last_name: "Hill",
+    information: "I am a Food Photographer and Columnist of Ohhhhhhh that foooooood! DM me for fancy Restaurant Tips."
   },
   {
     email: 'mia@email.com',
     password: 'testing',
-    profile: {
-      first_name: "Mia",
-      last_name: "Davis",
-      information: "Never met a calorie I didn't like!"
-    }
+    first_name: "Mia",
+    last_name: "Davis",
+    information: "Never met a calorie I didn't like!"
   },
   {
     email: 'amelia@email.com',
     password: 'testing',
-    profile: {
-      first_name: "Amelia",
-      last_name: "Miller",
-      information: "Food is our Common Ground. A universal Experience."
-    }
+    first_name: "Amelia",
+    last_name: "Miller",
+    information: "Food is our Common Ground. A universal Experience."
   }
 ]
 
@@ -164,7 +144,10 @@ puts "Making users"
 
 USER_INFORMATION.each_with_index do |user_data, user_index|
   user = User.create email: user_data[:email], password: user_data[:password]
-  profile = Profile.create user: user, first_name: user_data[:profile][:first_name], last_name: user_data[:profile][:last_name], information: user_data[:profile][:information]
+
+  profile = user.profile
+
+  profile.update first_name: user_data[:first_name], last_name: user_data[:last_name], information: user_data[:information]
 
   if user_index < REVIEWS.length
     REVIEWS.each_with_index do |desc, index|
