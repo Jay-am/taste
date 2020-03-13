@@ -176,14 +176,14 @@ end
 
 puts "Making reviews"
 
-# puts "How many JSON's are you creating? 'All of them'"
-# url = 'http://open.data.amsterdam.nl/EtenDrinken.json'
-# amsterdam = open(url).read
-# json = JSON.parse(amsterdam)
-# json[1..-1].each do |data| # [1..-1] ignores first dummy element
-#   Restaurant.create(
-#     name: data['title'],
-#     address: data['location']['adress']
-#   )
-# end
+puts "How many JSON's are you creating? 'All of them'"
+url = 'http://open.data.amsterdam.nl/EtenDrinken.json'
+amsterdam = open(url).read
+json = JSON.parse(amsterdam)
+json[1..-1].each do |data| # [1..-1] ignores first dummy element
+  Restaurant.create(
+    name: data['title'],
+    address: data['location']['adress']
+  )
+end
 
