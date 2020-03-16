@@ -1,8 +1,12 @@
 // Import page-specific CSS files here.
 @import "home";
-@import "filter";
+@import "map";
+@import "profile";
+@import "restaurant_filter";
+@import "restaurant_index";
+@import "restaurant_index_cards";
+@import "restaurant_search";
 @import "restaurant_show";
-
 
 body {
   width: 100vw;
@@ -10,3 +14,4 @@ body {
   background: white;
   margin-bottom: 200px;
 }
+
