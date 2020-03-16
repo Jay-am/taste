@@ -7,8 +7,11 @@
 @import "restaurant_index_cards";
 @import "restaurant_search";
 @import "restaurant_show";
-@import "review_full_screen";
-@import "review_home";
-@import "review_index";
-@import "new_review";
-@import "sign_up";
+
+body {
+  width: 100vw;
+  // height: 100vh;
+  background: white;
+  margin-bottom: 200px;
+}
+
