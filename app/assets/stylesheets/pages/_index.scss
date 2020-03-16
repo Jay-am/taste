@@ -1,11 +1,15 @@
 // Import page-specific CSS files here.
 @import "home";
-@import "filter";
+@import "map";
+@import "profile";
+@import "restaurant_filter";
+@import "restaurant_index";
+@import "restaurant_index_cards";
+@import "restaurant_search";
 @import "restaurant_show";
-
-
-body {
-  width: 100vw;
-  height: 100vh;
-  background: white;
-}
+@import "restaurant_show_page";
+@import "review_full_screen";
+@import "review_home";
+@import "review_index";
+@import "new_review";
+@import "sign_up";
