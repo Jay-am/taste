@@ -1,0 +1,124 @@
+<div class="profile-show">
+  <div class="profile-hero-picture" style="background-image: url('<%= @photo %>');">
+    <div class="profile-details">
+      <h4><%= @profile.first_name %> <%= @profile.last_name %></h4>
+        <!-- David Thoreau -->
+          <div class="profile-description">
+            <p>Just love food. <br>There’s nothing that makes me happier.</p>
+          </div>
+
+          <div class="profile-action">
+            <p>Reviews 85 | Followers 397 | Following 23 </p>
+          </div>
+    </div>
+
+    <div class="follow-unfollow-btn">
+      <% if current_user.following.include?(@profile.user) %>
+        <%= link_to "Unfollow", unfollow_user_path(@profile.user), method: :post, class: "btn btn-outline-dark" %>
+      <% else %>
+        <%= link_to "Follow", follow_user_path(@profile.user), method: :post, class: "btn btn-dark" %>
+      <% end %>
+    </div>
+
+    <div class="tabs-profile">
+      <ul class="nav nav-pills mb-4 justify-content-center" id="pills-tab" role="tablist">
+        <li class="nav-item neu-tab-btn">
+          <a
+          class="nav-link active"
+          id="reviews-tab"
+          data-toggle="pill"
+          href="#reviews-container"
+          role="tab"
+          aria-controls="reviews-container"
+          aria-selected="true"
+          >
+          Reviews
+        </a>
+      </li>
+
+      <li class="nav-item neu-tab-btn">
+        <a
+        class="nav-link"
+        id="bookmarks-tab"
+        data-toggle="pill"
+        href="#bookmarks-container"
+        role="tab"
+        aria-controls="bookmarks-container"
+        aria-selected="false"
+        >
+        Bookmarks
+      </a>
+    </li>
+
+    <li class="nav-item neu-tab-btn">
+      <a
+      class="nav-link"
+      id="edit-tab"
+      data-toggle="pill"
+      href="#edit-container"
+      role="tab"
+      aria-controls="edit-container"
+      aria-selected="false"
+      >
+      Edit
+    </a>
+  </li>
+</ul>
+
+<div class="tab-content" id="pills-tabContent">
+  <!-- REVIEWS -->
+  <div
+  class="tab-pane fade show active"
+  id="reviews-container"
+  role="tabpanel"
+  aria-labelledby="reviews-tab"
+  >
+  <div class="tab-info p-3">
+    <% @reviews.each do |review| %>
+    <div class="row">
+      <div class="col-12">
+        <%= review.profile.first_name %>
+        <%= review.rating %>
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="col-12">
+        <%= review.description %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<!-- BOOKMARKS -->
+<div class="tab-pane fade" id="bookmarks-container" role="tabpanel" aria-labelledby="bookmarks-tab">
+  <div class="tab-info p-3">
+    <% @bookmarks.each do |bookmark| %>
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center align-items-center flex-column">
+        <div class="bookmark-restaurant-card d-flex align-items-center mb-1">
+          <%= cl_image_tag bookmark.bookmarkable.photo.key %>
+
+          <%= link_to restaurant_path bookmark.bookmarkable do %>
+          <%= bookmark.bookmarkable.name %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<!-- EDIT -->
+<div class="tab-pane fade" id="edit-container" role="tabpanel" aria-labelledby="edit-tab">
+  <div class="tab-info p-3">
+    <%= simple_form_for @profile do |f| %>
+    <%= f.input :gender, collection: [ [ "Male", 'Male' ], ['Female', 'Female'], ['Other', 'Other'] ], as: :radio_buttons, class: "gender-form" %>
+    <%= f.input :age, collection: 15..99 %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :address %>
+    <%= f.input :photo, as: :file, label: "avatar" %>
+    <%= f.submit "Update", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+</div>
+</div>
