@@ -1,4 +1,4 @@
-<div class="profile-show">
+<!-- <div class="profile-show">
   <div
     class="profile-hero-picture"
     style="background-image: url('<%= @photo %>');"
@@ -9,7 +9,7 @@
           <div class="col-12 pt-3 center-rating-group">
             <div class="whitespace">
               <h4><%= @profile.first_name %> <%= @profile.last_name %></h4>
-              <!-- David Thoreau -->
+              David Thoreau
               <div class="profile-description">
                 <p>Just love food. <br>There’s nothing that makes me happier.</p>
               </div>
@@ -22,11 +22,11 @@
         </div>
 
         <div class="follow-unfollow-btn">
-          <% if current_user.following.include?(@profile.user) %>
-            <%= link_to "Unfollow", unfollow_user_path(@profile.user), method: :post, class: "btn btn-outline-dark" %>
-          <% else %>
-            <%= link_to "Follow", follow_user_path(@profile.user), method: :post, class: "btn btn-dark" %>
-          <% end %>
+          <%# if current_user.following.include?(@profile.user) %>
+            <%=# link_to "Unfollow", unfollow_user_path(@profile.user), method: :post, class: "btn btn-outline-dark" %>
+          <% #else %>
+            <%=# link_to "Follow", follow_user_path(@profile.user), method: :post, class: "btn btn-dark" %>
+          <%# end %>
         </div>
 
         <div class="mt-5-profile">
@@ -75,7 +75,7 @@
           </ul>
 
           <div class="tab-content" id="pills-tabContent">
-            <!-- REVIEWS -->
+            REVIEWS
             <div
               class="tab-pane fade show active"
               id="reviews-container"
@@ -83,7 +83,7 @@
               aria-labelledby="reviews-tab"
             >
               <div class="tab-info p-3">
-                <% @reviews.each do |review| %>
+                <%# @reviews.each do |review| %>
                   <div class="row">
                     <div class="col-12">
                       <%= review.profile.first_name %>
@@ -94,39 +94,39 @@
                       <%= review.description %>
                     </div>
                   </div>
-                <% end %>
+                <%# end %>
               </div>
             </div>
-            <!-- BOOKMARKS -->
+            BOOKMARKS
             <div class="tab-pane fade" id="bookmarks-container" role="tabpanel" aria-labelledby="bookmarks-tab">
               <div class="tab-info p-3">
-                <% @bookmarks.each do |bookmark| %>
+                <%# @bookmarks.each do |bookmark| %>
                   <div class="row">
                     <div class="col-12 d-flex justify-content-center align-items-center flex-column">
                       <div class="bookmark-restaurant-card d-flex align-items-center mb-1">
                         <%= cl_image_tag bookmark.bookmarkable.photo.key %>
 
-                        <%= link_to restaurant_path bookmark.bookmarkable do %>
-                          <%= bookmark.bookmarkable.name %>
+                        <%=# link_to restaurant_path bookmark.bookmarkable do %>
+                          <%=# bookmark.bookmarkable.name %>
                         </div>
-                      <% end %>
+                      <%# end %>
                     </div>
                   </div>
-                <% end %>
+                <%# end %>
               </div>
             </div>
-            <!-- EDIT -->
+            EDIT
             <div class="tab-pane fade" id="edit-container" role="tabpanel" aria-labelledby="edit-tab">
               <div class="tab-info p-3">
-                <%= simple_form_for @profile do |f| %>
-                  <%= f.input :gender, collection: [ [ "Male", 'Male' ], ['Female', 'Female'], ['Other', 'Other'] ], as: :radio_buttons, class: "gender-form" %>
-                  <%= f.input :age, collection: 15..99 %>
-                  <%= f.input :first_name %>
-                  <%= f.input :last_name %>
-                  <%= f.input :address %>
-                  <%= f.input :photo, as: :file, label: "avatar" %>
-                  <%= f.submit "Update", class: "btn btn-primary" %>
-                <% end %>
+                <%=# simple_form_for @profile do |f| %>
+                  <%=# f.input :gender, collection: [ [ "Male", 'Male' ], ['Female', 'Female'], ['Other', 'Other'] ], as: :radio_buttons, class: "gender-form" %>
+                  <%=# f.input :age, collection: 15..99 %>
+                  <%=# f.input :first_name %>
+                  <%=# f.input :last_name %>
+                  <%=# f.input :address %>
+                  <%=# f.input :photo, as: :file, label: "avatar" %>
+                  <%=# f.submit "Update", class: "btn btn-primary" %>
+                <%# end %>
               </div>
             </div>
           </div>
@@ -134,4 +134,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

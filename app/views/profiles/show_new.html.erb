@@ -1,12 +1,11 @@
-<div class="profile-show">
+<div class="profile-show-container">
   <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
-  <div class="profile-hero-picture" style="background-image: url('<%= @photo %>');">
 
     <header>
-
+      <div class="profile-hero-picture" style="background-image: url('<%= @photo %>');">
     </header>
 
-    <section class="nav-tabs-settings-profile">
+<!--     <section class="nav-tabs-settings-profile">
       <button class="trigger" aria-expanded="false">Settings<span class="screen-reader-text">Reveal Settings</span></button>
       <nav>
         <ul>
@@ -20,7 +19,7 @@
           <li><a href="#">Registrations</a></li>
         </ul>
       </nav>
-    </section>
+    </section> -->
 
     <div class="profile-details">
       <h4><%= @profile.first_name %> <%= @profile.last_name %></h4>
@@ -43,9 +42,9 @@
     </div>
 
     <div class="tabs-profile">
-      <ul class="nav nav-pills mb-4 justify-content-center" id="pills-tab" role="tablist">
+      <ul class="nav-profile-show" id="pills-tab" role="tablist">
 
-        <li class="nav-item neu-tab-btn">
+        <li class="nav-item neu-tab-btn-1">
           <a
           class="nav-link active"
           id="reviews-tab"
@@ -59,7 +58,7 @@
         </a>
       </li>
 
-        <li class="nav-item neu-tab-btn">
+        <li class="nav-item neu-tab-btn-2">
           <a
           class="nav-link active"
           id="reviews-tab"
@@ -73,7 +72,7 @@
         </a>
       </li>
 
-      <li class="nav-item neu-tab-btn">
+      <li class="nav-item neu-tab-btn-3">
         <a
         class="nav-link"
         id="bookmarks-tab"
@@ -87,7 +86,7 @@
       </a>
     </li>
 
-    <li class="nav-item neu-tab-btn">
+    <li class="nav-item neu-tab-btn-4">
       <a
       class="nav-link"
       id="edit-tab"
@@ -102,7 +101,7 @@
   </li>
 </ul>
 
-<div class="tab-content" id="pills-tabContent">
+<div class="tab-content" id="pills-tab-content">
   <!-- REVIEWS -->
   <div
   class="tab-pane fade show active"
@@ -110,7 +109,7 @@
   role="tabpanel"
   aria-labelledby="reviews-tab"
   >
-  <div class="tab-info p-3 each-review">
+  <div class="tab-info each-review">
     <% @reviews.each do |review| %>
     <div class="row">
       <div class="col-12">
@@ -127,11 +126,11 @@
 </div>
 <!-- BOOKMARKS -->
 <div class="tab-pane fade" id="bookmarks-container" role="tabpanel" aria-labelledby="bookmarks-tab">
-  <div class="tab-info p-3">
+  <div class="tab-info">
     <% @bookmarks.each do |bookmark| %>
     <div class="row">
-      <div class="col-12 d-flex justify-content-center align-items-center flex-column">
-        <div class="bookmark-restaurant-card d-flex align-items-center mb-1">
+      <div class="col-12">
+        <div class="bookmark-restaurant-card">
           <%= cl_image_tag bookmark.bookmarkable.photo.key %>
 
           <%= link_to restaurant_path bookmark.bookmarkable do %>
