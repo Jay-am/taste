@@ -1,12 +1,11 @@
 <div class="profile-show-container">
   <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
-  <div class="profile-hero-picture" style="background-image: url('<%= @photo %>');">
 
     <header>
-
+      <div class="profile-hero-picture" style="background-image: url('<%= @photo %>');">
     </header>
 
-    <section class="nav-tabs-settings-profile">
+<!--     <section class="nav-tabs-settings-profile">
       <button class="trigger" aria-expanded="false">Settings<span class="screen-reader-text">Reveal Settings</span></button>
       <nav>
         <ul>
@@ -20,7 +19,7 @@
           <li><a href="#">Registrations</a></li>
         </ul>
       </nav>
-    </section>
+    </section> -->
 
     <div class="profile-details">
       <h4><%= @profile.first_name %> <%= @profile.last_name %></h4>
