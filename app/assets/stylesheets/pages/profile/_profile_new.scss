@@ -1,1 +1,202 @@
-_profile_new.scss
+.profile-hero-picture {
+  height: 250px;
+  background-size: cover;
+  top: 240px;
+  text-align: center;
+  background-color: white;
+}
+
+.whitespace {
+  border-radius: 10px 10px 0px 0px;
+  background: white;
+}
+
+.profile-details {
+  padding-top: 20px;
+  padding-bottom: 24px;
+  width: 100%;
+  border-radius: 16px 16px 0px 0px;
+  margin: 0px;
+  position: absolute;
+  top: 240px;
+  text-align: center;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
+.profile-details p {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.profile-card-icons {
+  display: flex;
+  justify-content: space-around;
+
+  .profile-card-icons i {
+    list-style: none;
+
+    .card-body li {
+      list-style: none;
+    }
+
+    .center-rating-group {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .rating-align-left {
+      padding: 0;
+      justify-content: flex-start;
+      padding-left: 50px;
+    }
+
+    .rating-align-right {
+      padding: 0;
+      justify-content: flex-end;
+      padding-right: 50px;
+    }
+  }
+}
+
+.icon-text {
+  font-size: 14px;
+}
+
+.rating-title {
+  font-size: 18px;
+}
+
+.ratings-container {
+  display: flex;
+  margin-top: 5px;
+  justify-content: center;
+}
+
+.ratings-container i {
+  font-size: 12px;
+  letter-spacing: -6px;
+}
+
+.tab-info {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  // background: white;
+  // box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px -5px 10px rgba(255, 255, 255, 1), inset 0 0 0 rgba(0, 0, 0, 0.2), inset 0 0 0 rgba(255, 255, 255, 0.2);
+  // border-radius: 15px;
+  // transition: background 300ms ease-in-out, box-shadow 300ms ease-in-out;
+  // border: 1px #eeeeee solid;
+  font-size: 16px;
+}
+
+.tab-info ul {
+  // list-style: none;
+  // font-size: 12px;
+  padding: 0;
+  margin: 0;
+}
+
+
+.tab-info li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.div.row {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+}
+
+.nav-link {
+  height: 50px;
+  margin: 5px;
+  // background: #white;
+  // box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px -5px 10px rgba(255, 255, 255, 1), inset 0 0 0 rgba(0, 0, 0, 0.2), inset 0 0 0 rgba(255, 255, 255, 0.2);
+  outline: none;
+  cursor: pointer;
+  transition: background 300ms ease-in-out, box-shadow 300ms ease-in-out;
+  font-size: 16px;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.5rem;
+  min-width: 65px;
+}
+
+.neu-tab-btn {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px -5px 10px rgba(255, 255, 255, 1), inset 0 0 0 rgba(0, 0, 0, 0.2), inset 0 0 0 rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  margin: 0 5px;
+}
+
+.neu-tab-btn .nav-link.active {
+  background: #eeeeee !important;
+  border-radius: 10px;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.2), 0 0 0 rgba(255, 255, 255, 1),
+  inset 5px 5px 10px rgba(0, 0, 0, 0.2),
+  inset -5px -5px 10px rgba(255, 255, 255, 0.2);
+  color: #333;
+}
+
+.tabs-profile {
+  margin: 25px 0 0 0;
+}
+
+.nav-pills .nav-link:hover {
+  color: initial;
+}
+
+.btn-outline-dark {
+  margin: 0;
+  padding: 0.375rem 8.75rem;
+  border-radius: 15px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px -5px 10px rgba(255, 255, 255, 1), inset 0 0 0 rgba(0, 0, 0, 0.2), inset 0 0 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn-dark {
+  margin: 0;
+  padding: 0.375rem 0;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px -5px 10px rgba(255, 255, 255, 1), inset 0 0 0 rgba(0, 0, 0, 0.2), inset 0 0 0 rgba(255, 255, 255, 0.2);
+
+}
+
+.profile-action p {
+font-size: 16px;
+color: lightgrey;
+font-weight: bold;
+}
+
+.bookmark-restaurant-card a{
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  padding-left: 20px;
+
+}
+
+.bookmark-restaurant-card img{
+  height: 65px;
+  width: 20%;
+
+}
+
+.ratings-container-lisa {
+  font-size: 20px;
+  color: #FFC700;
+}
+
+
+.each-review {
+  border: solid;
+  border-radius: 10px;
+  background-color: grey;
+  width: 100px;
+}
