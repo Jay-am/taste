@@ -1,19 +1,19 @@
 // Import page-specific CSS files here.
-@import "home";
-@import "map";
-@import "profile";
-@import "profile_new";
-@import "profile_grid";
-@import "restaurant_filter";
-@import "restaurant_index";
-@import "restaurant_index_cards";
-@import "restaurant_search";
-@import "restaurant_show";
-@import "review_full_screen";
-@import "review_home";
-@import "review_index";
-@import "review_new";
-@import "sign_up";
+@import "home/home";
+@import "map/map";
+@import "profile/profile";
+@import "profile/profile_new";
+@import "profile/profile_grid";
+@import "restaurant/restaurant_filter";
+@import "restaurant/restaurant_index";
+@import "restaurant/restaurant_index_cards";
+@import "restaurant/restaurant_search";
+@import "restaurant/restaurant_show";
+@import "review/review_full_screen";
+@import "review/review_home";
+@import "review/review_index";
+@import "review/review_new";
+@import "sign-up/sign_up";
 
 body {
   width: 100vw;
